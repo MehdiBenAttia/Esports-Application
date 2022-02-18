@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card-body">
+    <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  Ajouter un jeu</h4>
+    <a class="btn btn-outline-dark " href="{{ path('AfficheJ') }}"><i class="fa-solid fa-gamepad"></i> Afficher les jeux  </a>
+    <p class="card-description">
+    </p>
+
+    {{ form_start(f) }}
+    <form class="forms-sample">
+
+        <div class="form-group">
+            {{ form_label(f.nom, 'Nom du jeu', ) }}
+            {{ form_widget(f.nom, {'attr': {'class': 'form-control','placeholder': 'Nom du jeu'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(f.imageFile, 'Image du jeu', ) }}
+            <div class="input-group grid-col--4">
+{#                <input type="text" class="form-control file-upload-info" disabled>#}
+                <span class="input-group-append">
+                    {{ form_row(f.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(f.type, 'Type du jeu', ) }}
+            {{ form_widget(f.type, {'attr': {'class': 'form-control','placeholder': 'Type du jeu'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(f.dates, 'Date de sortie', ) }}
+            {{ form_widget(f.dates, {'attr': {'class': 'form-control','placeholder': 'DD/MM/YYYY'}}) }}
+        </div>
+        <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Remember me
+            </label>
+        </div>
+        <div class="input-group col-md-6">
+        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(f.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+        </div>
+
+        {{ form_end(f) }}
+    </form>
+
+</div>
+{% endblock %}
