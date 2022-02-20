@@ -1,0 +1,85 @@
+{% extends 'cruud.html.twig' %}
+{% block body %}
+
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Product Table</h4>
+                <p class="card-description">
+                    <code>.List of all products</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> reference </th>
+                            <th> nom </th>
+                            <th> marque </th>
+                            <th> prix </th>
+                            <th> image </th>
+                            <th> nom categorie </th>
+
+                            <th>delete</th>
+                            <th>update</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr {% for c in produit %}>
+
+                            <td> {{ c.id }}</td>
+
+                            <td> {{ c.reference }}</td>
+                            <td> {{ c.nom }}</td>
+
+                            <td> {{ c.marque }}</td>
+                            <td> {{ c.prix }}</td>
+
+                            <td>
+                                <img class="img-fluid" src="{{asset('images/'~c.image)}}" >
+                            </td>
+
+
+
+
+                            {% if c.categorie is not null %}
+                                <td> {{ c.categorie.nomcateg}}</td>
+                            {% endif %}
+
+
+
+
+                            <td>  <a  href=" {{ path('d',{'id':c.id}) }} "  >
+                                    <img src="back/images/faces/bin.png" alt="image"/>
+
+
+
+                                </a>
+
+
+                            </td>
+
+                            <td><a href="{{ path('U',{'id':c.id}) }}" > Update</a> </td>
+
+
+
+
+                        </tr {% endfor %}>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

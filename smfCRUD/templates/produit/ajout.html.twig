@@ -1,0 +1,63 @@
+{% extends 'cruud.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Ajouter un produit</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(f,{'attr': {'novalidate': 'novalidate'}}) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(f.reference, 'reference', ) }}
+                {{ form_widget(f.reference, {'attr': {'class': 'form-control','placeholder': 'reference'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.nom, 'nom', ) }}
+                {{ form_widget(f.nom, {'attr': {'class': 'form-control','placeholder': 'nom'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.marque, 'marque', ) }}
+                {{ form_widget(f.marque, {'attr': {'class': 'form-control','placeholder': 'marque'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.prix, 'prix', ) }}
+                {{ form_widget(f.prix, {'attr': {'class': 'form-control','placeholder': 'prix'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(f.imageFile, 'Image du jeu', ) }}
+                <div class="input-group grid-col--4">
+                    <input type="text" class="form-control file-upload-info" disabled>
+                    <span class="input-group-append">
+{{ form_row(f.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}                </span>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(f.categorie, 'categorie', ) }}
+                {{ form_widget(f.categorie, {'attr': {'class': 'form-control','placeholder': 'categorie'}}) }}
+            </div>
+
+
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+
+    <div class="input-group col-md-6">
+        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+    </div>
+            {{ form_end(f) }}
+        </form>
+
+    </div>
+
+
+
+
+
+{% endblock %}

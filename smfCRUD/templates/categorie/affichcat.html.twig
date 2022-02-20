@@ -1,0 +1,74 @@
+{% extends 'cruud.html.twig' %}
+{% block body %}
+
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">type table</h4>
+                <p class="card-description">
+                    <code>.all product types and providers </code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> nom_categ </th>
+                            <th> nom_fournisseur </th>
+                            <th> mail_fournisseur </th>
+                            <th> nbr_produits </th>
+
+
+
+                            <th>delete</th>
+                            <th>update</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr {% for g in categorie %}>
+                            <td> {{ g.id }}</td>
+                            <td> {{ g.nom_categ }}</td>
+                            <td> {{ g.nom_fournisseur }}</td>
+                            <td> {{ g.mail_fournisseur }}</td>
+                            <td>{{ g.f }}</td>
+
+
+
+
+
+
+
+                            <td>  <a  href=" {{ path('dcat',{'id':g.id}) }} "  >
+                                    <img src="back/images/faces/bin.png" alt="image"/>
+
+
+
+                                </a>
+
+
+                            </td>
+
+                            <td><a href="{{ path('Upc',{'id':g.id}) }}" > Update</a> </td>
+
+
+
+
+                        </tr {% endfor %}>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
