@@ -38,20 +38,22 @@ class Jeux
     /**
      *
      * @Vich\UploadableField(mapping="jeux_image", fileNameProperty="image")
-     *
+     * @Assert\NotBlank(message="Invalid: vous devez joindre une image")
      * @var File|null
      */
     private $imageFile;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Le champ Type est obligatoire")
-     */
-    private $type;
+//    /**
+//     *
+//     * @ORM\Column(type="string", length=255)
+//     *
+//     */
+//    private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Date (message="Date est invalide")
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $dates;
 
@@ -63,9 +65,15 @@ class Jeux
 
 
     /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="games")
+     */
+    private $categorie;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
 
     public function __construct()
     {
@@ -121,17 +129,17 @@ class Jeux
         return $this;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
+//    public function getType(): ?string
+//    {
+//        return $this->type;
+//    }
+//
+//    public function setType(string $type): self
+//    {
+//        $this->type = $type;
+//
+//        return $this;
+//    }
 
     public function getDates(): ?string
     {
@@ -186,4 +194,19 @@ class Jeux
 
         return $this;
     }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+
+
 }

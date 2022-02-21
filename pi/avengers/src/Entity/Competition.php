@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Date;
 
 
 /**
@@ -25,6 +26,7 @@ class Competition
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nom;
 
@@ -45,7 +47,7 @@ class Competition
 
     /**
      * @Vich\UploadableField(mapping="competition_image", fileNameProperty="image")
-
+     * @Assert\NotBlank(message="Invalid: vous devez joindre une image")
      * @var File|null
      */
     private $imageFile;
@@ -53,15 +55,14 @@ class Competition
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\LessThan("this.getDateFin()")
-     * @Assert\Expression("this.getDateDeb()<this.getDateFin()")
      */
 
     private $dateDeb;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\Expression("this.getDateDeb()<this.getDateFin()",message="Invalide: Date doit étre supérieur à la date de début")
+
      */
     private $dateFin;
 
@@ -69,6 +70,12 @@ class Competition
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+//    /**
+//     * @ORM\Column (type="string",length=255)
+//     */
+//
+//    private $currentDate;
 
     public function getId(): ?int
     {
@@ -143,6 +150,14 @@ class Competition
     {
         return $this->dateDeb;
     }
+
+//    public function getCurrentDate(): ?string
+//    {
+//        $time = new \Date();
+//        $this->currentDate=$time;
+//        echo $this->currentDate->format('H:i:s \O\n Y-m-d');
+//        return $this->currentDate;
+//    }
 
     public function setDateDeb(string $dateDeb): self
     {

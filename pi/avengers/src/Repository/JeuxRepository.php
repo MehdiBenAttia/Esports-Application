@@ -19,6 +19,20 @@ class JeuxRepository extends ServiceEntityRepository
         parent::__construct($registry, Jeux::class);
     }
 
+
+    /**
+     * @return Jeux[] Returns an array of Cities objects
+     */
+    public function findByName($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.nom like :query')
+            ->setParameter('query', "%" . $value . "%")
+            // ->orderBy('c.id', 'ASC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Jeux[] Returns an array of Jeux objects
     //  */
@@ -47,4 +61,15 @@ class JeuxRepository extends ServiceEntityRepository
         ;
     }
     */
+
+//    public function findEntitiesByString($str){
+//        return $this->getEntityManager()
+//            ->createQuery(
+//                'SELECT e
+//                FROM AppBundle:Jeux e
+//                WHERE e.foo LIKE :str'
+//            )
+//            ->setParameter('str', '%'.$str.'%')
+//            ->getResult();
+//    }
 }

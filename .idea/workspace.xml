@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88b26729-4520-49bb-8e18-62a79a7b7437" name="Changes" comment="" />
+    <list default="true" id="88b26729-4520-49bb-8e18-62a79a7b7437" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pi/avengers/migrations/Version20220221174516.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche1-6213209a066b9781818849.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131f8d5befb521125931.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379-62131fdf2c184534685118.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379-62131ff921a51505832535.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-621320f41aeef212145027.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62132154d82cf112105338.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-621321820bc08617018252.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-6213cc95e10a3964242956.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-6213ccc01ebe4099425863.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362-62130d0009375866919321.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362-62130d1d679ab842203924.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-6214166fd49c0329527838.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol3-621416fd22271895428269.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-62130d53a5ff2936143725.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-621312fce82d6230790239.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-6213131dba14f291686890.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-6214169b2d007061640718.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/bloodhound.jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/typeahead.jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/CategorieController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Categorie.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Form/CategorieType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Repository/CategorieRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/AfficheCat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/AjoutCat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/UpdateCat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/migrations/Version20220217233636.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol1-620ecaa17d8fa068463086.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f58cbc0d22457858920.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/JeuxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Entity/Competition.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Competition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Entity/Jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Jeux.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Form/JeuxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Form/JeuxType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Repository/JeuxRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Repository/JeuxRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/templates/competition/AjoutC.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/AjoutC.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/templates/jeux/Affiche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/Affiche.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/templates/jeux/Ajout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/Ajout.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,19 +56,30 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="25HAbvRz91iJUA1levv5TKhhzQ6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -34,10 +91,32 @@
       <option name="presentableId" value="Default" />
       <updated>1645173712529</updated>
       <workItem from="1645173715331" duration="7000" />
+      <workItem from="1645200798072" duration="5462000" />
+      <workItem from="1645284303156" duration="7900000" />
+      <workItem from="1645296273368" duration="7000" />
+      <workItem from="1645370029249" duration="2227000" />
+      <workItem from="1645410937614" duration="10647000" />
+      <workItem from="1645464626288" duration="2731000" />
+      <workItem from="1645482325545" duration="2018000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
