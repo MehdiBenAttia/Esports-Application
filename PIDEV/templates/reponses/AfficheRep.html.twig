@@ -1,0 +1,71 @@
+{% extends 'crud.html.twig' %}
+{% block body %}
+
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Gestion des réponses</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th> ID_reclamation </th>
+                            <th> Nom_User </th>
+                            <th> ID_reponse </th>
+
+                            <th> Reponse </th>
+                            <th> Date </th>
+
+
+                            <th>Delete</th>
+                            <th>Update</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr {% for c in reponse %}>
+
+                            <td> {{ c.f }}</td>
+
+                            <td> {{ c.u }}</td>
+                            <td> {{ c.id }}</td>
+
+                            <td> {{ c.rep }}</td>
+                            <td> {{ c.date|date('d-m-Y H:i:s') }}</td>
+
+
+
+
+                            <td>  <a  href=" {{ path('d',{'id':c.id}) }} "  > Delete
+                                    <img src="back/images/faces/bin.jpg" alt="image"/>
+
+
+
+                                </a>
+
+
+                            </td>
+
+                            <td><a href="{{ path('U',{'id':c.id}) }}" > Update the response</a> </td>
+
+
+
+
+                        </tr {% endfor %}>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
