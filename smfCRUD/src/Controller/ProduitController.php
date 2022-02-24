@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
+use App\Repository\CategorieRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +25,15 @@ class ProduitController extends AbstractController
         ]);
     }
     /**
+     * @Route("/front", name="front")
+     */
+    public function indexe(): Response
+    {
+        return $this->render('front.html.twig', [
+            'controller_name' => 'ProduitController',
+        ]);
+    }
+    /**
      * @param ProduitRepository $repository
      * @Route ("/Afficher", name="affich")
      */
@@ -32,6 +43,36 @@ class ProduitController extends AbstractController
         return $this->render('produit/affiche.html.twig',['produit'=>$produit]);
 
     }
+    /**
+     * @param ProduitRepository $repository
+     * @param CategorieRepository  $repository
+
+     * @return Response
+     * @Route ("/Afficherfront", name="affichfront")
+     */
+    public function Affichefront(ProduitRepository  $repository, CategorieRepository  $rep)
+    {
+        $produit=$repository->findAll();
+        $categorie=$rep->findAll();
+        return $this->render('produit/afficherfront.html.twig',
+            ['produit'=>$produit,
+            'categorie'=>$categorie]
+        );
+
+    }
+
+    /**
+     * @param ProduitRepository $repository
+     * @Route ("/Afficherfrontdetail/{id}", name="affichfrontdetail")
+     */
+    public function Affichefrontdetail(ProduitRepository  $repository,$id)
+    {
+        $produit=$repository->find($id);
+        return $this->render('produit/detail.html.twig',['produit'=>$produit]);
+
+    }
+
+
     /**
      * @param $id
      * @param ProduitRepository $rep

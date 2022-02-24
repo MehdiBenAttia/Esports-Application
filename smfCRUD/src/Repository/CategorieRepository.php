@@ -31,12 +31,13 @@ class CategorieRepository extends ServiceEntityRepository
           SELECT categorie.id,categorie.nom_categ,categorie.nom_fournisseur,categorie.mail_fournisseur,
  COUNT(produit.categorie_id) as f
  FROM categorie LEFT JOIN produit ON (categorie.id=produit.categorie_id)
- GROUP BY ( produit.categorie_id) 
+ GROUP BY ( categorie.id) 
             ';
         $stmt = $conn->prepare($sql);
         return $stmt->executeQuery()->fetchAllAssociative();
 
     }
+
 
 
 

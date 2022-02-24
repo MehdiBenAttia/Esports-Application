@@ -36,6 +36,16 @@ class CategorieController extends AbstractController
 
     }
     /**
+     * @param ProduitRepository $repository
+     * @Route ("/side", name="side")
+     */
+    public function Affichefronhome(ProduitRepository  $repository)
+    {
+        $produit=$repository->findAll();
+        return $this->render('side.html.twig',['produit'=>$produit]);
+
+    }
+    /**
      * @param $id
      * @param CategorieRepository $rep
      * @route ("/Deletecat/{id}", name="dcat")

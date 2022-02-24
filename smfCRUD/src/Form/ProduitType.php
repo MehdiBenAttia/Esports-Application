@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 
 class ProduitType extends AbstractType
 {
@@ -22,12 +23,17 @@ class ProduitType extends AbstractType
             ->add('nom')
             ->add('marque')
             ->add('prix')
+            ->add('type')
+
 
 
             ->add('imageFile',FileType::class,['required'=>false,'label'=>false,'empty_data' => ''])
-        ->add('categorie',EntityType::class,
-            ['class'=>Categorie::class,
-                'choice_label'=>'nom_categ'])
+       ->add('categorie',EntityType::class,
+           ['class'=>Categorie::class,
+               'choice_label'=>'nom_categ',
+                   'choice_value' =>'nom_categ'
+
+            ])
 
 
             ->add('submit',SubmitType::class)
@@ -35,6 +41,7 @@ class ProduitType extends AbstractType
 
         ;
     }
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {

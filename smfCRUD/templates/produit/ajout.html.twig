@@ -1,10 +1,11 @@
 {% extends 'cruud.html.twig' %}
 
+
 {% block body %}
+
     <div class="card-body">
         <h4 class="card-title">Ajouter un produit</h4>
-        <p class="card-description">
-        </p>
+
 
         {{ form_start(f,{'attr': {'novalidate': 'novalidate'}}) }}
         <form class="forms-sample">
@@ -16,6 +17,8 @@
             <div class="form-group">
                 {{ form_label(f.nom, 'nom', ) }}
                 {{ form_widget(f.nom, {'attr': {'class': 'form-control','placeholder': 'nom'}}) }}
+                {{ form_errors(f.nom) }}
+
             </div>
             <div class="form-group">
                 {{ form_label(f.marque, 'marque', ) }}
@@ -24,6 +27,8 @@
             <div class="form-group">
                 {{ form_label(f.prix, 'prix', ) }}
                 {{ form_widget(f.prix, {'attr': {'class': 'form-control','placeholder': 'prix'}}) }}
+                {{ form_errors(f.prix) }}
+
             </div>
 
             <div class="form-group">
@@ -39,6 +44,43 @@
                 {{ form_widget(f.categorie, {'attr': {'class': 'form-control','placeholder': 'categorie'}}) }}
             </div>
 
+             {#
+
+             <div onchange="changeOptions(this)" class="form-group">
+               {{ form_widget(f.categorie, {'label': "Select Category", 'attr': {'class': "form-control"} }) }}
+           </div>
+
+
+            <select onchange="changeOptions(this)">
+               <option value="" selected="selected"></option>
+               <option value="form_1">Form 1</option>
+               <option value="pc">Form 2</option>
+           </select>
+
+
+           <form class="className" name="form_1" id="form_1" style="display:none">
+
+                    </form>
+
+           <form class="className" name="pc" id="pc" style="display:none">
+               <div class="form-group">
+                   {{ form_label(f.prix, 'prix', ) }}
+                   {{ form_widget(f.prix, {'attr': {'class': 'form-control','placeholder': 'prix'}}) }}
+               </div>
+           </form>
+             #}
+
+
+
+
+
+            <div class="form-group">
+                {{ form_label(f.type, 'description', ) }}
+                {{ form_widget(f.type, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+            </div>
+
+
+
 
             <div class="form-check form-check-flat form-check-primary">
                 <label class="form-check-label">
@@ -47,10 +89,10 @@
                 </label>
             </div>
 
-    <div class="input-group col-md-6">
-        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
-        {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
-    </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
             {{ form_end(f) }}
         </form>
 
@@ -60,4 +102,20 @@
 
 
 
+
+{% endblock %}
+{% block js %}
+<script>
+function changeOptions(selectEl) {
+let selectedValue = selectEl.options[selectEl.selectedIndex].value;
+let subForms = document.getElementsByClassName('className')
+for (let i = 0; i < subForms.length; i += 1) {
+if (selectedValue === subForms[i].name) {
+subForms[i].setAttribute('style', 'display:block')
+} else {
+subForms[i].setAttribute('style', 'display:none')
+}
+}
+}
+</script>
 {% endblock %}

@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Doctrine_Query;
+
 
 /**
  * @method Produit|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +19,22 @@ class ProduitRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Produit::class);
+    }
+
+    function  findmain()
+    {
+        $conn = $this->getEntityManager()
+            ->getConnection();
+        $sql='
+
+
+select categorie.nom_categ, produit.nom,produit.marque,produit.prix,produit.type,produit.image
+     ,produit.categorie_id,produit.id from categorie
+    JOIN produit on (categorie.id=produit.categorie_id) ;
+  ';
+        $stmt = $conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+
     }
 
     // /**

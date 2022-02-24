@@ -12,6 +12,7 @@
             <div class="form-group">
                 {{ form_label(f.nom_categ, 'nom_categ', ) }}
                 {{ form_widget(f.nom_categ, {'attr': {'class': 'form-control','placeholder': 'nom_categ'}}) }}
+
             </div>
             <div class="form-group">
                 {{ form_label(f.nom_fournisseur, 'nom_fournisseur', ) }}
@@ -20,6 +21,7 @@
             <div class="form-group">
                 {{ form_label(f.mail_fournisseur, 'mail_fournisseur', ) }}
                 {{ form_widget(f.mail_fournisseur, {'attr': {'class': 'form-control','placeholder': 'mail_fournisseur'}}) }}
+                {{ form_errors(f.mail_fournisseur) }}
             </div>
 
 
