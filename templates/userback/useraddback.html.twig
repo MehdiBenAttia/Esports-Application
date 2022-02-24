@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block titre1 %} Insciption Front {% endblock %}
+{% block titre2 %} Insciption {% endblock %}
+{% block top_bg %} "{{ asset('front/assets/images/gallery-3-thumb.jpg') }}" {% endblock %}
+{% block bottom_bg %} "{{ asset('front/assets/images/bg-bottom.png') }}" {% endblock %}
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  ajouter des membres</h4>
+        <a class="btn btn-outline-dark " href="{{ path('afficheruserback') }}"><i class="fa-solid fa-gamepad"></i> afficher les joueurs  </a>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(form) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(form.nom, 'Nom ', ) }}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder': 'Nom du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.prenom, 'Prenom', ) }}
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder': 'Nom du jeu'}}) }}
+                {{  form_errors(form.prenom)}}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email, 'Email', ) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder': 'Type du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.username, 'username', ) }}
+                {{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder': 'Type du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateN, 'Date de naissance', ) }}
+                {{ form_widget(form.dateN, {'attr': {'class': 'form-control','placeholder': 'DD/MM/YYYY'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.sexe, 'sexe', ) }}
+                {{ form_widget(form.sexe, {'attr': {'class': 'form-control','placeholder': 'sexe'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.password, 'password', ) }}
+                {{ form_widget(form.password, {'attr': {'class': 'form-control','placeholder': 'password'}}) }}
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(form.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(form.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+            </div>
+
+            {{ form_end(form) }}
+        </form>
+
+    </div>
+{% endblock %}
+
+
