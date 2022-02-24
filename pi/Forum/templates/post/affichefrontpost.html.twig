@@ -1,0 +1,169 @@
+{% extends 'post/affichefront1.html.twig' %}
+{% block body %}
+
+    <a class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" style="display:table-cell; width: 1110px; text-align: center; vertical-align: middle;" <a href="{{ path('Af') }}">ajouter un post</a>
+
+    {% for var in cf %}
+        <div class="nk-blog-post">
+
+
+            <a href=" {{ path('affichfrontdetail',{'id':var.id}) }} " class="nk-post-img">
+
+                <img src="{{ asset('/images/'~var.image) }}" alt="" width="150">
+        {% if var.image is not null %}
+        <span class="nk-post-comments-count"> {{ var.co }}</span>
+    {%endif  %}
+
+
+            </a>
+            <div class="nk-gap-2"></div>
+            <div class="row vertical-gap">
+                <div class="col-md-8 col-lg-9">
+                    <h2 class="nk-post-title h4"><a href=" {{ path('affichfrontdetail',{'id':var.id}) }} ">{{ var.sujet }}</a></h2>
+
+                    <div class="nk-gap"></div>
+                    <div class="nk-post-text">
+                        <p>{{ var.description }}</p>
+
+                        <a href="{{ path('dpf',{'id':var.id}) }}">    <i class="fa-solid fa-trash-can"></i></a>
+                        <a href="{{ path('Upf',{'id':var.id}) }}">    <i class="fa-solid fa-wrench"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="nk-post-by">
+
+                        by <a href="#">{{ var.nom_user }}</a>
+
+                        <br> in {{ var.date_p|date('Y-m-d H:i:s') }}
+                        <br> {{ var.co }} comments
+                        <br> {{ var.nbr_jaime }} jaimes
+                    </div>
+                    <div class="nk-gap-3"></div>
+                    <div class="text-right">
+                        <a class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" <a href=" {{ path('affichfrontdetail',{'id':var.id}) }} ">   Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!-- START: Pagination -->
+    <div class="nk-pagination nk-pagination-center">
+        <a href="#" class="nk-pagination-prev">
+            <span class="ion-ios-arrow-back"></span>
+        </a>
+        <nav>
+            <a class="nk-pagination-current" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <span>...</span>
+            <a href="#">14</a>
+        </nav>
+        <a href="#" class="nk-pagination-next">
+            <span class="ion-ios-arrow-forward"></span>
+        </a>
+    </div>
+    <!-- END: Pagination -->
+    </div>
+    <!-- END: Posts FullWidth -->
+    </div>
+
+    <div class="nk-gap-2"></div>
+
+
+
+    <!-- START: Footer -->
+    <footer class="nk-footer">
+
+        <div class="container">
+            <div class="nk-gap-3"></div>
+            <div class="row vertical-gap">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="nk-widget">
+                        <h4 class="nk-widget-title"><span class="text-main-1">Latest</span> Posts</h4>
+                        <div class="nk-widget-content">
+                            <div class="row vertical-gap sm-gap">
+
+                                <div class="col-lg-6">
+                                    <div class="nk-widget-post-2">
+                                        <a href="blog-article.html" class="nk-post-image">
+                                            <img src="assets/images/post-1-sm.jpg" alt="">
+                                        </a>
+                                        <div class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></div>
+                                        <div class="nk-post-date">
+                                            <span class="fa fa-calendar"></span> Sep 18, 2018
+                                            <span class="fa fa-comments"></span> <a href="#">4</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="nk-widget-post-2">
+                                        <a href="blog-article.html" class="nk-post-image">
+                                            <img src="assets/images/post-2-sm.jpg" alt="">
+                                        </a>
+                                        <div class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></div>
+                                        <div class="nk-post-date">
+                                            <span class="fa fa-calendar"></span> Sep 5, 2018
+                                            <span class="fa fa-comments"></span> <a href="#">7</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="nk-gap-3"></div>
+        </div>
+
+        <div class="nk-copyright">
+            <div class="container">
+
+                <div class="nk-copyright-right">
+                    <ul class="nk-social-links-2">
+                        <li><a class="nk-social-rss" href="#"><span class="fa fa-rss"></span></a></li>
+                        <li><a class="nk-social-twitch" href="#"><span class="fab fa-twitch"></span></a></li>
+                        <li><a class="nk-social-steam" href="#"><span class="fab fa-steam"></span></a></li>
+                        <li><a class="nk-social-facebook" href="#"><span class="fab fa-facebook"></span></a></li>
+                        <li><a class="nk-social-google-plus" href="#"><span class="fab fa-google-plus"></span></a></li>
+                        <li><a class="nk-social-twitter" href="#" target="_blank"><span class="fab fa-twitter"></span></a></li>
+                        <li><a class="nk-social-pinterest" href="#"><span class="fab fa-pinterest-p"></span></a></li>
+
+                        <!-- Additional Social Buttons
+                            <li><a class="nk-social-behance" href="#"><span class="fab fa-behance"></span></a></li>
+                            <li><a class="nk-social-bitbucket" href="#"><span class="fab fa-bitbucket"></span></a></li>
+                            <li><a class="nk-social-dropbox" href="#"><span class="fab fa-dropbox"></span></a></li>
+                            <li><a class="nk-social-dribbble" href="#"><span class="fab fa-dribbble"></span></a></li>
+                            <li><a class="nk-social-deviantart" href="#"><span class="fab fa-deviantart"></span></a></li>
+                            <li><a class="nk-social-flickr" href="#"><span class="fab fa-flickr"></span></a></li>
+                            <li><a class="nk-social-foursquare" href="#"><span class="fab fa-foursquare"></span></a></li>
+                            <li><a class="nk-social-github" href="#"><span class="fab fa-github"></span></a></li>
+                            <li><a class="nk-social-instagram" href="#"><span class="fab fa-instagram"></span></a></li>
+                            <li><a class="nk-social-linkedin" href="#"><span class="fab fa-linkedin"></span></a></li>
+                            <li><a class="nk-social-medium" href="#"><span class="fab fa-medium"></span></a></li>
+                            <li><a class="nk-social-odnoklassniki" href="#"><span class="fab fa-odnoklassniki"></span></a></li>
+                            <li><a class="nk-social-paypal" href="#"><span class="fab fa-paypal"></span></a></li>
+                            <li><a class="nk-social-reddit" href="#"><span class="fab fa-reddit"></span></a></li>
+                            <li><a class="nk-social-skype" href="#"><span class="fab fa-skype"></span></a></li>
+                            <li><a class="nk-social-soundcloud" href="#"><span class="fab fa-soundcloud"></span></a></li>
+                            <li><a class="nk-social-slack" href="#"><span class="fab fa-slack"></span></a></li>
+                            <li><a class="nk-social-tumblr" href="#"><span class="fab fa-tumblr"></span></a></li>
+                            <li><a class="nk-social-vimeo" href="#"><span class="fab fa-vimeo"></span></a></li>
+                            <li><a class="nk-social-vk" href="#"><span class="fab fa-vk"></span></a></li>
+                            <li><a class="nk-social-wordpress" href="#"><span class="fab fa-wordpress"></span></a></li>
+                            <li><a class="nk-social-youtube" href="#"><span class="fab fa-youtube"></span></a></li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+{% endblock %}

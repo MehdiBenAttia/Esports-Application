@@ -1,0 +1,112 @@
+{% extends 'post/affichefront2.html.twig' %}
+
+{% block body %}
+
+    {% block stylesheets %}
+        <link href="{{ asset('front/assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/fontawesome-free/js/all.js') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/fontawesome-free/js/v4-shims.js') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/ionicons/css/ionicons.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/flickity/dist/flickity.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/photoswipe/dist/photoswipe.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/photoswipe/dist/default-skin/default-skin.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css') }}" type="text/css" rel="stylesheet" />
+
+        <link href="{{ asset('front/assets/vendor/summernote/dist/summernote-bs4.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/css/goodgames.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('front/assets/images/slide-5.jpg') }}" type="text/css" rel="stylesheet" />
+
+
+        {#  <link rel="stylesheet" href="front/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <script defer src="front/assets/vendor/fontawesome-free/js/all.js"></script>
+        <script defer src="front/assets/vendor/fontawesome-free/js/v4-shims.js"></script>
+        <link rel="stylesheet" href="front/assets/vendor/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="front/assets/vendor/flickity/dist/flickity.min.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/photoswipe/dist/photoswipe.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/photoswipe/dist/default-skin/default-skin.css">
+        <link rel="stylesheet" href="front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/summernote/dist/summernote-bs4.css">
+        <link rel="stylesheet" href="front/assets/css/goodgames.css">
+        <link rel="stylesheet" href="front/assets/css/custom.css">
+        <script src="front/assets/vendor/jquery/dist/jquery.min.js"></script>
+        #}
+    {% endblock %}
+
+<div class="nk-blog-post nk-blog-post-single">
+    <!-- START: Post Text -->
+    <div class="nk-post-text mt-0">
+        <div class="nk-post-img">
+            <img src="{{ asset('/images/'~post.image) }}" alt="" width="150">
+        </div>
+        <div class="nk-gap-1"></div>
+        <h1 class="nk-post-title h4">{{ post.sujet }}</h1>
+        <div class="nk-post-by">
+            by <a href="#">{{ post.nomuser }}r</a> in {{ post.datep|date('Y-m-d H:i:s') }}
+
+
+            <div class="nk-post-categories">
+
+                <span class="bg-main-1"> {{ post.communaute }}</span>
+
+
+
+            </div>
+
+        </div>
+        <div class="nk-gap"></div>
+        <p>{{ post.description }}</p>
+        <a href=" {{ path('dpf',{'id':post.id}) }} ">    <i class="fa-solid fa-trash-can"></i></a>
+        <a href="{{ path('Upf',{'id':post.id}) }} ">    <i class="fa-solid fa-wrench"></i></a>
+    <p>                     </p>
+    <a class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" <a href="{{ path('aAcof',{'id':post.id}) }}" >   ajouter un commentaire</a>
+        <div class="nk-gap"></div>
+    {% for va in post1 %}
+    <!-- START: Comments -->
+    {% if (va.id==post.id) %}
+    <div id="comments"></div>
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">{{ va.co }}</span> Comments</span></h3>
+    <div class="nk-gap"></div>
+    <div class="nk-comments">
+        {% endif %}
+{% endfor %}
+
+        <!-- START: Comment -->
+        {% for var in post.commentaires %}
+        <div class="nk-comment">
+            <div class="nk-comment-meta">
+                by <a href="#">{{ var.nomuser }}</a> in {{ var.datec|date('Y-m-d H:i:s') }}
+
+            </div>
+            <div class="nk-comment-text">
+                <p>{{ var.descriptionc }}</p>
+                <a href=" {{ path('dcf',{'id':var.id}) }} ">    <i class="fa-solid fa-trash-can"></i></a>
+                <a href="{{ path('Ucof',{'id':var.id}) }}">    <i class="fa-solid fa-wrench"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- END: Comment -->
+        <div class="nk-gap"></div>
+
+
+
+        <div class="nk-gap"></div>
+        <div class="nk-post-share">
+            <span class="h5">Share Article:</span>
+
+            <ul class="nk-social-links-2">
+                <li><span class="nk-social-facebook" title="Share page on Facebook" data-share="facebook"><span class="fab fa-facebook"></span></span></li>
+                <li><span class="nk-social-google-plus" title="Share page on Google+" data-share="google-plus"><span class="fab fa-google-plus"></span></span></li>
+                <li><span class="nk-social-twitter" title="Share page on Twitter" data-share="twitter"><span class="fab fa-twitter"></span></span></li>
+                <li><span class="nk-social-pinterest" title="Share page on Pinterest" data-share="pinterest"><span class="fab fa-pinterest-p"></span></span></li>
+
+                <!-- Additional Share Buttons
+                    <li><span class="nk-social-linkedin" title="Share page on LinkedIn" data-share="linkedin"><span class="fab fa-linkedin"></span></span></li>
+                    <li><span class="nk-social-vk" title="Share page on VK" data-share="vk"><span class="fab fa-vk"></span></span></li>
+                -->
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

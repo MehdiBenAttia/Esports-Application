@@ -1,0 +1,46 @@
+{% extends 'post/affichefront1.html.twig' %}
+{% block body %}
+
+    {{ form_start(ajf,{'attr': {'novalidate': 'novalidate'}}) }}
+
+    <form class="forms-sample">
+
+    <div class="form-group">
+        {{ form_label(ajf.sujet, 'sujet', ) }}
+        {{ form_widget(ajf.sujet, {'attr': {'class': 'form-control','placeholder': 'sujet'}}) }}
+        {{ form_errors(ajf.sujet) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(ajf.description, 'description', ) }}
+        {{ form_widget(ajf.description, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+        {{ form_errors(ajf.description) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(ajf.communaute, 'communaute', ) }}
+        {{ form_widget(ajf.communaute, {'attr': {'class': 'form-control','placeholder': 'communaute'}}) }}
+        {{ form_errors(ajf.communaute) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(ajf.imageFile, 'image', ) }}
+        {{ form_row(ajf.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(ajf.nom_user, 'nom_user', ) }}
+        {{ form_widget(ajf.nom_user, {'attr': {'class': 'form-control','placeholder': 'nom_user'}}) }}
+    </div>
+
+
+
+
+
+
+
+
+    <div class="input-group col-md-6">
+        {{ form_widget(ajf.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(ajf.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+    </div>
+    {{ form_end(ajf) }}
+    </form>
+{% endblock %}

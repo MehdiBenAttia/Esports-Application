@@ -1,0 +1,61 @@
+{% extends 'test.html.twig' %}
+
+
+{% block stylesheets %}
+
+    <link href="{{ asset('back/vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Ajouter un post</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(f) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(f.sujet, 'sujet', ) }}
+                {{ form_widget(f.sujet, {'attr': {'class': 'form-control','placeholder': 'sujet'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.description, 'description', ) }}
+                {{ form_widget(f.description, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(f.imageFile, 'image', ) }}
+                {{ form_row(f.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.nom_user, 'nom_user', ) }}
+                {{ form_widget(f.nom_user, {'attr': {'class': 'form-control','placeholder': 'nom_user'}}) }}
+            </div>
+
+
+
+
+
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
+            {{ form_end(f) }}
+        </form>
+
+    </div>
+{% endblock body %}

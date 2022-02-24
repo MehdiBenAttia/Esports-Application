@@ -1,0 +1,84 @@
+{% extends 'test.html.twig' %}
+{% block body %}
+
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Striped Table</h4>
+                <p class="card-description">
+                    Add class <code>.table-striped</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> nom user </th>
+                            <th> description </th>
+
+                            <th> image </th>
+                            <th> date </th>
+                            <th> post </th>
+                            <th>delete</th>
+                            <th>update</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for c in cc %}
+                        <tr >
+
+
+                            <td> {{ c.id }}</td>
+                            <td> {{ c.nomuser }}</td>
+                            <td> {{ c.descriptionc }}</td>
+
+                            {% if c.imagec is not null %}
+                                <td> <img src="{{ asset('/images/'~c.imagec) }}" alt="" width="150"></td>
+                            {%else  %}
+                                <td></td>
+                            {% endif %}
+
+
+                            <td style="">{{ c.datec|date('Y-m-d H:i:s') }}</td>
+                            {% if c.post is not null %}
+                                <td> {{ c.post.id}}</td>
+                            {% endif %}
+                            <td><a href=" {{ path('dc',{'id':c.id}) }} " >  </a><i class="fa-solid fa-trash-can"></i></td>
+
+
+
+
+
+
+
+
+
+
+
+
+                            <td><a href="{{ path('Uco',{'id':c.id}) }}" > </a> <i class="fa-solid fa-wrench"></i></td>
+
+
+
+
+                        </tr >
+                        {% endfor %}
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
