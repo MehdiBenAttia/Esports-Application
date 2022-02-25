@@ -452,7 +452,7 @@
     <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
-
+{% block js %}
 <!-- plugins:js -->
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
@@ -474,6 +474,8 @@
 <script src="js/dashboard.js"></script>
 <script src="js/Chart.roundedBarCharts.js"></script>
 <!-- End custom js for this page-->
+
+{% endblock %}
 </body>
 
 </html>

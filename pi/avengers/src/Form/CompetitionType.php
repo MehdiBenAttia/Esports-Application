@@ -31,6 +31,7 @@ class CompetitionType extends AbstractType
             ->add('dateDeb', DateType::class,[
                 'input' => 'string',
                 'widget' => 'single_text',
+
             ])
             ->add('dateFin', DateType::class,[
                 'input' => 'string',

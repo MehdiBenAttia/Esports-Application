@@ -2,51 +2,621 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88b26729-4520-49bb-8e18-62a79a7b7437" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pi/avengers/migrations/Version20220221174516.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche1-6213209a066b9781818849.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131f8d5befb521125931.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379-62131fdf2c184534685118.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379-62131ff921a51505832535.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62131faa81ad9818051379.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-621320f41aeef212145027.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62132154d82cf112105338.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-621321820bc08617018252.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-6213cc95e10a3964242956.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-6213ccc01ebe4099425863.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362-62130d0009375866919321.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362-62130d1d679ab842203924.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-6214166fd49c0329527838.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol3-621416fd22271895428269.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-62130d53a5ff2936143725.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-621312fce82d6230790239.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f59493b6e4429814746-6213131dba14f291686890.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-6214169b2d007061640718.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/bloodhound.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/public/typeahead.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/CategorieController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Categorie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Form/CategorieType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Repository/CategorieRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/AfficheCat.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/AjoutCat.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/UpdateCat.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/categorie/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/search.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/css/goodgames.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/css/goodgames.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/avatar-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/avatar-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/avatar-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-fixed-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-fixed-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-fixed-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-top-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-top-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-top-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-top-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/bg-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-1-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-10-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-11-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-12-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-2-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-3-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-4-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-5-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-6-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-7-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-8-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-9-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/gallery-group-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/icon-gamepad-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/icon-gamepad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/icon-mouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/logo-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/pegi-icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-1-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-1-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-1-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-1-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-2-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-2-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-2-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-2-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-3-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-3-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-3-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-3-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-4-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-4-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-4-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-4-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-5-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-5-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-5-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-5-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-6-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-6-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-6-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-6-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-7-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-7-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-7-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-7-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-8-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-8-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-8-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-8-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-9-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-9-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-9-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-9-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/post-inner-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/product-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-1-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-2-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-3-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-4-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-5-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/slide-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-1-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-2-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-3-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-4-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/team-photo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/teammate-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/images/teammate-team.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/js/demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/js/goodgames-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/js/goodgames.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/js/goodgames.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/mp3/OctoSound-sport.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/mp3/soundroll-total-overdrive.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/plugins/nk-share/nk-share.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/bootstrap/dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/flickity/dist/flickity.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/flickity/dist/flickity.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/fontawesome-free/js/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/fontawesome-free/js/v4-shims.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/gsap/src/minified/TweenMax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/hammerjs/hammer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/hammerjs/hammer.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/ionicons/css/ionicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/ionicons/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/ionicons/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/ionicons/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/ionicons/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/jarallax/dist/jarallax-video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/jarallax/dist/jarallax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/jquery-countdown/dist/jquery.countdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/jquery-validation/dist/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/keymaster/keymaster.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/moment-timezone/builds/moment-timezone-with-data.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/moment/min/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/nanoscroller/bin/javascripts/jquery.nanoscroller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/object-fit-images/dist/ofi.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/default-skin/default-skin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/default-skin/default-skin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/default-skin/default-skin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/default-skin/preloader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/photoswipe-ui-default.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/photoswipe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/photoswipe/dist/photoswipe.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/popper.js/dist/umd/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/popper.js/dist/umd/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/soundmanager2/script/soundmanager2-jsmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/sticky-kit/dist/sticky-kit.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/font/summernote.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/font/summernote.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/font/summernote.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/summernote-bs4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/summernote-bs4.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/assets/vendor/summernote/dist/summernote-bs4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/ajax-contact-form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/instagram/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/instagram/instagram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/twitter/cache/bf84dcd0dcbe091695c7a789e6e9e53d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/twitter/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/twitter/tweet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/twitter/twitteroauth/OAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Front/php/twitter/twitteroauth/twitteroauth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62158557a6958132896104.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/affiche2-620ef62e8c612555346913-62181a795ba20876434054.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/esportsartboard-1-6215799ed549d418853410.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-62154afc18935490231018.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa2-621585d2e36cc437294980.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa3-62158648a648c347486762.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa3-62181a64811ef838227144-62181a86f1fcb050135547.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa3-62181a64811ef838227144.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol2-62154c9de62a9084049617.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol3-621416fd22271895428269-62157a2ab2232187754576.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620eca808e548207151738-621579ec9e8cf147850850.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-621550d123060330309589.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo2-620ecb0ca329b548104887-62181de4119c8998108834.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo3-62154f718e273453532586.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/GlobalController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/ajax.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/choix_categorie.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/competition.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/details.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/front.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/avengers/templates/global/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/css/goodgames.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/css/goodgames.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/avatar-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/avatar-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/avatar-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-fixed-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-fixed-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-fixed-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-top-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-top-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-top-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-top-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/bg-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-1-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-10-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-11-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-12-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-2-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-3-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-4-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-5-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-6-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-7-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-8-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-9-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/gallery-group-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/icon-gamepad-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/icon-gamepad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/icon-mouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/logo-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/pegi-icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-1-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-1-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-1-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-1-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-2-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-2-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-2-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-2-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-3-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-3-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-3-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-3-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-4-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-4-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-4-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-4-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-5-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-5-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-5-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-5-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-6-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-6-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-6-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-6-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-7-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-7-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-7-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-7-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-8-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-8-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-8-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-8-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-9-fw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-9-mid-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-9-mid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-9-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/post-inner-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9-md.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9-square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9-xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/product-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-1-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-2-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-3-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-4-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-5-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/slide-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-1-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-2-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-3-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-4-lg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/team-photo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/teammate-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/images/teammate-team.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/js/demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/js/goodgames-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/js/goodgames.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/js/goodgames.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/mp3/OctoSound-sport.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/mp3/soundroll-total-overdrive.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/plugins/nk-share/nk-share.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/bootstrap/dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/flickity/dist/flickity.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/flickity/dist/flickity.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/fontawesome-free/js/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/fontawesome-free/js/v4-shims.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/gsap/src/minified/TweenMax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/hammerjs/hammer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/hammerjs/hammer.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/ionicons/css/ionicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/ionicons/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/ionicons/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/ionicons/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/ionicons/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/jarallax/dist/jarallax-video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/jarallax/dist/jarallax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/jquery-countdown/dist/jquery.countdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/jquery-validation/dist/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/keymaster/keymaster.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/moment-timezone/builds/moment-timezone-with-data.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/moment/min/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/nanoscroller/bin/javascripts/jquery.nanoscroller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/object-fit-images/dist/ofi.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/default-skin/default-skin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/default-skin/default-skin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/default-skin/default-skin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/default-skin/preloader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/photoswipe-ui-default.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/photoswipe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/photoswipe/dist/photoswipe.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/popper.js/dist/umd/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/popper.js/dist/umd/popper.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/soundmanager2/script/soundmanager2-jsmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/sticky-kit/dist/sticky-kit.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/font/summernote.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/font/summernote.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/font/summernote.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/summernote-bs4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/summernote-bs4.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/assets/vendor/summernote/dist/summernote-bs4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/blog-article.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/blog-fullwidth.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/blog-grid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/blog-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/coming-soon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/documentation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/elements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/forum-single-topic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/forum-topics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/forum.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/news.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/offline.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/ajax-contact-form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/instagram/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/instagram/instagram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/twitter/cache/bf84dcd0dcbe091695c7a789e6e9e53d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/twitter/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/twitter/tweet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/twitter/twitteroauth/OAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/php/twitter/twitteroauth/twitteroauth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store-cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store-catalog-alt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store-catalog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store-checkout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store-product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/store.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/tournaments-teammate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/tournaments-teams.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/tournaments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pi/front/html-store-gaming-template/widgets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/migrations/Version20220217233636.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/fifa1-620edc9763a27879883362.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/lol1-620ecaa17d8fa068463086.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/public/Uploads/Images/valo1-620f58cbc0d22457858920.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/public/css/vertical-layout-light/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/public/css/vertical-layout-light/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Controller/CompetitionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/CompetitionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Controller/JeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Entity/Competition.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Competition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/src/Entity/Jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Entity/Jeux.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Form/JeuxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Form/JeuxType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Form/CompetitionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Form/CompetitionType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/src/Repository/CompetitionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Repository/CompetitionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/src/Repository/JeuxRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/src/Repository/JeuxRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/templates/competition/AjoutC.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/competition/AjoutC.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/templates/jeux/Affiche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/Affiche.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pi/avengers/templates/jeux/Ajout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/Ajout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pi/avengers/templates/jeux/Update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pi/avengers/templates/jeux/Update.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +636,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="25HAbvRz91iJUA1levv5TKhhzQ6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -79,8 +657,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pi/front/html-store-gaming-template" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive\Documents\GitHub\Esports-Application\pi\front\html-store-gaming-template" />
+      <recent name="C:\Users\USER\OneDrive\Documents\GitHub\Esports-Application\pi\avengers\public\Front" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive\Documents\GitHub\Esports-Application\pi\avengers\templates\competition" />
+      <recent name="C:\Users\USER\OneDrive\Documents\GitHub\Esports-Application\pi\avengers\templates\jeux" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,7 +686,15 @@
       <workItem from="1645370029249" duration="2227000" />
       <workItem from="1645410937614" duration="10647000" />
       <workItem from="1645464626288" duration="2731000" />
-      <workItem from="1645482325545" duration="2018000" />
+      <workItem from="1645482325545" duration="4652000" />
+      <workItem from="1645552122487" duration="1019000" />
+      <workItem from="1645556399066" duration="545000" />
+      <workItem from="1645556988580" duration="17828000" />
+      <workItem from="1645612659841" duration="68000" />
+      <workItem from="1645634810851" duration="7237000" />
+      <workItem from="1645660215090" duration="5810000" />
+      <workItem from="1645702843543" duration="1627000" />
+      <workItem from="1645746612817" duration="5982000" />
     </task>
     <servers />
   </component>
@@ -118,5 +715,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/pi/avengers/templates/competition/competition.html.twig</url>
+          <line>30</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

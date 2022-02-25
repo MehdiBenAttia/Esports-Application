@@ -1,0 +1,23 @@
+{% for var in jeux %}
+    <div class="col-lg-3 col-md-5" >
+        <a href="#" class="nk-post-img">
+            <img style="display: flex" src="{{ asset('/uploads/images/'~ var.image) }}" alt="At length one of them called out in a clear">
+                <span class="nk-post-categories">
+                    <span class="bg-main-1">{{ var.jeux.categorie.nom }} </span>
+                </span>
+        </a>
+    </div>
+    <div class="col-lg-9 col-md-7">
+        <h2 class="nk-post-title h4"><a href="blog-article.html">{{ var.nom }}  </a></h2>
+        <span class="nk-post-tags">{{ var.jeux.nom }} </span></br>
+        <span class="nk-post-tags">{{ var.nbparticipants }} Participants</span>
+        <div class="nk-post-date mt-10 mb-10">
+            <span class="fa fa-calendar"></span> {{ var.dateDeb|date("m/d/y") }}
+            <span class="fa fa-calendar"></span> {{ var.dateFin|date("m/d/y") }}
+
+        </div>
+        <div class="nk-post-text">
+            <p>Allez-y!       Inscrivez vous et tentez votre chance pour rejoindre le podium </p>
+        </div>
+    </div>
+{% endfor %}

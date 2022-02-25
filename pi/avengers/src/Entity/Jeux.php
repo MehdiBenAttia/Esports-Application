@@ -129,17 +129,6 @@ class Jeux
         return $this;
     }
 
-//    public function getType(): ?string
-//    {
-//        return $this->type;
-//    }
-//
-//    public function setType(string $type): self
-//    {
-//        $this->type = $type;
-//
-//        return $this;
-//    }
 
     public function getDates(): ?string
     {
@@ -167,7 +156,6 @@ class Jeux
             $this->competitons[] = $competiton;
             $competiton->setJeux($this);
         }
-
         return $this;
     }
 

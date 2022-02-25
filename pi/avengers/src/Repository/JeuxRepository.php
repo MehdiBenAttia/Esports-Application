@@ -19,6 +19,19 @@ class JeuxRepository extends ServiceEntityRepository
         parent::__construct($registry, Jeux::class);
     }
 
+    function  nbr()
+    {
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='SELECT jeux.id,jeux.nom,jeux.image,jeux.dates,categorie.nom as c ,count(competition.jeux_id) as f FROM 
+                                                                                   competition RIGHT JOIN 
+                                                                                       jeux on (competition.jeux_id=jeux.id) 
+                                                                                       JOIN categorie 
+                                                                                           on (categorie.id=jeux.categorie_id) GROUP by
+                                                                                                (jeux.id); ';
+        $stmt=$conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+    }
+
 
     /**
      * @return Jeux[] Returns an array of Cities objects

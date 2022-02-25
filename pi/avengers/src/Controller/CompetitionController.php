@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Competition;
 use App\Form\CompetitionType;
+use App\Repository\CategorieRepository;
 use App\Repository\CompetitionRepository;
+use App\Repository\JeuxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +22,21 @@ class CompetitionController extends AbstractController
     {
         return $this->render('competition/index.html.twig', [
             'controller_name' => 'CompetitionController',
+        ]);
+    }
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/tournament", name="tournament")
+     */
+    function Tournament(CompetitionRepository $repository , CategorieRepository $categorieRepository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $categories = $categorieRepository->findAll();
+        $jeux = $repository->findAll();
+        return $this->render('/competition/competition.html.twig',[
+            'categories'=>$categories ,
+            'jeux'=>$jeux
         ]);
     }
 
@@ -84,5 +102,35 @@ class CompetitionController extends AbstractController
                 "form_title" => "Modifier une compétition"
             ]);
     }
+
+    /**
+     * @Route("/searchcompetitionajax", name="ajaxcompetition")
+     */
+    public function searchajax(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(Competition::class);
+        $requestString=$request->get('searchValue');
+        $jeux = $repository->findCompetitionbyname($requestString);
+
+        return $this->render('competition/ajax.html.twig', [
+            "jeux"=>$jeux,
+        ]);
+
+    }
+
+    /**
+     * @route ("/competition_detail", name="competition_detail")
+     */
+
+    public function detail(CompetitionRepository $competitionRepository, JeuxRepository $jeuxRepository )
+    {
+        $competition = $competitionRepository->findAll();
+        $jeux=$jeuxRepository->findAll();
+        return $this->render('competition/details.html.twig', [
+            'competition' => $competition,
+            'jeux'=>$jeux
+        ]);
+    }
+
 
 }

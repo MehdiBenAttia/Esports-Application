@@ -19,32 +19,24 @@ class CompetitionRepository extends ServiceEntityRepository
         parent::__construct($registry, Competition::class);
     }
 
-    // /**
-    //  * @return Competition[] Returns an array of Competition objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findCompetitionbyname($name)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->createQueryBuilder('competition')
+                    ->where('competition.nom LIKE :nom')
+                    ->setParameter('nom','%'.$name.'%')
+                    ->getQuery()
+                    ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Competition
+    /**
+     * @route ("/choix_categorie/{id}", name="choix_categorie")
+     */
+
+    public function choix_categorie(CategorieRepository $categorieRepository , $id)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $categories = $categorieRepository->find($id);
+        return $this->render('competition/choix_categorie.html.twig', [
+            'categories'=>$categories
+        ]);
     }
-    */
 }

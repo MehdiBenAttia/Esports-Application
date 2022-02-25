@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 
+use App\Entity\Categorie;
 use App\Entity\Jeux;
 use App\Form\JeuxType;
+use App\Repository\CategorieRepository;
 use App\Repository\JeuxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -33,6 +35,15 @@ class JeuxController extends AbstractController
         ]);
     }
     /**
+     * @Route("/front", name="front")
+     */
+    public function front(): Response
+    {
+        return $this->render('front.html.twig');
+    }
+
+
+    /**
      * @Route("/home", name="home")
      */
     public function home(): Response
@@ -48,7 +59,7 @@ class JeuxController extends AbstractController
      */
     function Affiche(JeuxRepository $repository){
         //$repo= $this->getDoctrine()->getRepository(Classroom::class);
-        $jeux= $repository->findAll();
+        $jeux= $repository->nbr();
         return $this->render('/jeux/Affiche.html.twig',['jeux'=>$jeux]);
     }
 
@@ -104,70 +115,18 @@ class JeuxController extends AbstractController
             ]);
     }
 
-//    public function searchBar()
-//    {
-//        $form = $this->createFormBuilder(null)
-//            ->setAction($this->generateUrl('handle_search'))
-//            ->add("query",  TextType::class, [
-//                'attr' => [
-//                    'placeholder'   => 'Enter search query...'
-//                ]
-//            ])
-//            ->add("submit", SubmitType::class)
-//            ->getForm()
-//        ;
-//
-//        return $this->render('jeux/Affiche.html.twig', [
-//            'f' => $form->createView()
-//        ]);
-//    }
-//
-//    /**
-//     * @Route("/handleSearch/{_query?}", name="handle_search", methods={"POST", "GET"})
-//     */
-//    public function handleSearchRequest(Request $request, $_query)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//        if ($_query)
-//        {
-//            $data = $em->getRepository(Jeux::class)->findByName($_query);
-//        } else {
-//            $data = $em->getRepository(Jeux::class)->findAll();
-//        }
-//
-//        // iterate over all the resuls and 'inject' the image inside
-//        for ($index = 0; $index < count($data); $index++)
-//        {
-//            $object = $data[$index];
-//            // http://via.placeholder.com/35/0000FF/ffffff
-//            $object->setImage("http://via.placeholder.com/35/0000FF/ffffff");
-//        }
-//
-//        // setting up the serializer
-//        $normalizers = [
-//            new ObjectNormalizer()
-//        ];
-//
-//        $encoders =  [
-//            new JsonEncoder()
-//        ];
-//
-//        $serializer = new Serializer($normalizers, $encoders);
-//
-//        $data = $serializer->serialize($data, 'json');
-//
-//        return new JsonResponse($data, 200, [], true);
-//    }
+    /**
+     * @route ("/choix_categorie/{id}", name="choix_categorie")
+     */
 
+    public function choix_categorie(CategorieRepository $categorieRepository, JeuxRepository $jeuxRepository , $id)
+    {
+        $categories = $categorieRepository->find($id);
+        $jeux =$jeuxRepository->findAll();
+        return $this->render('competition/choix_categorie.html.twig', [
+            'categories' => $categories,
+            'jeux'=>$jeux
+        ]);
+    }
 
-//    /**
-//     * @Route ("Affiche/search/", name="jeux")
-//     */
-//    function Search(JeuxRepository $repository,Request $request){
-//        $data=$request->get('a');
-//        $jeux=$repository->findBy(['id'=>$data]);
-//        return $this->render('jeux/Affiche.html.twig',
-//            ['jeux'=>$jeux]);
-//    }
 }
