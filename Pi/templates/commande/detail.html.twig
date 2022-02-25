@@ -1,0 +1,48 @@
+{% extends 'base-back.html.twig' %}
+{% block stylesheets %}
+
+    <link href="{{ asset('back/vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+{% block title %}
+Detail{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Detail de la commande N°{{ id }}</h4>
+    <table class="table-hover table table-striped table-bordered">
+        <thead>
+        <tr>
+
+            <th>Produit</th>
+            <th>Quantite</th>
+        </tr>
+        </thead>
+
+       <tbody>
+            <tr>
+                <td>{{ produit }}</td>
+                <td>{{ quantite }}</td>
+
+
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+        </div>
+    </div>
+    </div>
+{% endblock %}

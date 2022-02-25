@@ -1,0 +1,51 @@
+{% extends 'base-back.html.twig' %}
+{% block stylesheets %}
+
+    <link href="{{ asset('back/vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-pen"></i>   Modifier une commande</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(fo) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(fo.Produit, 'Nom du produit', ) }}
+                {{ form_widget(fo.Produit, {'attr': {'class': 'form-control','placeholder': 'Nom du produit'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(fo.Quantite, 'Quantite', ) }}
+                {{ form_widget(fo.Quantite, {'attr': {'class': 'form-control','placeholder': 'Quantite'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fo.total, 'Total', ) }}
+                {{ form_widget(fo.total, {'attr': {'class': 'form-control','placeholder': 'Total'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fo.Id_livreur, 'Nom livreur', ) }}
+                {{ form_widget(fo.Id_livreur, {'attr': {'class': 'form-control','placeholder': 'Nom livreur'}}) }}
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(fo.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+            </div>
+
+
+
+            {{ form_end(fo) }}
+        </form>
+
+    </div>
+{% endblock body %}
