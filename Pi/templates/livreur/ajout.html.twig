@@ -18,8 +18,7 @@
         <p class="card-description">
         </p>
 
-        {{ form_start(f) }}
-        <form class="forms-sample">
+        {{ form_start(f,{'attr': {'novalidate': 'novalidate'}} ) }}        <form class="forms-sample">
 
             <div class="form-group">
                 {{ form_label(f.Nom, 'Nom du livreur', ) }}

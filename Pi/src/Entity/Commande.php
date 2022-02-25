@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
  */
@@ -23,20 +23,24 @@ class Commande
     private    $idlivreur;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="product is required")
      */
     private $Produit;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Quantity is required")
      */
     private $Quantite;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="Total is required")
      */
     private $Total;
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank(message="Date is required")
      */
     protected $date;
 

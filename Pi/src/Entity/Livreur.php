@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\LivreurRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,22 +19,31 @@ class Livreur
     private $id;
 
     /**
+     * @Assert\Blank(message= "Veuillez remplir ce champ ."))
      * @ORM\Column(type="string", length=255)
      */
     private $Nom;
 
     /**
+     * @Assert\NotBlank(message= "Veuillez remplir ce champ ."))
      * @ORM\Column(type="string", length=255)
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\MinLength(limit=8,message= "Votre N°tel  contient
+    plus  que {{ limit }} caractères."))
+     * @Assert\MaxLength(limit=8,message= "Votre N°tel ne contient
+    pas {{ limit }} caractères."))
      */
     private $Tel;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid
+    email.")
      */
     private $Email;
     /**
