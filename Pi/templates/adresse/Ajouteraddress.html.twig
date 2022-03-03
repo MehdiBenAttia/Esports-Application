@@ -1,0 +1,71 @@
+{% extends 'base-front.html.twig' %}
+
+{% block body %}
+
+<div class="nk-store nk-store-checkout">
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Billing</span> Details</span></h3>
+
+    <!-- START: Billing Details -->
+    <div class="nk-gap"></div>
+    {{ form_start(f,{'attr': {novalidate: 'novalidate'}} ) }}
+
+        <div class="row vertical-gap">
+            <div class="col-lg-6">
+                <div class="row vertical-gap">
+                    <div class="col-sm-6">
+                        {{ form_label(f.Nom, 'First Name', ) }}
+                        {{ form_widget(f.Nom, {'attr': {'class': 'form-control','placeholder': 'First Name'}}) }}
+                        {{ form_errors(f.Nom) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form_label(f.Prenom, 'Last Name', ) }}
+                        {{ form_widget(f.Prenom, {'attr': {'class': 'form-control','placeholder': 'Last Name'}}) }}
+                        {{ form_errors(f.Prenom) }}
+                    </div>
+                </div>
+
+
+
+                <div class="nk-gap-1"></div>
+                <div class="row vertical-gap">
+                    <div class="col-sm-6">
+                        {{ form_label(f.Email, 'Email Adress', ) }}
+                        {{ form_widget(f.Email, {'attr': {'class': 'form-control','placeholder': 'Email Adress'}}) }}
+                        {{ form_errors(f.Email) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form_label(f.Tel, 'Phone', ) }}
+                        {{ form_widget(f.Tel, {'attr': {'class': 'form-control','placeholder': 'Phone'}}) }}
+                        {{ form_errors(f.Tel) }}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-6">
+                {{ form_label(f.Adress, 'Address', ) }}
+                {{ form_widget(f.Adress, {'attr': {'class': 'form-control','placeholder': 'Address'}}) }}
+                {{ form_errors(f.Adress) }}
+
+                <div class="nk-gap-1"></div>
+                {{ form_label(f.City, 'City', ) }}
+                {{ form_widget(f.City, {'attr': {'class': 'form-control','placeholder': 'City'}}) }}
+                {{ form_errors(f.City) }}
+
+                <div class="nk-gap-1"></div>
+                <div class="row vertical-gap">
+
+
+                </div>
+
+
+            </div>
+            {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-1' }}) }}
+
+        </div>
+
+    {{ form_end(f) }}
+
+
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\Adresse;
 
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
  */
@@ -17,10 +19,12 @@ class Commande
      */
     private $idcommande;
 
+
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Livreur", inversedBy="Livreur")
      */
     private    $idlivreur;
+
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="product is required")
@@ -44,9 +48,20 @@ class Commande
      */
     protected $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="Commande")
+     */
+    private $adresse;
+
     public function __construct()
     {
         $this->date = new \DateTime('now');
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->adresse;
     }
 
     /**
@@ -102,6 +117,26 @@ class Commande
     }
 
     /**
+     * @return Adresse
+     */
+    public function getAdresse(): ?Adresse
+    {
+        return $this->adresse;
+    }
+
+    /**
+
+     * @return $this
+     */
+    public function setAdresse(Adresse $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getProduit()
@@ -148,6 +183,7 @@ class Commande
     {
         $this->Total = $Total;
     }
+
 
 
 

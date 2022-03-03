@@ -28,14 +28,14 @@
             {% if element.idlivreur!=null %}
             <td class="text-end text-success">{{ element.idlivreur.Nom }} {{ element.idlivreur.Prenom}} </td>
             {% else  %}
-                <td class="text-end text-danger">n'est pas selectionné </td>
+                <td class="text-end text-danger">non selectionné </td>
                 {% endif %}
             <td class="text-end">{{ element.date|date("m/d/Y h:m:s") }}</td>
 
 
             <td class="text-end">{{ element.Total }}TND</td>
             <td>
-                <a class="btn btn-outline-info" href="{{ path('D',{'id':element.idcommande,'produit':element.Produit,'quantite':element.Quantite}) }}">Detail</a>
+                <a class="btn btn-outline-info" href="{{ path('D',{'id':element.idcommande,'produit':element.Produit,'quantite':element.Quantite,'adresse':element.adresse.id}) }}">Detail</a>
 
 
             </td>
@@ -45,6 +45,7 @@
 
             </td>
             <td> <a class="btn btn-outline-danger" href="{{ path('supprimercommandeback',{'id':element.idcommande}) }}" >Delete</a></td>
+            <td><a class="btn btn-outline-danger" href="{{ path('imprimer',{'id':element.idcommande,'adresse':element.adresse.id}) }}">Imprimer</a></td>
 
         </tr>
             {% endfor %}

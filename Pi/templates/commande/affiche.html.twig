@@ -1,3 +1,4 @@
+
 {% extends 'base-front.html.twig' %}
 
 
@@ -5,64 +6,69 @@
 
 
     <div class="nk-store nk-store-checkout">
-    <div class="nk-gap-3"></div>
-    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Your</span> Order</span></h3>
-    <div class="nk-gap"></div>
-    <div class="table-responsive">
-        <table class="nk-table nk-table-sm">
-            <thead class="thead-default">
-            <tr>
-                <th class="nk-product-cart-title">Product</th>
-                <th class="nk-product-cart-total">Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for element in dataPanier %}
-
+        <div class="nk-gap-3"></div>
+        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Your</span> Order</span></h3>
+        <div class="nk-gap"></div>
+        <div class="table-responsive">
+            <table class="nk-table nk-table-sm">
+                <thead class="thead-default">
                 <tr>
-                    <td class="nk-product-cart-title">
-                        {{ element.produit.nom }}
+                    <th class="nk-product-cart-title">Product</th>
+                    <th class="nk-product-cart-total">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for element in dataPanier %}
+
+                    <tr>
+                        <td class="nk-product-cart-title">
+                            {{ element.produit.nom }} * ({{ element.quantite }})
+                        </td>
+                        <td class="nk-product-cart-total">
+                            {{ element.quantite * element.produit.prix }}
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+
+                <tr class="nk-store-cart-totals-subtotal">
+                    <td>
+                        Subtotal
                     </td>
-                    <td class="nk-product-cart-total">
-                        {{ element.produit.prix }}
+                    <td>
+                        {{ total }}
                     </td>
                 </tr>
+                <tr class="nk-store-cart-totals-shipping">
+                    <td>
+                        Shipping
+                    </td>
+                    <td>
+                        Free Shipping
+                    </td>
+                </tr>
+                <tr class="nk-store-cart-totals-total">
+                    <td>
+                        Total
+                    </td>
+                    <td>
+                        {{ total }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END: Order Products -->
 
-            {% endfor %}
+        <div class="nk-gap-2"></div>
+        {{ form_start(f) }}
+        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
 
-
-            <tr class="nk-store-cart-totals-subtotal">
-                <td>
-                    Subtotal
-                </td>
-                <td>
-                    {{ total }}
-                </td>
-            </tr>
-            <tr class="nk-store-cart-totals-shipping">
-                <td>
-                    Shipping
-                </td>
-                <td>
-                    Free Shipping
-                </td>
-            </tr>
-            <tr class="nk-store-cart-totals-total">
-                <td>
-                    Total
-                </td>
-                <td>
-                    {{ total }}
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- END: Order Products -->
-
-    <div class="nk-gap-2"></div>
-    <a class="  nk-btn nk-btn-rounded nk-btn-color-main-1" href="{{ path('Ajoutcommande') }}">Place Order</a></div>
+        <!--<a class="  nk-btn nk-btn-rounded nk-btn-color-main-1" href="{{ path('Ajoutcommande') }}">Place Order</a></div>-->
+    {{ form_end(f) }}
 
     </div>
 
 {% endblock %}
+

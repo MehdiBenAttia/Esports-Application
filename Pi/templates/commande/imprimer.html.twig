@@ -1,0 +1,67 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="/facture.css" media="all" />
+</head>
+<body>
+<header class="clearfix">
+    <div id="logo">
+        <img src="Logo.png">
+    </div>
+    <h1 align="center">E-TSports</h1>
+    <hr></hr>
+    <h4 >Detail de l'addresse de livraison{{ commande.idcommande }}</h4>
+    <hr></hr>
+    <div id="company" class="clearfix">
+        <div><span>Client</span> {{ adresse.Nom }}{{ adresse.prenom}} </div>
+        <div><span>EMAIL</span> {{ adresse.Email}} </div>
+        <div><span>N°Tel</span> {{ adresse.Tel }}</div>
+        <div><span>Adresse de Livraison</span> {{ adresse.Adress }}</div>
+        <div><span>Cite</span> {{ adresse.City }}</div>
+
+
+    </div><hr></hr>
+    <div id="project">
+        <div><span>Livreur</span> {{ commande.idlivreur.Nom }} {{ commande.idlivreur.Prenom}}</div>
+        <div><span>EMAIL</span> {{ commande.idlivreur.Email}} </div>
+        <div><span>N°Tel</span> {{ commande.idlivreur.Tel}}</div>
+    </div>
+</header>
+
+    <hr></hr>
+    <table>
+        <thead>
+        <tr>
+            <th class="service">Produit</th>
+            <th class="desc">Quantite</th>
+            <th>TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="service">{{ commande.Produit }} </td>
+            <td class="desc">{{ commande.Quantite }} </td>
+            <td class="total">{{ commande.Total }}Tnd </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="4">SUBTOTAL</td>
+            <td class="total">{{ commande.Total }}Tnd</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+    <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    </div>
+</main>
+
+</body>

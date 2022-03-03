@@ -1,14 +1,22 @@
 <?php
 
 namespace App\Controller;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
+use App\Entity\Adresse;
+use App\Entity\Livreur;
 use App\Entity\Panier;
 use App\Entity\Produit;
 
 use App\Entity\Commande;
+use App\Form\AdresseType;
 use App\Form\CommandeType;
+use App\Repository\AdresseRepository;
 use App\Repository\CommandeRepository;
+use App\Repository\LivreurRepository;
 use App\Repository\ProduitRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,13 +43,14 @@ class CommandeController extends AbstractController
      * @return Response
      * @Route ("/Ajoutcommande",name="Ajoutcommande",methods={"GET","POST"})
      */
-    function Ajout(Request $request, SessionInterface $session, ProduitRepository $produitRepository, CommandeRepository $commandeRepository)
+    function Ajout(Request $request, SessionInterface $session,AdresseRepository $adresseRepository,ProduitRepository $produitRepository, CommandeRepository $commandeRepository)
     {
         $panier = $session->get("panier", []);
         $dataPanier = [];
         $total = 0;
-        $produits = [];
+         $produits =[];
         $em = $this->getDoctrine()->getManager();
+
         //dd($panier);
         foreach ($panier as $id => $quantite) {
             $product = $produitRepository->find($id);
@@ -52,44 +61,36 @@ class CommandeController extends AbstractController
             $total += $product->getPrix() * $quantite;
 
             $commande = new Commande();
-            $commande->setTotal($total);
+            $commande->setTotal($product->getPrix() * $quantite);
             $commande->setProduit($product);
             $commande->setIdLivreur(null);
             $commande->setQuantite($quantite);
 
+//dd($commande);
             array_push($produits, $commande);
         }
         //dd($produits);
 
-        for ($i = 0; $i < count($produits); $i++) {
 
-            $em->persist($produits[$i]);
-            $em->flush();
+        $form = $this->createForm(CommandeType::class, $commande);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            for ($i = 0; $i < count($produits); $i++) {
+                $adresse = $adresseRepository->find($session->get('address'));
+                $produits[$i]->setAdresse($adresse);
+                $em->persist($produits[$i]);
+                $em->flush();
 
+            }
+            return $this->redirectToRoute('afficheproduit');
         }
 
 
         //dd($dataPanier);
 
 
-        /*$form=$this->createForm(CommandeType::class,$commande);
-        $form->add('payer',SubmitType::class);
-        $form->handleRequest($request);
-        if($form->isSubmitted()&&$form->isValid())
-        {
-            for ($i = 0; $i < count($dataPanier ); $i++) {
 
-                $commande->setProduit($dataPanier [$i]['produit']->getNom());
-                $commande->setQuantite($dataPanier [$i]['quantite']);
-
-                $commande->setTotal($total);}
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($commande);
-            $em->flush();
-            return $this->redirectToRoute('afficheproduit1');
-
-        }*/
-        return $this->render('commande/affiche.html.twig', ['dataPanier' => $dataPanier, 'total' => $total]);
+        return $this->render('commande/affiche.html.twig', ['dataPanier' => $dataPanier, 'total' => $total ,'f'=>$form->createView()]);
 
     }
 
@@ -102,8 +103,8 @@ class CommandeController extends AbstractController
     function Affiche(CommandeRepository $repository) //meme chose que metre 33 ligne
     {
         //$repo=$this->getDoctrine()->getRepository(ClassroomRepository::class);
-        $livreur = $repository->findAll();
-        return $this->render('/commande/afficheback.html.twig', ['c' => $livreur]);
+        $commande = $repository->findAll();
+        return $this->render('/commande/afficheback.html.twig', ['c' => $commande]);
 
     }
 
@@ -132,6 +133,16 @@ class CommandeController extends AbstractController
     {
         $Commande = new Commande();
         $form = $this->createForm(CommandeType::class, $Commande);
+        $form->add('Produit');
+        $form->add('Quantite');
+        $form->add('total');
+        $form->add('Id_livreur',EntityType::class,[
+        'class'=>Livreur::class,
+        'choice_label'=>'Nom',
+    ]);
+
+
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -154,6 +165,13 @@ class CommandeController extends AbstractController
         $commande = $repository->find($id);
         //$classroom = $entityManager->getRepository(Classroom::class)->find($id);
         $form = $this->createForm(CommandeType::class, $commande);
+        $form->add('Produit');
+        $form->add('Quantite');
+        $form->add('total');
+        $form->add('Id_livreur',EntityType::class,[
+            'class'=>Livreur::class,
+            'choice_label'=>'Nom',
+        ]);
 
         $form->handleRequest($request);
 
@@ -171,11 +189,50 @@ class CommandeController extends AbstractController
     }
 
     /**
-     * @Route ("/detail/{id}/{produit}/{quantite}" ,name="D")
+     * @Route ("/detail/{id}/{produit}/{quantite}/{adresse}" ,name="D")
      */
-    function detail($produit, $quantite, $id)
+    function detail($produit, $quantite, $id,$adresse, AdresseRepository $repository)
     {
-        return $this->render('commande/detail.html.twig', ['id' => $id, 'produit' => $produit, 'quantite' => $quantite]);
+        $ADD=$repository->find($adresse);
+        return $this->render('commande/detail.html.twig', ['id' => $id, 'produit' => $produit, 'quantite' => $quantite,'ad'=>$ADD]);
 
     }
+
+    /**
+     * @Route ("/Imprimer/{id}/{adresse}" ,name="imprimer")
+     */
+    public function pdf($id,$adresse,AdresseRepository $adresseRepository,CommandeRepository $commandeRepository)
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $ADD=$adresseRepository->find($adresse);
+        $commande = $commandeRepository->find($id);
+        //dd($adresse);
+        // dd($commande);
+
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('commande/imprimer.html.twig',
+            ['commande' => $commande,'adresse'=>$ADD
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
+    }
+
 }

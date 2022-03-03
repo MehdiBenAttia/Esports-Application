@@ -7,6 +7,7 @@ use App\Entity\Commande;
 use App\Entity\Panier;
 
 
+use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -43,4 +44,5 @@ class PanierController extends AbstractController
 
         return $this->redirectToRoute("affiche");
     }
+
 }

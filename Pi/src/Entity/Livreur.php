@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
+
 use App\Repository\LivreurRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=LivreurRepository::class)
@@ -15,35 +17,51 @@ class Livreur
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
-     * @Assert\Blank(message= "Veuillez remplir ce champ ."))
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     min = 3,
+     *     max = 50,
+     *     minMessage= "Le nom  est trop court",
+     *     maxMessage="Le nom est trop long")
+     * @Assert\NotBlank (message="Name is required")
+     * @Groups("post:read")
      */
     private $Nom;
 
     /**
-     * @Assert\NotBlank(message= "Veuillez remplir ce champ ."))
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Length(
+     *     min = 3,
+     *     max = 50,
+     *     minMessage= "Le prenom  est trop court",
+     *     maxMessage="Le prenom est trop long")
+     * @Assert\NotBlank (message="Name is required")
+     * @Groups("post:read")
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\MinLength(limit=8,message= "Votre N°tel  contient
-    plus  que {{ limit }} caractères."))
-     * @Assert\MaxLength(limit=8,message= "Votre N°tel ne contient
-    pas {{ limit }} caractères."))
+     *  @Assert\Length(
+     *     min = 8,
+     *     max = 8,
+     *     minMessage= "Le N°tel  est trop court",
+     *     maxMessage="Le N°tel est trop long")
+     * @Assert\NotBlank (message="Tel  is required")
+     * @Groups("post:read")
      */
     private $Tel;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Email is required")
-     * @Assert\Email(message = "The email '{{ value }}' is not a valid
-    email.")
+     *  @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
+     * @Groups("post:read")
      */
     private $Email;
     /**

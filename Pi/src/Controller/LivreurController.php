@@ -2,14 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\Livreur;
 use App\Form\LivreurType;
+use App\Repository\CommandeRepository;
 use App\Repository\LivreurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 class LivreurController extends AbstractController
 {
@@ -39,11 +44,12 @@ class LivreurController extends AbstractController
     /**
      * @param $id
      * @param LivreurRepository $rep
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      * @Route ("/supprimerlivreur/{id}", name="supprimerlivreur")
      */
     function Delete($id,LivreurRepository $rep)
     {
+
         $livreur=$rep->find($id);
         $em=$this->getDoctrine()->getManager();
         $em->remove($livreur);
@@ -101,5 +107,40 @@ class LivreurController extends AbstractController
             "form_title" => "Modifier livreur",
             "fo" => $form->createView(),
         ]);
+    }
+    /**
+     * @Route("/liv/{id}",name="liv")
+     */
+    public function livid(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Livreur::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+
+        return new Response(json_encode($jsonContent));
+    }
+    /**
+     *
+     * @route ("/addlivJSON/new",name="addliv")
+     */
+    public function addliv(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $livreur=new Livreur();
+        $livreur->setNom($request->get('nom'));
+        $livreur->setEmail($request->get('email'));
+        $livreur->setPrenom($request->get('prenom'));
+        $livreur->setTel($request->get('tel'));
+
+
+
+        $em->persist($livreur);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($livreur,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));;
+
+
+
+
     }
 }
