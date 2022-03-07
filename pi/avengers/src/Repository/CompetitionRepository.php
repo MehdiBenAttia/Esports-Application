@@ -44,6 +44,39 @@ class CompetitionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function trie_croissant_datefin()
+    {
+        return $this->createQueryBuilder('competition')
+            ->orderBy('competition.datefin','ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function trie_decroissant_datefin()
+    {
+        return $this->createQueryBuilder('competition')
+            ->orderBy('competition.datefin','DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    public function trie_croissant_nom()
+    {
+        return $this->createQueryBuilder('competition')
+            ->orderBy('competition.nom','ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function trie_decroissant_nom()
+    {
+        return $this->createQueryBuilder('competition')
+            ->orderBy('competition.nom','DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @route ("/choix_categorie/{id}", name="choix_categorie")
      */

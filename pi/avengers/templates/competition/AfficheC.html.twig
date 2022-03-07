@@ -13,7 +13,10 @@
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nom Compétition</th>
+                            <th>Nom Compétition
+                                <a href="{{ path('croissantN') }}"><i class="fa-solid fa-arrow-circle-up"></i></a>
+                                <a href="{{ path('decroissantN') }}"><i class="fa-solid fa-arrow-circle-down"></i></a>
+                            </th>
                             <th>Jeu</th>
                             <th>nbparticipants</th>
                             <th>Image</th>
@@ -22,7 +25,10 @@
                                 <a href="{{ path('croissant') }}"><i class="fa-solid fa-arrow-circle-up"></i></a>
                                 <a href="{{ path('decroissant') }}"><i class="fa-solid fa-arrow-circle-down"></i></a>
                             </th>
-                            <th>Date de fin</th>
+                            <th>Date de fin
+                                <a href="{{ path('croissantF') }}"><i class="fa-solid fa-arrow-circle-up"></i></a>
+                                <a href="{{ path('decroissantF') }}"><i class="fa-solid fa-arrow-circle-down"></i></a>
+                            </th>
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>

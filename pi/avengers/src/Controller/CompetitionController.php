@@ -138,6 +138,126 @@ class CompetitionController extends AbstractController
         return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
     }
 
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/croissantF", name="croissantF")
+     */
+    function croissantF(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_croissant_datefin();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/decroissantF", name="decroissantF")
+     */
+    function decroissantF(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_decroissant_datefin();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/croissantN", name="croissantN")
+     */
+    function croissantN(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_croissant_nom();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/decroissantN", name="decroissantN")
+     */
+    function decroissantN(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_decroissant_nom();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+
+
+
+
+
     /**
      * @param $id
      * @param CompetitionRepository $rep
