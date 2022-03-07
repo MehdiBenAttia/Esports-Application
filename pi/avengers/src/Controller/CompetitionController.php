@@ -8,22 +8,19 @@ use App\Form\CompetitionType;
 use App\Repository\CategorieRepository;
 use App\Repository\CompetitionRepository;
 use App\Repository\JeuxRepository;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Endroid\QrCode\Builder\BuilderInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Twig_Extensions_Extension_Date;
 
 class CompetitionController extends AbstractController
 {
-    /**
-     * @Route("/competition", name="competition")
-     */
-    public function index(): Response
-    {
-        return $this->render('competition/index.html.twig', [
-            'controller_name' => 'CompetitionController',
-        ]);
-    }
 
     /**
      * @param CompetitionRepository $repository
@@ -31,13 +28,30 @@ class CompetitionController extends AbstractController
      * @route ("/tournament", name="tournament")
      */
     function Tournament(CompetitionRepository $repository , CategorieRepository $categorieRepository){
+        $now= new \DateTime('now');
         //$repo= $this->getDoctrine()->getRepository(Classroom::class);
         $categories = $categorieRepository->findAll();
         $jeux = $repository->findAll();
-        return $this->render('/competition/competition.html.twig',[
-            'categories'=>$categories ,
-            'jeux'=>$jeux
-        ]);
+        $compet=$repository->findAll();
+//        foreach ($compet as $c){
+//            $diff[]= $c->getDatefin()->diff($now);
+//        }
+//        dump($diff);
+//        die();
+        $rdvs = [];
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+        $data = json_encode($rdvs);
+        return $this->render('/competition/competition.html.twig',compact('data' , 'categories' , 'jeux'));
     }
 
     /**
@@ -48,7 +62,80 @@ class CompetitionController extends AbstractController
     function Affiche(CompetitionRepository $repository){
         //$repo= $this->getDoctrine()->getRepository(Classroom::class);
         $competition= $repository->findAll();
-        return $this->render('/competition/AfficheC.html.twig',['competition'=>$competition]);
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/croissant", name="croissant")
+     */
+    function croissant(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_croissant_datedeb();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
+    }
+
+    /**
+     * @param CompetitionRepository $repository
+     * @return Response
+     * @route ("/decroissant", name="decroissant")
+     */
+    function decroissant(CompetitionRepository $repository){
+        //$repo= $this->getDoctrine()->getRepository(Classroom::class);
+        $competition= $repository->trie_decroissant_datedeb();
+        $compet=$repository->findAll();
+
+        $rdvs = [];
+
+        foreach ($compet as $event)
+        {
+            $rdvs[]=[
+                'title'=>$event->getNom(),
+                'start'=>$event->getDatedeb()->format("Y-m-d"),
+                'end'=>$event->getDatefin()->format("Y-m-d"),
+                'backgroundColor'=> '#0ec51',
+                'borderColor'=> 'green',
+                'textColor' => 'black'
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        return $this->render('/competition/AfficheC.html.twig',compact('competition','data'));
     }
 
     /**
@@ -111,25 +198,66 @@ class CompetitionController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Competition::class);
         $requestString=$request->get('searchValue');
         $jeux = $repository->findCompetitionbyname($requestString);
-
         return $this->render('competition/ajax.html.twig', [
             "jeux"=>$jeux,
         ]);
-
     }
 
     /**
-     * @route ("/competition_detail", name="competition_detail")
+     * @route ("/games", name="games")
      */
 
-    public function detail(CompetitionRepository $competitionRepository, JeuxRepository $jeuxRepository )
+    public function games(Request $request, PaginatorInterface $paginator, JeuxRepository $jeuxRepository )
     {
-        $competition = $competitionRepository->findAll();
-        $jeux=$jeuxRepository->findAll();
-        return $this->render('competition/details.html.twig', [
-            'competition' => $competition,
+        $articles=$jeuxRepository->findAll();
+        $jeux=$paginator->paginate(
+            $articles,
+            $request->query->getInt('page',1),
+            2
+        );
+
+
+        return $this->render('competition/games.html.twig', [
             'jeux'=>$jeux
         ]);
+    }
+
+
+    /**
+     * @route ("/competition_detail/{id}", name="detail")
+     */
+
+    public function detail(CompetitionRepository $repo, JeuxRepository $repoJeux, $id)
+    {
+        $com = $repo->find($id);
+        $jeux =$repoJeux->findAll();
+        return $this->render('competition/detail.html.twig', [
+            'competition' => $com,
+            'jeux'=>$jeux,
+
+        ]);
+    }
+
+
+    /**
+     * @Route("/CompetitionM",name="allcompetitions")
+     */
+    public function displayCompetitions (Request $request, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Competition::class)->findAll();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+    }
+
+
+    public function __construct(BuilderInterface $customQrCodeBuilder)
+    {
+        $result = $customQrCodeBuilder
+            ->size(400)
+            ->margin(20)
+            ->build();
     }
 
 

@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CategorieController extends AbstractController
 {
@@ -85,5 +87,44 @@ class CategorieController extends AbstractController
             ]);
     }
 
+    /**
+     *
+     * @route ("/addcatJSON/new",name="addcat")
+     */
+    public function addpcat(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=new Categorie();
+        $categorie->setNom($request->get('nom'));
+        $em->persist($categorie);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($categorie,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route("/Categorie/{id}",name="allcat")
+     */
+    public function catid(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Categorie::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updateCategorieJSON/{id}", name="updateCategorieJSON")
+     */
+    public function updateCategorieJSON(Request $request,NormalizerInterface $normalizer,$id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=$em->getRepository(Categorie::class)->find($id);
+        $categorie->setNom($request->get('nom'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'post:read']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
 
 }

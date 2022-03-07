@@ -28,6 +28,22 @@ class CompetitionRepository extends ServiceEntityRepository
                     ->getResult();
     }
 
+    public function trie_croissant_datedeb()
+    {
+        return $this->createQueryBuilder('competition')
+           ->orderBy('competition.datedeb','ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function trie_decroissant_datedeb()
+    {
+        return $this->createQueryBuilder('competition')
+            ->orderBy('competition.datedeb','DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @route ("/choix_categorie/{id}", name="choix_categorie")
      */

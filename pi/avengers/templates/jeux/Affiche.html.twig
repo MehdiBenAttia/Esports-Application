@@ -91,7 +91,9 @@
             <div class="card-body">
                 <h4 class="card-title">Les jeux disponibles</h4>
                 <a class="btn btn-outline-dark " href="{{ path('A') }}" ><i class="fa-solid fa-circle-plus"></i> Ajouter un nouveau jeu</a>
-{#                <p class="card-description">#}
+                <a class="btn btn-outline-dark " href="{{ path('home') }}" ><i class="fa-solid fa-house-user"></i> Home</a>
+
+                {#                <p class="card-description">#}
 {#                    Add class <code>.table-{color}</code>#}
 {#                </p>#}
 
@@ -140,9 +142,6 @@
             </div>
         </div>
     </div>
-{% endblock body %}
-
-{% block js %}
 
     <script>
         var slideIndex = 0;
@@ -165,6 +164,11 @@
             setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
     </script>
+
+{% endblock body %}
+
+{% block js %}
+
 
 {% endblock %}
 

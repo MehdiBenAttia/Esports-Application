@@ -7,6 +7,7 @@
             <div class="card-body">
                 <h4 class="card-title">Les compétitions disponibles</h4>
                 <a class="btn btn-outline-dark " href="{{ path('Ac') }}" ><i class="fa-solid fa-circle-plus"></i> Ajouter une compétition</a>
+                <a class="btn btn-outline-dark " href="{{ path('home') }}" ><i class="fa-solid fa-house-user"></i> Home</a>
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
@@ -16,7 +17,11 @@
                             <th>Jeu</th>
                             <th>nbparticipants</th>
                             <th>Image</th>
-                            <th>Date de début</th>
+                            <th>
+                                Date de début
+                                <a href="{{ path('croissant') }}"><i class="fa-solid fa-arrow-circle-up"></i></a>
+                                <a href="{{ path('decroissant') }}"><i class="fa-solid fa-arrow-circle-down"></i></a>
+                            </th>
                             <th>Date de fin</th>
                             <th>Update</th>
                             <th>Delete</th>
@@ -43,6 +48,38 @@
                     </table>
                 </div>
             </div>
+            <style>
+                #calendrier{
+                    width: 80%;
+                    margin: auto;
+                }
+            </style>
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js" integrity="sha256-YicH/8aE660iEnJtgll3vT54dJApy3XkYmqNfGVFEzA=" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+
+            <div id="calendrier"></div>
+
+
+            <script>
+                window.onload = () =>{
+                    let calendarElt = document.querySelector("#calendrier")
+
+
+                    let calendar = new FullCalendar.Calendar(calendarElt,{
+                        initialView: 'dayGridMonth',
+                        locale: 'fr',
+                        timeZone: 'Europe/Paris',
+                        headerToolbar: {
+                            start: 'prev,next today',
+                            center: 'title',
+                            end: 'dayGridMonth,timeGridWeek'
+                        },
+                        events: {{ data|raw }}
+
+                    })
+                    calendar.render();
+                }
+            </script>
         </div>
     </div>
 {% endblock body %}

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "ezsystems/share-buttons-bundle": "^1.2",
+        "twig/extensions": "^1.5"
+    }
+}

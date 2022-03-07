@@ -6,9 +6,16 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CategorieRepository::class)
+ * @UniqueEntity(
+ *     fields={"nom"},
+ *     errorPath="nom",
+ *     message="Cette catégorie existe déja."
+ * )
  */
 class Categorie
 {
@@ -16,17 +23,21 @@ class Categorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+
+     * @ORM\Column(type="string", length=255,unique=true)
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\OneToMany(targetEntity=Jeux::class, mappedBy="categorie",cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
+     * @Groups("post:read")
      */
     private $games;
 

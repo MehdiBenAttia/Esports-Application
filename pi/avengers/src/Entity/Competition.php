@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 
 /**
@@ -21,27 +23,33 @@ class Competition
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Invalid: vous devez remplir ce champ")
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive(message="Invalid: la valeur 0 n'est pas accepté")
+     * @Groups("post:read")
      */
     private $nbparticipants;
 
     /**
      * @ORM\ManyToOne(targetEntity=Jeux::class, inversedBy="competitons")
+
      */
     private $jeux;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $image;
 
@@ -49,27 +57,30 @@ class Competition
      * @Vich\UploadableField(mapping="competition_image", fileNameProperty="image")
      * @Assert\NotBlank(message="Invalid: vous devez joindre une image")
      * @var File|null
+
      */
     private $imageFile;
 
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-
-    private $dateDeb;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Expression("this.getDateDeb()<this.getDateFin()",message="Invalide: Date doit étre supérieur à la date de début")
-
-     */
-    private $dateFin;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $updated_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datedeb;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datefin;
+
+
+
 
 //    /**
 //     * @ORM\Column (type="string",length=255)
@@ -146,10 +157,7 @@ class Competition
         return $this;
     }
 
-    public function getDateDeb(): ?string
-    {
-        return $this->dateDeb;
-    }
+
 
 //    public function getCurrentDate(): ?string
 //    {
@@ -159,24 +167,9 @@ class Competition
 //        return $this->currentDate;
 //    }
 
-    public function setDateDeb(string $dateDeb): self
-    {
-        $this->dateDeb = $dateDeb;
 
-        return $this;
-    }
 
-    public function getDateFin(): ?string
-    {
-        return $this->dateFin;
-    }
 
-    public function setDateFin(string $dateFin): self
-    {
-        $this->dateFin = $dateFin;
-
-        return $this;
-    }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -189,4 +182,29 @@ class Competition
 
         return $this;
     }
+
+    public function getDatedeb(): ?\DateTimeInterface
+    {
+        return $this->datedeb;
+    }
+
+    public function setDatedeb(?\DateTimeInterface $datedeb): self
+    {
+        $this->datedeb = $datedeb;
+
+        return $this;
+    }
+
+    public function getDatefin(): ?\DateTimeInterface
+    {
+        return $this->datefin;
+    }
+
+    public function setDatefin(?\DateTimeInterface $datefin): self
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
 }
