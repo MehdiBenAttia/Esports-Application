@@ -1,0 +1,68 @@
+{% extends 'form.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Ajouter une réclamation</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(f,{'attr': {'novalidate': 'novalidate' , 'id' : 'reclamation'}}) }}
+        <form class="forms-sample" >
+
+            <div class="form-group">
+                {{ form_label(f.NomUser, 'Nom d utilisateur', ) }}
+                {{ form_widget(f.NomUser, {'attr': {'class': 'form-control','placeholder': 'Nom d utilisateur'}}) }}
+                {{ form_errors(f.NomUser) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.email, 'email', ) }}
+                {{ form_widget(f.email, {'attr': {'class': 'form-control','placeholder': 'email'}}) }}
+                {{ form_errors(f.email) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.Message, 'Message', ) }}
+                {{ form_widget(f.Message, {'attr': {'class': 'form-control','placeholder': 'Message'}}) }}
+                {{ form_errors(f.Message) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.categorie, 'Type de la reclamation', ) }}
+                {{ form_widget(f.categorie, {'attr': {'class': 'form-control','placeholder': 'TypeRec'}}) }}
+                <p id="errors"></p>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label>Autre</label>
+                <input type="text" id="autre" class="form-control" placeholder="Autre type" name="autre">
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'nk-btn nk-btn-rounded nk-btn-color-white' }}) }}
+                {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
+            {{ form_end(f) }}
+        </form>
+
+
+
+
+
+
+    </div>
+
+
+
+<script>
+
+   $('#reclamation').submit(function(e) {
+          console.log('heree')
+       if (!$('#reclamation_categorie').val()
+           && !$('#autre').val()) {
+           e.preventDefault();
+           $('#errors').text("Veuillez choisir une  catégorie")
+       }
+   })
+</script>
+
+{% endblock %}

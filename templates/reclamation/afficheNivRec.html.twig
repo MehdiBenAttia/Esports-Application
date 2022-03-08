@@ -1,0 +1,90 @@
+{% extends 'crud.html.twig' %}
+
+{% block body %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gestions des réclamations</h4>
+            <a type="button" class="btn btn-secondary" href="{{ path('Affichehigh') }}">  only high   </a>
+            <a type="button" class="btn btn-secondary" href="{{ path('Affichmed') }}">  only medium   </a>
+            <a type="button" class="btn btn-secondary" href="{{ path('Affichlow') }}">  only low   </a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th> ID</th>
+                        <th> Nom_User</th>
+                        <th> E-mail</th>
+                        <th> Message</th>
+                        <th> Type_reclamation</th>
+                        <th>level</th>
+                        <th> Date</th>
+                        <th> Reponse</th>
+                        <th> etat</th>
+
+                        <th>Add</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr {% for c in rec %}>
+
+                        <td> {{ c.id }}</td>
+
+                        <td> {{ c.nom_user }}</td>
+                        <td> {{ c.email }}</td>
+                        <td
+                                style="word-wrap: break-word;
+                                min-width: 160px;
+                                max-width: 160px;
+                                white-space: normal;"
+                        > {{ c.message }}</td>
+                        {% if c.catrec is not null %}
+                            <td> {{ c.catrec }}</td>
+                        {% endif %}
+                        <td> {{ c.level }}</td>
+
+                        <td> {{ c.date|date('d-m-Y H:i:s') }}</td>
+
+                        <td style="word-wrap: break-word;
+                                min-width: 160px;
+                                max-width: 160px;
+                                white-space: normal;">
+
+                            <br>
+                            {{ c.rep }}
+
+
+                        </td>
+                        <td> {{ c.etat }}</td>
+
+
+                        <td><a href="{{ path('Arep',{'id':c.id}) }}"> Add a response</a></td>
+                        <td><a href=" {{ path('de',{'id':c.id}) }} "> Delete
+                                <img src="back/images/faces/bin.jpg" alt="image"/>
+
+
+                            </a>
+
+
+                        </td>
+
+                        <td><a href="{{ path('Up',{'id':c.id}) }}"> Update</a></td>
+
+
+                    </tr {% endfor %}>
+                    {{ knp_pagination_render(rec) }}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

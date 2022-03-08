@@ -1,0 +1,40 @@
+{% extends 'crud.html.twig' %}
+
+
+
+
+{% block body %}
+
+    <div ><a type="button" class="btn btn-secondary" href="{{ path('Affichehigh') }}">  only high   </a>
+        <a type="button" class="btn btn-secondary" href="{{ path('Affichmed') }}">  only medium   </a>
+        <a type="button" class="btn btn-secondary" href="{{ path('Affichlow') }}">  only low   </a>
+    <div id="presidents">
+
+    </div>
+    </div>
+    <!-- in the <head> section -->
+
+
+{% endblock %}
+
+
+{% block js %}
+
+    <script>
+        $(function() {
+            $('#presidents').initDataTables({{ datatable_settings(datatable) }}, {
+                searching: true,
+                dom:'<"html5buttons"B>lTfgitp',
+                pageLength: 10,
+                buttons: [
+                    'copy',
+                    { extend: 'pdf', title: 'domains'},
+                    { extend: 'print' }
+                ]
+            }).then(function(dt) {
+                // dt contains the initialized instance of DataTables
+            });
+        });
+    </script>
+
+{% endblock %}

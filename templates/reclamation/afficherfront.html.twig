@@ -1,0 +1,140 @@
+{% extends 'form.html.twig' %}
+{% block body %}
+
+
+
+
+
+
+    <body>
+
+    <style>
+        tr{
+            background-color: #171E22;
+        }
+    </style>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body" style="background-color: #171E22">
+                <h4 class="card-title">La liste des reclamations</h4>
+                <p class="card-description">
+                    </code>
+                </p>
+                <div class="table-responsive pt-8">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                 name
+                            </th>
+
+
+                            <th>
+                                message
+                            </th>
+
+                            <th>
+                                categorie
+                            </th>
+                            <th>
+                                date
+                            </th>
+                            <th>
+                                reponse
+                            </th>
+                            <th>
+                                etat
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+                            <th>
+                                Modify
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for c in rec %}
+                            <tr >
+
+
+                                <td> {{ c.Nomuser }}</td>
+                                <td
+                                        style="word-wrap: break-word;
+                                min-width: 160px;
+                                max-width: 160px;
+                                white-space: normal;"
+                                > {{ c.Message }}</td>
+
+                                {% if c.categorie is not null %}
+                                    <td> {{ c.categorie.catrec }}</td>
+                                {% endif %}
+
+                                <td> {{ c.Date|date('d-m-Y H:i:s') }}</td>
+
+                                <td style="word-wrap: break-word;
+                                min-width: 160px;
+                                max-width: 160px;
+                                white-space: normal;"
+                                >
+                                    {% for ca in c.reponses %}
+                                        {% if ca is not null %}
+                                            <br>
+                                            {{ ca.rep }}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </td>
+                                <td> {{ c.etat }}</td>
+
+                                <td><a href=" {{ path('deletefront',{'id':c.id}) }} "> Delete
+
+
+                                    </a>
+
+
+                                </td>
+
+                                <td><a href="{{ path('Upfront',{'id':c.id}) }}"> Update</a></td>
+
+
+
+
+
+
+                            </tr>
+                        {% endfor %}
+                        {{ knp_pagination_render(rec) }}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    </table>
+
+
+    </body>
+{% endblock %}
+
+
+
+
+
+
+
+
