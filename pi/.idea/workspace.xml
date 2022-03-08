@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="56fbf99d-4921-4228-9a9f-471086415f46" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/avengers/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/avengers/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/avengers/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/avengers/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/avengers/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/avengers/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/avengers/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/avengers/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/avengers/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/avengers/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/avengers/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/avengers/vendor/composer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/avengers/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/avengers/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/avengers/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/avengers/vendor/vich/uploader-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="257q6u10obqNeiMVKDBQpcZvvvC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/avengers/public/Front" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive\Bureau\pi\avengers\public\Front" />
+      <recent name="C:\Users\USER\OneDrive\Bureau\pi\avengers\public\Uploads" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive\Bureau\pi\avengers\public\Front" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56fbf99d-4921-4228-9a9f-471086415f46" name="Changes" comment="" />
+      <created>1644888302123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644888302123</updated>
+      <workItem from="1644888303599" duration="8652000" />
+      <workItem from="1644948736139" duration="48000" />
+      <workItem from="1644948795160" duration="4958000" />
+      <workItem from="1644966371427" duration="13853000" />
+      <workItem from="1645024734435" duration="13328000" />
+      <workItem from="1645049772501" duration="13534000" />
+      <workItem from="1645066859745" duration="320000" />
+      <workItem from="1645102180631" duration="7763000" />
+      <workItem from="1645111404407" duration="3561000" />
+      <workItem from="1645118105663" duration="2092000" />
+      <workItem from="1645129336514" duration="1789000" />
+      <workItem from="1645133410939" duration="86000" />
+      <workItem from="1645133542725" duration="7458000" />
+      <workItem from="1645143569798" duration="6665000" />
+      <workItem from="1645171346956" duration="820000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

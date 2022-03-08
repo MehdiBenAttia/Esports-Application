@@ -1,0 +1,32 @@
+<?php //App%255CEntity%255CJeux%2524competitons
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
+        clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'mappedBy' => [
+                'jeux',
+            ],
+            'targetEntity' => [
+                'App\\Entity\\Competition',
+            ],
+            'cascade' => [
+                [
+                    'remove',
+                ],
+            ],
+            'onDelete' => [
+                1 => 'CASCADE',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

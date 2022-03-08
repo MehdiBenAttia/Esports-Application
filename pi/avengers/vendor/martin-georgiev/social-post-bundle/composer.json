@@ -1,0 +1,72 @@
+{
+    "name": "martin-georgiev/social-post-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for simultaneous posting of the same message to Facebook, LinkedIn and Twitter",
+    "keywords": ["martin georgiev", "symfony", "bundle", "facebook", "twitter", "linkedin", "twitteroauth", "facabook sdk for php", "post update", "social network", "php7"],
+    "minimum-stability": "stable",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Martin Georgiev",
+            "email": "martin.georgiev@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "MartinGeorgiev\\": "src/MartinGeorgiev/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\MartinGeorgiev\\": "tests/MartinGeorgiev/"
+        }
+    },
+
+    "require": {
+        "php": "^7.2",
+        "martin-georgiev/social-post": "^1.0",
+        "symfony/framework-bundle": "^3.4|^4.3|^5.0",
+        "symfony/yaml": "^3.4|^4.3|^5.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12.10",
+        "phpunit/phpunit": "^8.5",
+        "sensiolabs-de/deptrac-shim": "^0.7.1",
+        "sensiolabs/security-checker": "^6.0",
+        "slam/phpstan-extensions": "^5.0",
+        "symfony/phpunit-bridge": "^3.4|^4.3|^5.0"
+    },
+
+    "scripts": {
+        "check-code-style": [
+            "php-cs-fixer fix --config='./ci/php-cs-fixer/config.php' --show-progress=none --dry-run --no-interaction --diff -v"
+        ],
+        "check-security": [
+            "security-checker security:check"
+        ],
+        "fix-code-style": [
+            "php-cs-fixer fix --config='./ci/php-cs-fixer/config.php' --show-progress=none --no-interaction --diff -v"
+        ],
+        "run-static-analysis": [
+            "phpstan analyse --configuration='./ci/phpstan/config.neon' --no-progress --level=8 src/ tests/",
+            "deptrac analyze './ci/deptrac/config.yml' --no-interaction --no-progress"
+        ],
+        "run-tests": [
+            "phpunit --configuration='./ci/phpunit/config.xml'"
+        ],
+        "run-tests-with-clover": [
+            "phpunit --configuration='./ci/phpunit/config.xml' --coverage-clover './build/logs/clover.xml'"
+        ]
+    },
+
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "prefer-stable": true
+}

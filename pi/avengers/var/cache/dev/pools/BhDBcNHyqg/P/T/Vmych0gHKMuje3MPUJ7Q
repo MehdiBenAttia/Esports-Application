@@ -1,0 +1,3 @@
+<?php //CalendarBundle%255CEntity%255CEvent
+
+return [PHP_INT_MAX, []];
