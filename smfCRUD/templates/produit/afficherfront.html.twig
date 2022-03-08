@@ -157,7 +157,7 @@
         <div class="container">
             <div class="nk-nav-table">
 
-                <a href="index.html" class="nk-nav-logo">
+                <a  href="{{ path('front') }}" class="nk-nav-logo">
                     <img src="front/assets/images/logo.png" alt="GoodGames" width="199">
                 </a>
 
@@ -427,12 +427,13 @@ Additional Classes:
     <!-- END: Breadcrumbs -->
 
 
+    <div class="container" id="">
 
 
 
     <div class="container">
         <!-- START: Image Slider -->
-        <div class="nk-image-slider" data-autoplay="8000">
+        <div class="nk-image-slider" data-autoplay="8000" id="#all">
 
             {% for c in produit %}
 
@@ -441,8 +442,8 @@ Additional Classes:
 
                 <div class="nk-image-slider-content">
 
-                    <h3 class="h4">{{ c.prix }}</h3>
-                    <p class="text-white">{{ c.marque }}</p>
+                    <h3 class="h4">{{ c.marque }}</h3>
+                    <p class="text-white">{{ c.prix }} DT</p>
                     <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
 
                 </div>
@@ -462,6 +463,7 @@ Additional Classes:
         <!-- END: Image Slider -->
 
         <!-- START: Categories -->
+
         <div class="nk-gap-2"></div>
         <div class="row vertical-gap">
             <div class="col-lg-4">
@@ -481,8 +483,8 @@ Additional Classes:
                         <img src="front/assets/images/icon-gamepad.png" alt="">
                     </div>
                     <div class="nk-feature-cont">
-                        <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
-                        <h3 class="nk-feature-title text-main-1"><a href="#">View Games</a></h3>
+                        <h3 class="nk-feature-title">Price</h3>
+                        <h3 class="nk-feature-title text-main-1"><a href="#">Start from higher</a></h3>
                     </div>
                 </div>
             </div>
@@ -499,59 +501,14 @@ Additional Classes:
             </div>
         </div>
         <!-- END: Categories -->
-
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <div class="nk-gap-2"></div>
         <div class="row vertical-gap">
             <div class="col-lg-8">
                 <!-- START: Products -->
-                <div class="row vertical-gap">
-                    {% for c in produit %}
-
-                    <div class="col-md-6">
-                        <div class="nk-product-cat">
-                            <a class="nk-product-image" href="{{ path('affichfrontdetail',{'id':c.id}) }}">
-                                <img src="{{asset('images/'~c.image)}}" alt="So saying he unbuckled">
-                            </a>
-                            <div class="nk-product-cont">
-                                <h3 class="nk-product-title h5"><a href="{{ path('affichfrontdetail',{'id':c.id}) }}">{{ c.nom }}</a></h3>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
-                                <div class="nk-gap-1"></div>
-                                <div class="nk-product-price">{{ c.prix }}</div>
-                                <div class="nk-gap-1"></div>
-                                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+{% include 'produit/ajax.html.twig' %}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
                 <!-- END: Products -->
 
                 <!-- START: Pagination -->
@@ -584,16 +541,26 @@ Additional Classes:
                         .nk-sidebar-sticky
                 -->
                 <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
+
                     <div class="nk-widget">
                         <div class="nk-widget-content">
                             <form action="#" class="nk-form nk-form-style-1" novalidate="novalidate">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Type something...">
+                                    <input type="text" class="form-control" placeholder="Type something..." id="search">
                                     <button class="nk-btn nk-btn-color-main-1"><span class="ion-search"></span></button>
                                 </div>
                             </form>
                         </div>
                     </div>
+
+
+                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+                    <script
+                            src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}">
+                    </script>
+
+
                     <div class="nk-widget nk-widget-highlighted">
                         <h4 class="nk-widget-title"><span><span class="text-main-1">Category</span> Menu</span></h4>
                         <div class="nk-widget-content">
@@ -606,28 +573,29 @@ Additional Classes:
                             </ul>
                         </div>
                     </div>
-                    <div class="nk-widget nk-widget-highlighted">
-                        <h4 class="nk-widget-title"><span><span class="text-main-1">Price</span> Filter</span></h4>
-                        <div class="nk-widget-content">
-                            <div class="nk-input-slider">
+
+                    <div class="nk-widget nk-widget-highlighted"   id="filter" >
+                        <h4 class="nk-widget-title"><span><span class="text-main-1"   id="filter" >Price</span> Filter</span></h4>
+                        <div class="nk-widget-content"   id="filter">
+                            <div class="nk-input-slider"   id="filter">
                                 <input
                                         type="text"
-                                        name="price-filter"
+                                        name="filter"
+                                        id="filter"
                                         data-slider-min="0"
-                                        data-slider-max="1800"
+                                        data-slider-max="18000"
                                         data-slider-step="1"
                                         data-slider-value="[200, 1200]"
-                                        data-slider-tooltip="hide"
                                 >
                                 <div class="nk-gap"></div>
                                 <div>
-                                    <div class="text-white mt-4 float-left">
+                                    <div class="text-white mt-4 float-left"   id="filter">
                                         PRICE:
                                         <strong class="text-main-1">€ <span class="nk-input-slider-value-0"></span></strong>
                                         -
                                         <strong class="text-main-1">€ <span class="nk-input-slider-value-1"></span></strong>
                                     </div>
-                                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white float-right">Apply</a>
+                                    <a href="#"   id="filter"    class="nk-btn nk-btn-rounded nk-btn-color-white float-right">Apply</a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -643,7 +611,12 @@ Additional Classes:
                                     <img src="front/assets/images/product-1-xs.jpg" alt="So saying he unbuckled">
                                 </a>
                                 <h3 class="nk-post-title"><a href="store-product.html">So saying he unbuckled</a></h3>
-                                <div class="nk-product-rating" data-rating="4"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="far fa-star"></i></div>
+                                <div class="nk-product-rating" data-rating="4">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="far fa-star"></i></div>
                                 <div class="nk-product-price">€ 23.00</div>
                             </div>
 
@@ -906,6 +879,100 @@ Additional Classes:
 <!-- START: Scripts -->
 
 <!-- Object Fit Polyfill -->
+<script>
+    window.onload = () => {
+        // On va chercher toutes les étoiles
+        const stars = document.querySelectorAll(".la-star");
+
+        // On va chercher l'input
+        const note = document.querySelector("#note");
+
+        // On boucle sur les étoiles pour le ajouter des écouteurs d'évènements
+        for(star of stars){
+            // On écoute le survol
+            star.addEventListener("mouseover", function(){
+                resetStars();
+                this.style.color = "red";
+                this.classList.add("las");
+                this.classList.remove("lar");
+                // L'élément précédent dans le DOM (de même niveau, balise soeur)
+                let previousStar = this.previousElementSibling;
+
+                while(previousStar){
+                    // On passe l'étoile qui précède en rouge
+                    previousStar.style.color = "red";
+                    previousStar.classList.add("las");
+                    previousStar.classList.remove("lar");
+                    // On récupère l'étoile qui la précède
+                    previousStar = previousStar.previousElementSibling;
+                }
+            });
+
+            // On écoute le clic
+            star.addEventListener("click", function(){
+                note.value = this.dataset.value;
+            });
+
+            star.addEventListener("mouseout", function(){
+                resetStars(note.value);
+            });
+        }
+
+        /**
+         * Reset des étoiles en vérifiant la note dans l'input caché
+         * @param {number} note
+         */
+        function resetStars(note = 0){
+            for(star of stars){
+                if(star.dataset.value > note){
+                    star.style.color = "black";
+                    star.classList.add("lar");
+                    star.classList.remove("las");
+                }else{
+                    star.style.color = "red";
+                    star.classList.add("las");
+                    star.classList.remove("lar");
+                }
+            }
+        }
+    }
+
+</script>
+
+
+<script>
+    $( document ).ready(function() {
+        var currentRequest = null;
+        $("#search").keyup(function(e){
+            /* La variable value va prendre la valeur insérer dans le champ de texte
+            afin d’effectuer la recherche */
+            var value = $(this).val();
+            if(currentRequest != null) {
+                currentRequest.abort();
+            }
+            /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+            « search » pour faire la recherche */
+            currentRequest = $.ajax({
+                url : "{{ path('ajaxcompetition') }}",
+                type : 'GET',
+                data: {
+                    'searchValue' : value
+                },
+                success : function(retour)
+                {
+                    $('#all').html(retour);
+                },
+            });
+            return false;
+        });
+    });
+</script>
+
+
+
+
+
+
 <script src="front/assets/vendor/object-fit-images/dist/ofi.min.js"></script>
 
 <!-- GSAP -->
@@ -970,3 +1037,10 @@ Additional Classes:
 
 </body>
 </html>
+
+
+
+
+
+
+

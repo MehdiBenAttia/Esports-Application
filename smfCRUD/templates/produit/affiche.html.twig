@@ -9,8 +9,25 @@
             <div class="card-body">
                 <h4 class="card-title">Product Table</h4>
                 <p class="card-description">
-                    <code>.List of all products</code>
+                    <code>Sort Product By Price</code>
                 </p>
+
+                <div class="btn-group-horizental" role="group" aria-label="Basic example" >
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('DESC') }}">
+                        <i class="ti-upload" ></i>
+                    </a>
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('affich') }}">
+                        <i class="ti-split-v"></i>
+                    </a>
+
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('ASC') }}">
+                        <i class="ti-download"></i>
+                    </a>
+                        <i class="ti-download"></i>
+                    </a>
+
+                </div>
+
                 <div class="table-responsive">
                     <table class="table table-striped" width="50%">
                         <thead>
@@ -21,8 +38,10 @@
                             <th> marque </th>
                             <th> prix </th>
                             <th> image </th>
+
                             <th> nom categorie </th>
                             <th > description </th>
+                            <th> note  </th>
 
 
                             <th>delete</th>
@@ -32,7 +51,7 @@
                         </thead>
                         <tbody>
 
-                        <tr {% for c in produit %}>
+                        <tr {% for c in produit  %}>
 
                             <td> {{ c.id }}</td>
 
@@ -49,13 +68,18 @@
 
 
 
-                            {% if c.categorie is not null %}
-                                <td> {{ c.categorie.nomcateg}}</td>
-                            {% endif %}
+                                <td> {{ c.nom_categ}}</td>
 
 
                             <td> {{ c.type }}</td>
+                            {% if c.e >=5 %}
 
+                                <td class="text-success"> {{ c.e}} <i class="ti-arrow-up"></i></td>
+                            {% else %}
+                                <td class="text-danger"> {{ c.e}} <i class="ti-arrow-down"></i></td>
+
+
+                            {% endif %}
 
                             <td>  <a  href=" {{ path('d',{'id':c.id}) }} "  >
                                     <img src="back/images/faces/bin.png" alt="image"/>
@@ -67,7 +91,7 @@
 
                             </td>
 
-                            <td><a href="{{ path('U',{'id':c.id}) }}" > Update</a> </td>
+                            <td class="badge badge-warning"><a href="{{ path('U',{'id':c.id}) }}" > Update</a> </td>
 
 
 
@@ -78,6 +102,7 @@
 
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

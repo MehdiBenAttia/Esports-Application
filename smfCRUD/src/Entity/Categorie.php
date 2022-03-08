@@ -6,7 +6,7 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,28 +18,33 @@ class Categorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
 
     private $nom_categ;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $nom_fournisseur;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
+     * @Groups("post:read")
      */
     private $mail_fournisseur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="categorie" , cascade={"remove"})
+
      */
     private $produits;
 

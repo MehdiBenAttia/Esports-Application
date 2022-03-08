@@ -1,0 +1,43 @@
+{% extends 'cruud.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Ajouter un avis</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(e,{'attr': {'novalidate': 'novalidate'}}) }}
+        <form class="forms-sample">
+
+
+
+            <div class="form-group">
+                {{ form_label(e.noteProduit, 'noteProduit', ) }}
+                {{ form_widget(e.noteProduit, {'attr': {'class': 'form-control','placeholder': 'noteProduit'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(e.avis, 'avis', ) }}
+                {{ form_widget(e.avis, {'attr': {'class': 'form-control','placeholder': 'avis'}}) }}
+            </div>
+
+
+
+
+
+
+
+            <div class="input-group col-md-6">
+                {{ form_widget(e.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(e.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
+            {{ form_end(e) }}
+        </form>
+
+    </div>
+
+
+
+
+
+{% endblock %}

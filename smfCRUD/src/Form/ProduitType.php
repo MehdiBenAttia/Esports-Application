@@ -19,6 +19,7 @@ class ProduitType extends AbstractType
     {
         $builder
 
+
             ->add('reference')
             ->add('nom')
             ->add('marque')

@@ -3,11 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\component\Serializer\Annotation\Groups;
+
 
 
 
@@ -21,6 +25,8 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *
+     *
      */
     private $id;
 
@@ -32,15 +38,21 @@ class Produit
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
-     *     min = 5,
-     *     max = 50,
+     *     min = 1,
+     *     max = 20,
      *     minMessage= "le nom  est trop court",
      *     maxMessage="le nom est trop long"
      * )
+     *
      */
     private $nom;
 
     /**
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="la marque ne peut pas contenir des lettres "
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $marque;
@@ -55,6 +67,12 @@ class Produit
     private $prix;
 
     /**
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 50,
+     *     minMessage= "la description  est trop court",
+     *     maxMessage="le description est trop long"
+     * )
      * @ORM\Column(type="string", length=255,nullable="true")
      */
     private $type;
@@ -75,14 +93,26 @@ class Produit
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits" )
+
      */
+
     private $categorie;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="produit")
+     */
+    private $reviews;
+
+    public function __construct()
+    {
+        $this->reviews = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -199,6 +229,36 @@ class Produit
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getProduit() === $this) {
+                $review->setProduit(null);
+            }
+        }
 
         return $this;
     }

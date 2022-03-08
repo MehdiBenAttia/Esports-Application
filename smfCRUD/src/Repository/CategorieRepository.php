@@ -38,6 +38,23 @@ class CategorieRepository extends ServiceEntityRepository
 
     }
 
+    public function stat()
+    {
+
+        $conn = $this->getEntityManager()
+            ->getConnection();
+        $sql = '
+         SELECT
+COUNT(produit.categorie_id) as f
+FROM categorie LEFT JOIN produit ON (categorie.id=produit.categorie_id)
+GROUP BY ( categorie.id)
+            ';
+        $stmt = $conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+
+    }
+
+
 
 
 
