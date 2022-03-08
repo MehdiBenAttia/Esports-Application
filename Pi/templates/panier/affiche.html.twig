@@ -1,0 +1,107 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+
+
+<div class="nk-store nk-store-cart">
+    <div class="table-responsive">
+
+        <!-- START: Products in Cart -->
+        <table class="table nk-store-cart-products">
+            <tbody>
+            {% for element in dataPanier %}
+            <tr>
+
+                <td class="nk-product-cart-title">
+                    <h5 class="h6">Product:</h5>
+                    <div class="nk-gap-1"></div>
+
+                    <h2 class="nk-post-title h4">
+                        <a href="#">{{ element.produit.nom }}</a>
+                    </h2>
+                </td>
+                <td class="nk-product-cart-price">
+                    <h5 class="h6">Price:</h5>
+                    <div class="nk-gap-1"></div>
+
+                    <strong>€ {{ element.produit.prix }}</strong>
+                </td>
+                <td class="nk-product-cart-quantity">
+                    <h5 class="h6">Quantity:</h5>
+                    <div class="nk-gap-1">
+                        {{element.quantite }}
+                    </div>
+
+
+                </td>
+                <td class="nk-product-cart-total">
+                    <h5 class="h6">Total:</h5>
+                    <div class="nk-gap-1"></div>
+
+                    <strong>{{ element.quantite * element.produit.prix }}</strong>
+                </td>
+                <td>
+
+                    <a href="{{ path('add_panier', { 'id' :element.produit.id }) }}" class="btn btn-success float-right">
+                        <i class="fas fa-shopping-cart mr-1"></i>
+                        Ajouter
+                    </a>
+
+                </td>
+
+                <td>
+                    <a href="{{ path('cart_remove', {'id': element.produit.id}) }}" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+
+            </tbody>
+        </table>
+        <!-- END: Products in Cart -->
+
+    </div>
+    <div class="col-md-6">
+        <!-- START: Cart Totals -->
+        <h3 class="nk-title h4">Cart Totals</h3>
+        <table class="nk-table nk-table-sm">
+            <tbody>
+            <tr class="nk-store-cart-totals-subtotal">
+                <td>
+                    Subtotal
+                </td>
+                <td>
+                    €{{ total }}
+                </td>
+            </tr>
+            <tr class="nk-store-cart-totals-shipping">
+                <td>
+                    Shipping
+                </td>
+                <td>
+                    Free Shipping
+                </td>
+            </tr>
+            <tr class="nk-store-cart-totals-total">
+                <td>
+                    Total
+                </td>
+                <td>
+                    € {{ total }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- END: Cart Totals -->
+    </div>
+</div>
+
+<div class="nk-gap-2"></div>
+<a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right" href="{{ path('Ajoutcommande') }}">Proceed to Checkout</a>
+<div class="clearfix"></div>
+</div>
+{% endblock %}

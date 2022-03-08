@@ -1,0 +1,49 @@
+{% extends 'base-back.html.twig' %}
+{% block stylesheets %}
+
+    <link href="{{ asset('back/vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('back/images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-pen"></i>   Modifier un livreur</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(fo) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(fo.Nom, 'Nom du livreur', ) }}
+                {{ form_widget(fo.Nom, {'attr': {'class': 'form-control','placeholder': 'Nom du livreur'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fo.Prenom, 'Prenom du livreur', ) }}
+                {{ form_widget(fo.Prenom, {'attr': {'class': 'form-control','placeholder': 'Prenom du livreur'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fo.Tel, 'Tel', ) }}
+                {{ form_widget(fo.Tel, {'attr': {'class': 'form-control','placeholder': 'Tel'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fo.Email, 'Email', ) }}
+                {{ form_widget(fo.Email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(fo.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+            </div>
+
+
+            {{ form_end(fo) }}
+        </form>
+
+    </div>
+{% endblock body %}

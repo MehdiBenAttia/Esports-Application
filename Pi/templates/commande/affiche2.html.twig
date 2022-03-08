@@ -1,0 +1,138 @@
+
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+
+    <div class="nk-store nk-store-checkout">
+        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Billing</span> Details</span></h3>
+
+        <!-- START: Billing Details -->
+        <div class="nk-gap"></div>
+        {{ form_start(fo,{'attr': {novalidate: 'novalidate'}} ) }}
+
+        <div class="row vertical-gap">
+            <div class="col-lg-6">
+                <div class="row vertical-gap">
+                    <div class="col-sm-6">
+                        {{ form_label(fo.Nom, 'First Name', ) }}
+                        {{ form_widget(fo.Nom, {'attr': {'class': 'form-control','placeholder': 'First Name'}}) }}
+                        {{ form_errors(fo.Nom) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form_label(fo.Prenom, 'Last Name', ) }}
+                        {{ form_widget(fo.Prenom, {'attr': {'class': 'form-control','placeholder': 'Last Name'}}) }}
+                        {{ form_errors(fo.Prenom) }}
+                    </div>
+                </div>
+
+
+
+                <div class="nk-gap-1"></div>
+                <div class="row vertical-gap">
+                    <div class="col-sm-6">
+                        {{ form_label(fo.Email, 'Email Adress', ) }}
+                        {{ form_widget(fo.Email, {'attr': {'class': 'form-control','placeholder': 'Email Adress'}}) }}
+                        {{ form_errors(fo.Email) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form_label(fo.Tel, 'Phone', ) }}
+                        {{ form_widget(fo.Tel, {'attr': {'class': 'form-control','placeholder': 'Phone'}}) }}
+                        {{ form_errors(fo.Tel) }}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-6">
+                {{ form_label(fo.Adress, 'Address', ) }}
+                {{ form_widget(fo.Adress, {'attr': {'class': 'form-control','placeholder': 'Address'}}) }}
+                {{ form_errors(fo.Adress) }}
+
+                <div class="nk-gap-1"></div>
+                {{ form_label(fo.City, 'City', ) }}
+                {{ form_widget(fo.City, {'attr': {'class': 'form-control','placeholder': 'City'}}) }}
+                {{ form_errors(fo.City) }}
+
+                <div class="nk-gap-1"></div>
+                <div class="row vertical-gap">
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="nk-store nk-store-checkout">
+        <div class="nk-gap-3"></div>
+        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Your</span> Order</span></h3>
+        <div class="nk-gap"></div>
+        <div class="table-responsive">
+
+            <table class="nk-table nk-table-sm">
+                <thead class="thead-default">
+                <tr>
+                    <th class="nk-product-cart-title">Product</th>
+                    <th class="nk-product-cart-total">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for element in dataPanier %}
+
+                    <tr>
+                        <td class="nk-product-cart-title">
+                            {{ element.produit.nom }} * ({{ element.quantite }})
+                        </td>
+                        <td class="nk-product-cart-total">
+                            {{ element.quantite * element.produit.prix *0.1 }}
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+
+                <tr class="nk-store-cart-totals-subtotal">
+                    <td>
+                        Subtotal
+                    </td>
+                    <td>
+                        {{ total }}
+                    </td>
+                </tr>
+                <tr class="nk-store-cart-totals-shipping">
+                    <td>
+                        Shipping
+                    </td>
+                    <td>
+                        Free Shipping
+                    </td>
+                </tr>
+                <tr class="nk-store-cart-totals-total">
+                    <td>
+                        Total
+                    </td>
+                    <td>
+                        {{ total * 0.1}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END: Order Products -->
+
+        <div class="nk-gap-2"></div>
+        {{ form_widget(fo.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+
+        <!--<a class="  nk-btn nk-btn-rounded nk-btn-color-main-1" href="{{ path('Ajoutcommande') }}">Place Order</a></div>-->
+        {{ form_end(fo) }}
+
+
+    </div>
+
+{% endblock %}
+

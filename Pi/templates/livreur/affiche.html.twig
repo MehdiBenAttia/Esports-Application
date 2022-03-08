@@ -1,0 +1,48 @@
+
+{% extends 'base-back.html.twig' %}
+
+{% block title %}
+    Livreur
+{% endblock %}
+{% block body %}
+<h6>Table des Livreurs</h6>
+    <table class="table">
+        <tr>
+
+            <th>Id_Livreur</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Tel</th>
+            <th>Email</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        {% for form in c  %}
+            <tr>
+
+                <td>
+                    {{ form.id }}
+                </td>
+                <td>
+                    {{ form.Nom }}
+                </td>
+                <td>
+                    {{ form.Prenom }}
+                </td>
+                <td>
+                    {{ form.Tel }}
+                </td>
+                <td>
+                    {{ form.Email }}
+                </td>
+                <td>
+                    <a href="{{ path('modifierlivreur',{'id': form.id}) }}">update
+                </td>
+                <td>
+
+                    <a href="{{ path('supprimerlivreur',{'id':form.id}) }}" >delete
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

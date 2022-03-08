@@ -1,0 +1,64 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}
+    Votre panier
+{% endblock %}
+{% block body %}
+
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+    <h4 class="card-title">Table des commandes</h4>
+    <table class="table-hover table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id_commande</th>
+            <th>nom Livreur</th>
+            <th>Date d'ajout</th>
+            <th>Total</th>
+            <th>Detail</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+
+        {% for element in c %}
+        <tr>
+            <td>{{ element.idcommande }}</td>
+            {% if element.idlivreur!=null %}
+            <td class="text-end text-success">{{ element.idlivreur.Nom }} {{ element.idlivreur.Prenom}} </td>
+            {% else  %}
+                <td class="text-end text-danger">non selectionné </td>
+                {% endif %}
+            <td class="text-end">{{ element.date|date("m/d/Y h:m:s") }}</td>
+
+
+            <td class="text-end">{{ element.Total }}TND</td>
+            <td>
+                <a class="btn btn-outline-info" href="{{ path('D',{'id':element.idcommande,'produit':element.Produit,'quantite':element.Quantite,'adresse':element.adresse.id}) }}">Detail</a>
+
+
+            </td>
+            <td>
+                <a class="btn btn-outline-dark" href="{{ path('modifiercommandeback',{'id': element.idcommande}) }}">Update</a>
+
+
+            </td>
+            <td> <a class="btn btn-outline-danger" href="{{ path('supprimercommandeback',{'id':element.idcommande}) }}" >Delete
+                    <i class="mdi mdi-delete"></i></a>
+            </td>
+            <td> <a  class="btn btn-info btn-icon-text" class="ti-printer btn-icon-append" href="{{ path('imprimer',{'id':element.idcommande,'adresse':element.adresse.id}) }}">Imprimer
+            <i class="ti-printer btn-icon-append" ></i>  </a>
+            </td>
+
+        </tr>
+            {% endfor %}
+            </tbody>
+
+
+
+    </table>
+    </div>
+    </div>
+    </div>
+{% endblock %}

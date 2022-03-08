@@ -1,0 +1,50 @@
+
+{% extends 'base-back.html.twig' %}
+
+
+
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-pen"></i>   Ajouter une commande</h4>
+        <p class="card-description">
+        </p>
+        {{ form_start(f,{'attr': {novalidate: 'novalidate'}} ) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(f.Produit, 'Nom du produit', ) }}
+                {{ form_widget(f.Produit, {'attr': {'class': 'form-control','placeholder': 'Nom du produit'}}) }}
+                {{ form_errors(f.Produit) }}
+
+            </div>
+
+            <div class="form-group">
+                {{ form_label(f.Quantite, 'Quantite', ) }}
+                {{ form_widget(f.Quantite, {'attr': {'class': 'form-control','placeholder': 'Quantite'}}) }}
+                {{ form_errors(f.Quantite) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_label(f.total, 'Total', ) }}
+                {{ form_widget(f.total, {'attr': {'class': 'form-control','placeholder': 'Total'}}) }}
+                {{ form_errors(f.total) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_label(f.Id_livreur, 'Nom livreur', ) }}
+                {{ form_widget(f.Id_livreur, {'attr': {'class': 'form-control','placeholder': 'Nom livreur'}}) }}
+                {{ form_errors(f.Id_livreur) }}
+
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+            </div>
+
+
+
+            {{ form_end(f) }}
+        </form>
+
+    </div>
+{% endblock body %}
