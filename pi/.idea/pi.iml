@@ -138,6 +138,26 @@
       <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/vich/uploader-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/laminas/laminas-json" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/ob/highcharts-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/martin-georgiev/social-post-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/abraham/twitteroauth" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/facebook/graph-sdk" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/discovery" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/curl-client" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/message" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/happyr/linkedin-api-client" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/clue/stream-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/martin-georgiev/social-post" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/mgilet/notification-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/vangrg/profanity-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Forum/vendor/davmixcool/php-sentiment-analyzer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

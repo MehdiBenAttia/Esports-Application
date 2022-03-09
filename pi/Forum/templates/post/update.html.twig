@@ -25,36 +25,47 @@
         <p class="card-description">
         </p>
 
-        {{ form_start(f) }}
+        {{ form_start(fu,{'attr': {'novalidate': 'novalidate'}}) }}
+
         <form class="forms-sample">
 
             <div class="form-group">
-                {{ form_label(f.sujet, 'sujet', ) }}
-                {{ form_widget(f.sujet, {'attr': {'class': 'form-control','placeholder': 'sujet'}}) }}
+                {{ form_label(fu.sujet, 'sujet', ) }}
+                {{ form_widget(fu.sujet, {'attr': {'class': 'form-control','placeholder': 'sujet'}}) }}
+                {{ form_errors(fu.sujet) }}
             </div>
             <div class="form-group">
-                {{ form_label(f.description, 'description', ) }}
-                {{ form_widget(f.description, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+                {{ form_label(fu.description, 'description', ) }}
+                {{ form_widget(fu.description, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+                {{ form_errors(fu.description) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fu.communaute, 'communaute', ) }}
+                {{ form_widget(fu.communaute, {'attr': {'class': 'form-control','placeholder': 'communaute'}}) }}
+                {{ form_errors(fu.communaute) }}
             </div>
 
             <div class="form-group">
-                {{ form_label(f.imageFile, 'image', ) }}
-                {{ form_row(f.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
+                {{ form_label(fu.imageFile, 'image', ) }}
+                {{ form_row(fu.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
             </div>
             <div class="form-group">
-                {{ form_label(f.nom_user, 'nom_user', ) }}
-                {{ form_widget(f.nom_user, {'attr': {'class': 'form-control','placeholder': 'nom_user'}}) }}
+                {{ form_label(fu.nom_user, 'nom_user', ) }}
+                {{ form_widget(fu.nom_user, {'attr': {'class': 'form-control','placeholder': 'nom_user'}}) }}
             </div>
+
+
+
 
 
 
 
 
             <div class="input-group col-md-6">
-                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
-                {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+                {{ form_widget(fu.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(fu.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
             </div>
-            {{ form_end(f) }}
+            {{ form_end(fu) }}
         </form>
 
     </div>

@@ -37,6 +37,7 @@
             <div class="form-group">
                 {{ form_label(f.communaute, 'communaute', ) }}
                 {{ form_widget(f.communaute, {'attr': {'class': 'form-control','placeholder': 'communaute'}}) }}
+                {{ form_errors(f.communaute) }}
             </div>
 
             <div class="form-group">
@@ -53,12 +54,7 @@
 
 
 
-            <div class="form-check form-check-flat form-check-primary">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Remember me
-                </label>
-            </div>
+
 
             <div class="input-group col-md-6">
                 {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}

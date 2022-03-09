@@ -134,6 +134,26 @@
       <path value="$PROJECT_DIR$/Forum/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/Forum/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/Forum/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/Forum/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/laminas/laminas-json" />
+      <path value="$PROJECT_DIR$/Forum/vendor/ob/highcharts-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/martin-georgiev/social-post-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/abraham/twitteroauth" />
+      <path value="$PROJECT_DIR$/Forum/vendor/facebook/graph-sdk" />
+      <path value="$PROJECT_DIR$/Forum/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/curl-client" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/Forum/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/Forum/vendor/happyr/linkedin-api-client" />
+      <path value="$PROJECT_DIR$/Forum/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/Forum/vendor/martin-georgiev/social-post" />
+      <path value="$PROJECT_DIR$/Forum/vendor/mgilet/notification-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/vangrg/profanity-bundle" />
+      <path value="$PROJECT_DIR$/Forum/vendor/davmixcool/php-sentiment-analyzer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

@@ -1,9 +1,14 @@
 {% extends 'post/affichefront1.html.twig' %}
 {% block body %}
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v13.0" nonce="NLed75G0"></script>
     <a class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" style="display:table-cell; width: 1110px; text-align: center; vertical-align: middle;" <a href="{{ path('Af') }}">ajouter un post</a>
+    <div class="fb-share-button" data-href="http://127.0.0.1:8000/Affichepofro" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2FAffichepofro&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager le blog</a></div>
 
     {% for var in cf %}
+
+
+
         <div class="nk-blog-post">
 
 
@@ -41,23 +46,28 @@
                     <div class="nk-gap-3"></div>
                     <div class="text-right">
                         <a class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1" <a href=" {{ path('affichfrontdetail',{'id':var.id}) }} ">   Read More</a>
+                        <div>
+
                     </div>
                 </div>
             </div>
         </div>
     {% endfor %}
+
     <!-- START: Pagination -->
     <div class="nk-pagination nk-pagination-center">
         <a href="#" class="nk-pagination-prev">
             <span class="ion-ios-arrow-back"></span>
         </a>
         <nav>
-            <a class="nk-pagination-current" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <span>...</span>
-            <a href="#">14</a>
+
+            <!--  <a href="{{ knp_pagination_render(cf) }}"></a> -->
+
+            {{ knp_pagination_render(cf) }}
+
+
+    </li>
+
         </nav>
         <a href="#" class="nk-pagination-next">
             <span class="ion-ios-arrow-forward"></span>
@@ -86,32 +96,22 @@
                         <h4 class="nk-widget-title"><span class="text-main-1">Latest</span> Posts</h4>
                         <div class="nk-widget-content">
                             <div class="row vertical-gap sm-gap">
-
+                                {% for ll in last %}
                                 <div class="col-lg-6">
                                     <div class="nk-widget-post-2">
-                                        <a href="blog-article.html" class="nk-post-image">
-                                            <img src="assets/images/post-1-sm.jpg" alt="">
+                                        <a href="{{ path('affichfrontdetail',{'id':ll.id}) }}" class="nk-post-image">
+                                            <img src="{{ asset('/images/'~ll.image) }}"" alt="">
                                         </a>
-                                        <div class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></div>
+                                        <div class="nk-post-title"><a href="{{ path('affichfrontdetail',{'id':ll.id}) }}">{{ ll.sujet }}</a></div>
                                         <div class="nk-post-date">
-                                            <span class="fa fa-calendar"></span> Sep 18, 2018
-                                            <span class="fa fa-comments"></span> <a href="#">4</a>
+                                            <span class="fa fa-calendar"></span> {{ ll.date_p|date('Y-m-d H:i:s') }}
+                                            <span class="fa fa-comments"></span> <a href="#">{{ ll.co }}</a>
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
 
-                                <div class="col-lg-6">
-                                    <div class="nk-widget-post-2">
-                                        <a href="blog-article.html" class="nk-post-image">
-                                            <img src="assets/images/post-2-sm.jpg" alt="">
-                                        </a>
-                                        <div class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></div>
-                                        <div class="nk-post-date">
-                                            <span class="fa fa-calendar"></span> Sep 5, 2018
-                                            <span class="fa fa-comments"></span> <a href="#">7</a>
-                                        </div>
-                                    </div>
-                                </div>
+
 
                             </div>
                         </div>

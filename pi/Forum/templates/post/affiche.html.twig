@@ -1,6 +1,7 @@
 {% extends 'test.html.twig' %}
 {% block body %}
 
+
     <script src="https://kit.fontawesome.com/85180f823b.js
 " crossorigin="anonymous"></script>
 
@@ -8,10 +9,23 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Striped Table</h4>
-            <p class="card-description">
-                Add class <code>.table-striped</code>
-            </p>
+            <div class="btn-group-horizental" role="group" aria-label="Basic example" >
+
+                </a>
+
+            </div>
+            <h4 class="card-title">Welcome to Dashboard</h4>
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('Affichepobaasc') }}">
+
+                <i class="ti-upload" ></i>
+            </a>
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('Affichepostba') }}">
+                <i class="ti-split-v"></i>
+            </a>
+
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('Affichepobadesc') }}">
+                <i class="ti-download"></i>
+            </a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -25,11 +39,12 @@
                         <th>image</th>
 
                         <th>date_p</th>
-                        <th>nbr_com</th>
+                        <th>nbr_comm</th>
 
                         <th>Delete</th>
                         <th>Update</th>
-                        <th>add</th>
+                        <th>add comment</th>
+                        <th>view comment</th>
 
                     </tr>
                     </thead>
@@ -56,7 +71,7 @@
                         <td><a href=" {{ path('dp',{'id':var.id}) }} " > <i class="fa-solid fa-trash-can"></i> </a></td>
                         <td><a href=" {{ path('Up',{'id':var.id}) }} " > <i class="fa-solid fa-wrench"></i> </a></td>
                         <td><a href="{{ path('Acob',{'id':var.id}) }}" ><i class="fa-solid fa-plus"></i> </a> </td>
-
+                        <td><a href="{{ path('affichbackcom',{'id':var.id}) }}" ><i class="fa-solid fa-eye"></i></a> </td>
                     </tr>
 
 
@@ -76,7 +91,6 @@
         </div>
     </div>
 </div>
-
-
+    {{ knp_pagination_render(c) }}
 
 {% endblock %}

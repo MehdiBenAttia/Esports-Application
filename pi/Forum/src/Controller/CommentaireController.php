@@ -7,11 +7,15 @@ use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
 
 use App\Repository\PostRepository;
+use App\Repository\ReplyRepository;
+use Sentiment\Analyzer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 class CommentaireController extends AbstractController
 {
@@ -69,7 +73,7 @@ class CommentaireController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($commentaire);
             $em->flush();
-            return $this->redirectToRoute('AfficheC');
+            return $this->redirectToRoute('AfficheCom');
         }
         return $this->render('commentaire/ajout.html.twig',['ff'=>$form->createView()]);
     }
@@ -99,10 +103,12 @@ class CommentaireController extends AbstractController
      * @return Response
      * @route ("/Affichecofro", name="AfficheComfro")
      */
-    function Affichecofront(CommentaireRepository $repository)
+    function Affichecofront(CommentaireRepository $repository,ReplyRepository $rep)
     {
         $classroom= $repository->findAll();
-        return $this->render('post/detailpost.html.twig',['ccf'=>$classroom]);
+        $reoly=$rep->aff_re();
+
+        return $this->render('post/detailpost.html.twig',['ccf'=>$classroom,'reply'=>$reoly]);
     }
 
 
@@ -129,10 +135,32 @@ class CommentaireController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($commentaire);
-            $em->flush();
-            return $this->redirectToRoute('Affichepostfront');
+
+            //AnalyseComment
+            $analyzer = new Analyzer();
+
+            //$a = array("neg => ", "new =>  ", "pos =>  ","compound =>  ");
+            $b = $analyzer->getSentiment($commentaire->getDescriptionc());
+
+            $output_text =  $b;
+
+
+            $json = json_encode( $output_text);
+            $commentaire->setAnalyseCo($json );
+
+
+
+
+            //Analyse comment
+
+            if($b<0.5){
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($commentaire);
+                $em->flush();
+                return $this->redirectToRoute('Affichepostfront');
+            }
+            return $this->render('commentaire/bad_word.html.twig');
+
         }
         return $this->render('commentaire/ajoutcomfront.html.twig',['ffr'=>$form->createView()]);
     }
@@ -170,5 +198,54 @@ class CommentaireController extends AbstractController
                 "form_title" => "Modifier un commentaire"
             ]);
     }
+    /**
+     * @Route("/commentaire/{id}",name="commj")
+     */
+    public function CommentaireId(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $em->getRepository(Commentaire::class)->find($id);
+        $jsonContent = $Normalizer->normalize($commentaire, 'json', ['groups'=>'post:read']);
 
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     *
+     * @route ("/addcommentaireJSON/new",name="addcommentaire")
+     */
+    public function addcommentaire(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $produit=new Produit();
+        $produit->setReference($request->get('reference'));
+        $produit->setImage($request->get('image'));
+        $produit->setCategorie($request->get('categorie'));
+        $produit->setMarque($request->get('marque'));
+        $produit->setNom($request->get('nom'));
+        $produit->setPrix($request->get('prix'));
+        $produit->setType($request->get('type'));
+        $em->persist($produit);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($produit,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));;
+
+    }
+
+
+
+
+/**
+ * @Route ("/updateCommentaireJSON/{id}", name="updateCommentaireJSON")
+ */
+public function updateCommentaireJSON(Request $request,NormalizerInterface $normalizer,$id)
+{
+    $em=$this->getDoctrine()->getManager();
+    $commentaire=$em->getRepository(Commentaire::class)->find($id);
+    $commentaire->setNomuser($request->get('Nomuser'));
+    $commentaire->setDescriptionc($request->get('descriptionc'));
+    $em->flush();
+    $jsonContent=$normalizer->normalize($commentaire,'json', ['groups'=>'post:read']);
+    return new Response("Information updated successfully".json_encode($jsonContent));;
+}
 }

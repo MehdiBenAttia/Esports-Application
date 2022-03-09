@@ -25,6 +25,30 @@ class PostRepository extends ServiceEntityRepository
         $stmt=$conn->prepare($sql);
         return $stmt->executeQuery()->fetchAllAssociative();
     }
+    function latest_posts (){
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='SELECT post.id,post.sujet,post.description,post.nbr_jaime,post.image,post.nom_user,post.date_p,post.communaute,count(commentaire.id) as co FROM post left JOIN commentaire ON (post.id=commentaire.post_id)GROUP BY post.id ORDER BY post.date_p desc LIMIT 2';
+        $stmt=$conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+    }
+    function count_po (){
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='SELECT COUNT(id) AS copo FROM post';
+        $stmt=$conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+    }
+    function tri_com_desc (){
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='SELECT post.id,post.sujet,post.description,post.nbr_jaime,post.image,post.nom_user,post.date_p,post.communaute,count(commentaire.id) as co FROM post left JOIN commentaire ON (post.id=commentaire.post_id)GROUP BY post.id ORDER BY co DESC';
+        $stmt=$conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+    }
+    function tri_com_asc (){
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='SELECT post.id,post.sujet,post.description,post.nbr_jaime,post.image,post.nom_user,post.date_p,post.communaute,count(commentaire.id) as co FROM post left JOIN commentaire ON (post.id=commentaire.post_id)GROUP BY post.id ORDER BY co ASC';
+        $stmt=$conn->prepare($sql);
+        return $stmt->executeQuery()->fetchAllAssociative();
+    }
 
     // /**
     //  * @return Post[] Returns an array of Post objects

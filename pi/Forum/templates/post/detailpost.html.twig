@@ -72,21 +72,40 @@
         {% endif %}
 {% endfor %}
 
-        <!-- START: Comment -->
-        {% for var in post.commentaires %}
-        <div class="nk-comment">
-            <div class="nk-comment-meta">
-                by <a href="#">{{ var.nomuser }}</a> in {{ var.datec|date('Y-m-d H:i:s') }}
 
-            </div>
-            <div class="nk-comment-text">
-                <p>{{ var.descriptionc }}</p>
-                <a href=" {{ path('dcf',{'id':var.id}) }} ">    <i class="fa-solid fa-trash-can"></i></a>
-                <a href="{{ path('Ucof',{'id':var.id}) }}">    <i class="fa-solid fa-wrench"></i></a>
-            </div>
+            <!-- START: Comment -->
+        {% for var in post.commentaires %}
+            <div class="nk-comment">
+                <div class="nk-comment-meta">
+                    by <a href="#">{{ var.nomuser }}</a> {{ var.datec|date('Y-m-d H:i:s') }}
+                    <a href="{{ path('ajoutREfro',{'id':var.id}) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 float-right">Reply</a>
+                </div>
+                <div class="nk-comment-text">
+                    <p>{{ var.descriptionc }}</p>
+                    <a href=" {{ path('dcf',{'id':var.id}) }} ">    <i class="fa-solid fa-trash-can"></i></a>
+                    <a href="{{ path('Ucof',{'id':var.id}) }}">    <i class="fa-solid fa-wrench"></i></a>
+
+                </div>
+                {% for varr in var.replies %}
+                <div class="nk-comment">
+                    <div class="nk-comment-meta">
+                       by <a href="#">{{ varr.nomuser }}</a> in {{ varr.dater|date('Y-m-d H:i:s') }}
+
+                    </div>
+                    <div class="nk-comment-text">
+                        <p>{{ varr.descriptionr }}</p>
+                        <a href=" {{ path('dref',{'id':varr.id}) }} ">    <i class="fa-solid fa-trash-can"></i></a>
+                        <a href="{{ path('UREf',{'id':var.id}) }}">    <i class="fa-solid fa-wrench"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            <!-- END: Comment -->
+
+
         </div>
+        <!-- END: Comments -->
         {% endfor %}
-        <!-- END: Comment -->
+
         <div class="nk-gap"></div>
 
 

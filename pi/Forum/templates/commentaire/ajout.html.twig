@@ -21,7 +21,7 @@
         <p class="card-description">
         </p>
 
-        {{ form_start(ff) }}
+        {{ form_start(ff,{'attr': {'novalidate': 'novalidate'}}) }}
         <form class="forms-sample">
 
             <div class="form-group">
@@ -35,6 +35,7 @@
             <div class="form-group">
                 {{ form_label(ff.descriptionc, 'descriptionc', ) }}
                 {{ form_widget(ff.descriptionc, {'attr': {'class': 'form-control','placeholder': 'descriptionc'}}) }}
+                {{ form_errors(ff.descriptionc) }}
             </div>
 
 

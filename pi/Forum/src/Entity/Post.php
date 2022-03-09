@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Vangrg\ProfanityBundle\Entity\Profanity;
+use Zend\Json\Expr;
+use ProfanityAssert\ProfanityCheck;
+
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
  * @Vich\Uploadable
@@ -20,6 +25,7 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -30,6 +36,7 @@ class Post
      *     match=false,
      *     message="le sujet doit comporter que des lettres"
      * )
+     * @Groups("post:read")
      */
     private $sujet;
 
@@ -41,11 +48,15 @@ class Post
      *     minMessage= "la description  est trop court",
      *     maxMessage="la description est trop long"
      * )
+     * @Groups("post:read")
+
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+
+     * @Groups("post:read")
      */
     private $nbr_jaime;
 
@@ -53,11 +64,13 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $image;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $nom_user;
 
@@ -65,11 +78,13 @@ class Post
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $date_p;
     /**
 
      * @Vich\UploadableField(mapping="post_image", fileNameProperty="image")
+     * @Groups("post:read")
      *
      * @var File|null
      */
@@ -82,14 +97,21 @@ class Post
      *     match=false,
      *     message="la communauté doit comporter que des lettres"
      * )
+     * @Groups("post:read")
      */
     private $communaute;
 
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
+
      */
     private $commentaires;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $analysePo;
 
     public function __construct()
     {
@@ -234,6 +256,18 @@ class Post
                 $commentaire->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAnalysePo(): ?string
+    {
+        return $this->analysePo;
+    }
+
+    public function setAnalysePo(?string $analysePo): self
+    {
+        $this->analysePo = $analysePo;
 
         return $this;
     }

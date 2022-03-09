@@ -1,4 +1,13 @@
 {
+    "abraham/twitteroauth": {
+        "version": "0.7.4"
+    },
+    "clue/stream-filter": {
+        "version": "v1.6.0"
+    },
+    "davmixcool/php-sentiment-analyzer": {
+        "version": "1.2.2"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -82,14 +91,47 @@
     "egulias/email-validator": {
         "version": "3.1.2"
     },
+    "facebook/graph-sdk": {
+        "version": "5.7.0"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
+    },
+    "happyr/linkedin-api-client": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "f407e3d9af98d1b391cc671d3c5790b79f1907e6"
+        },
+        "files": [
+            "./config/packages/linkedin.yaml"
+        ]
     },
     "jms/metadata": {
         "version": "2.6.1"
     },
+    "knplabs/knp-components": {
+        "version": "v3.4.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.8.0"
+    },
     "laminas/laminas-code": {
         "version": "4.5.1"
+    },
+    "laminas/laminas-json": {
+        "version": "3.3.0"
+    },
+    "martin-georgiev/social-post": {
+        "version": "v1.0"
+    },
+    "martin-georgiev/social-post-bundle": {
+        "version": "v3.1.0"
+    },
+    "mgilet/notification-bundle": {
+        "version": "4.0"
     },
     "monolog/monolog": {
         "version": "1.26.1"
@@ -100,11 +142,32 @@
     "nikic/php-parser": {
         "version": "v4.13.2"
     },
+    "ob/highcharts-bundle": {
+        "version": "1.8.x-dev"
+    },
     "phar-io/manifest": {
         "version": "2.0.3"
     },
     "phar-io/version": {
         "version": "3.1.1"
+    },
+    "php-http/curl-client": {
+        "version": "v1.7.1"
+    },
+    "php-http/discovery": {
+        "version": "1.14.1"
+    },
+    "php-http/httplug": {
+        "version": "v1.1.0"
+    },
+    "php-http/message": {
+        "version": "1.13.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "1.1.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -152,6 +215,9 @@
     },
     "psr/container": {
         "version": "1.1.2"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/link": {
         "version": "1.0.0"
@@ -590,6 +656,9 @@
     },
     "twig/twig": {
         "version": "v3.3.8"
+    },
+    "vangrg/profanity-bundle": {
+        "version": "v1.1.6"
     },
     "vich/uploader-bundle": {
         "version": "1.19",

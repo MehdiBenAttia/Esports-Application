@@ -34,21 +34,18 @@
 {% endblock %}
 {% block body %}
 
-    {{ form_start(ffr,{'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_start(ffrr,{'attr': {'novalidate': 'novalidate'}}) }}
     <form class="forms-sample">
 
+
+
     <div class="form-group">
-        {{ form_label(ffr.nomuser, 'nomuser', ) }}
-        {{ form_widget(ffr.nomuser, {'attr': {'class': 'form-control','placeholder': 'nom user'}}) }}
+        {{ form_label(ffrr.nomuser, 'nomuser', ) }}
+        {{ form_widget(ffrr.nomuser, {'attr': {'class': 'form-control','placeholder': 'nom user'}}) }}
     </div>
     <div class="form-group">
-        {{ form_label(ffr.imageFile, 'image', ) }}
-        {{ form_row(ffr.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
-    </div>
-    <div class="form-group">
-        {{ form_label(ffr.descriptionc, 'descriptionc', ) }}
-        {{ form_widget(ffr.descriptionc, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
-        {{ form_errors(ffr.descriptionc) }}
+        {{ form_label(ffrr.descriptionr, 'descriptionr', ) }}
+        {{ form_widget(ffrr.descriptionr, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
     </div>
 
 
@@ -57,8 +54,8 @@
 
 
     <div class="input-group col-md-6">
-        {{ form_widget(ffr.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
-        {{ form_widget(ffr.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+        {{ form_widget(ffrr.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(ffrr.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
     </div>
-    {{ form_end(ffr) }}
+    {{ form_end(ffrr) }}
 {% endblock %}
