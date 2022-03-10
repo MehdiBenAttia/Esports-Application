@@ -9,12 +9,15 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 
 class UserType extends AbstractType
 {
@@ -25,6 +28,7 @@ class UserType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('username')
+            ->add('tel')
 
            ->add('dateN', BirthdayType::class, [
                'widget' => 'choice',
@@ -35,7 +39,13 @@ class UserType extends AbstractType
                     'Femme' => "femme",
                     'Autre' => "Autre",
                 ]])
-            ->add('password',PasswordType::class,[
+            ->add('password',RepeatedType::class,[
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
                 'constraints' => [
         new NotBlank([
             'message' => 'Please enter a password',
@@ -47,6 +57,14 @@ class UserType extends AbstractType
             'max' => 4096,
         ]),
     ]])
+            ->add('captchaCode', CaptchaType::class, array(
+                'captchaConfig' => 'ExampleCaptchaUserRegistration',
+                'constraints' => [
+                    new ValidCaptcha([
+                        'message' => 'Invalid captcha, please try again',
+                    ]),
+                ],
+            ))
         ->add('submit',SubmitType::class)
             ->add('cancel',ResetType::class);
 

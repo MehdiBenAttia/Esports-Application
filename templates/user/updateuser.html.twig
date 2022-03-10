@@ -26,6 +26,10 @@
                 {{ form_widget(f.dateN, {'attr': {'class': 'form-control','placeholder': 'DD/MM/YYYY'}}) }}
             </div>
             <div class="form-group">
+                {{ form_label(form.tel, 'telephone', ) }}
+                {{ form_widget(form.tel, {'attr': {'class': 'form-control','placeholder': 'telephone'}}) }}
+            </div>
+            <div class="form-group">
                 {{ form_label(f.sexe, 'sexe', ) }}
                 {{ form_widget(f.sexe, {'attr': {'class': 'form-control','placeholder': 'sexe'}}) }}
             </div>

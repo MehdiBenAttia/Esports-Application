@@ -17,6 +17,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class EquipeController extends AbstractController
 {
@@ -123,11 +125,15 @@ class EquipeController extends AbstractController
     function Add(Request $request)
 
     { $session=$request->getSession();
+        $user1 = $this->get('security.token_storage')->getToken()->getUser();
 
         $user=new Equipe();
 
         $form=$this->createForm(EquipeType::class,$user);
-
+        if(($user1 instanceof User))
+        {
+            $user->addUser($user1);
+        }
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
@@ -362,17 +368,94 @@ class EquipeController extends AbstractController
      */
     function suppequipe(Request $request,UserRepository $rep)
     {
-        $session=$request->getSession();
-        $id=$session->get('id');
-        $user=$rep->find($id);
-        if($user->getEquipe()==Null_::class)
-        { $user->getEquipe()->removeUser($user);
+        $user1 = $this->get('security.token_storage')->getToken()->getUser();
+        if($user1 instanceof User)
+        {
+
+        if(($user1->getEquipe() instanceof Equipe))
+        { $user1->getEquipe()->removeUser($user1);
 
         $em=$this->getDoctrine()->getManager();
-        $em->flush();}
+        $em->flush();}}
         return $this->redirectToRoute("afficheruser");
 
     }
+
+    /**
+     * @Route("/allequipes",name="allequipess")
+     */
+    public function AllEquipes(NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Equipe::class);
+        $users = $repository->findAll();
+        $jsonContent = $Normalizer->normalize($users, 'json', ['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));
+
+    }
+    /**
+     * @Route("/Equipe/{id}",name="equipes")
+     */
+    public function EquipeId(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Equipe::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/UpdateEquipe",name="updateuser")
+     */
+    public function UpdateEquipeId(Request $request, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Equipe::class)->find($request->get('id'));
+        $user->setNomEquipe($request->get('nom'));
+         $user->setEmail($request->get('email'));
+         $user->setJeu($request->get('jeu'));
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        return new Response("Information updated successfully".json_encode($jsonContent));
+    }
+    /**
+     * @Route("/DeleteTeam",name="deleteTeamm")
+     */
+    public function deleteTeamId(Request $request, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $eq = $em->getRepository(Equipe::class)->find($request->get('id'));
+        $users=$eq->getUsers();
+        foreach ($users as $user)
+        {
+            $eq->removeUser($user);
+        }
+        $em->remove($eq);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($eq, 'json', ['groups'=>'post:read']);
+        return new Response("Team Deleted successfully".json_encode($jsonContent));
+    }
+    /**
+     * @Route("/AddTeammm",name="addd")
+     */
+    function AddTeam(Request $request)
+    {
+        $user=new Equipe();
+        $session=$request->getSession();
+        $user->setNomEquipe($request->get('name'));
+        $user->setNbjoueurs($request->get('nbjoueurs'));
+        $user->setEmail($request->get('email'));
+        $user->setJeu($request->get('jeu'));
+
+
+
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+        return new Response("Equipe added succ");
+
+
+    }
+
 
 
 }

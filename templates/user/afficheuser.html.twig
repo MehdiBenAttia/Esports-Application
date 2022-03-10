@@ -21,9 +21,7 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>
-                            ID
-                        </th>
+
                         <th>
                             First name
                         </th>
@@ -42,9 +40,7 @@
                         <th>
                             Equipe
                         </th>
-                        <th>
-                            Password
-                        </th>
+
                         <th>
                             Delete
                         </th>
@@ -56,9 +52,7 @@
                     <tbody>
                     {% for u in u %}
                         <tr >
-                            <td>
-                                {{ u.id }}
-                            </td>
+
 
                             <td>
                                 {{ u.nom }}
@@ -87,20 +81,19 @@
 
                                 {% endif %}
                             </td>
+
+
                             <td>
-                                {% if u.password is not null %}
-
-                                    {{u.password}}
-
+                                {% if is_granted("ROLE_CLIENT") and app.user.id==u.id %}
+                                <a href="{{ path('d',{'id':u.id}) }}"> Delete</a>
                                 {% endif %}
                             </td>
 
                             <td>
-                                <a href="{{ path('d',{'id':u.id}) }}"> Delete</a>
-                            </td>
 
-                            <td>
+                                {% if is_granted("ROLE_CLIENT") and app.user.id==u.id %}
                                 <a href="{{ path('m',{'id':u.id}) }}"> Modify</a>
+                                {% endif %}
                             </td>
 
                         </tr>
@@ -124,8 +117,8 @@
 
 
 </table>
-    <a href="{{ path('a') }}" class="btn-danger btn-lg" style="margin-left: 30%"> ajouter</a>
- <a href="{{ path('ajouterequipe') }}"> ajouter equipe</a>
+
+ <a href="{{ path('ajouterequipe') }}" class="btn-danger btn-lg" style="margin-left: 45%" > ajouter equipe</a>
 
 </body>
 {% endblock %}

@@ -5,6 +5,9 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\DocBlock\Tags\Uses;
+use PhpParser\Node\Expr\New_;
+use function PHPUnit\Framework\isNull;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -23,6 +26,38 @@ class UserRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('u')
         ->where('u.equipe is Null')->getQuery()->getResult();
 
+    }
+    public function findByUsername($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.username = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+    public function findByEmail($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.email = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+    public function findUSERbyname($name)
+    {
+
+        return $this->createQueryBuilder('u')
+            ->where('u.nom LIKE :nom')
+            ->setParameter('nom', '%'.$name.'%')
+            ->getQuery()
+            ->getResult();
     }
 
     // /**

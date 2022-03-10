@@ -1,6 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
 
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
 {% block body %}
 <body>
 
@@ -29,6 +44,9 @@
                           Last name
                         </th>
                         <th>
+                         Username
+                        </th>
+                        <th>
                           Email
                         </th>
                         <th>
@@ -49,6 +67,9 @@
                         <th>
                            Modify
                         </th>
+                        <th>
+                            bloquer
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -64,8 +85,11 @@
 
                             <td>
                                 {{ u.prenom}}
-                            </td>
 
+                            </td>
+                            <td>
+                                {{ u.username}}
+                            </td>
                             <td>
                                 {{ u.email}}
                             </td>
@@ -101,6 +125,13 @@
                                 <a href="{{ path('mback',{'id':u.id}) }}"> Modify</a>
                             </td>
 
+                            <td>
+                                {% if u.block==0 %}
+                                <a href="{{ path('block',{'id':u.id}) }}"> Bloquer</a>
+                                {% else %}
+                                    <a href="{{ path('block',{'id':u.id}) }}"> Debloquer</a>
+                                    {% endif %}
+                            </td>
                         </tr>
                     {% endfor %}
 
@@ -123,7 +154,7 @@
 
 </table>
     <a href="{{ path('aback') }}" > ajouter</a>
- <a href="{{ path('ajouterequipe') }}"> ajouter equipe</a>
+ <a href="{{ path('ajouterequipeback') }}"> ajouter equipe</a>
 
 </body>
 {% endblock %}

@@ -30,7 +30,7 @@
                         <thead>
                         <tr>
 
-                            <th>ID</th>
+
                             <th>Nom Equipe</th>
 
                             <th>Email de L'equipe</th>
@@ -44,9 +44,7 @@
                         <tbody>
                         {% for u in u %}
                             <tr >
-                                <td>
-                                    {{ u.id }}
-                                </td>
+
 
                                 <td>
                                     {{ u.nomEquipe }}
@@ -76,14 +74,29 @@
 
 
                                 <td>
-                                    <a href="{{ path('deletequipe',{'id':u.id}) }}"> Delete</a>
+                                    {% if is_granted("ROLE_CLIENT") and app.user.equipe==u %}
+                                    <a href="{{ path('deletequipe',{'id':u.id}) }}">Delete</a> {% endif %}
                                 </td>
 
                                 <td>
-                                    <a href="{{ path('modifierequipe',{'id':u.id}) }}"> Modify</a>
+                                    {% if is_granted("ROLE_CLIENT") and app.user.equipe==u %}
+                                    <a href="
+
+                                    {{ path('modifierequipe',{'id':u.id}) }}"
+
+
+                                    >modifier</a>
+                                    {% endif %}
                                 </td>
                                 <td>
-                                    <a href="{{ path('noteam',{'id':u.id}) }}"> ajouter joueur a l'equipe</a>
+                                    {% if is_granted("ROLE_CLIENT") and app.user.equipe==u %}
+                                    <a href="
+
+                                    {{ path('noteam',{'id':u.id}) }}"
+
+
+                                    >ajouter joueur à l'equipe</a>
+                                    {% endif %}
                                 </td>
 
                             </tr>
@@ -107,8 +120,8 @@
 
 
     </table>
-    <a href="{{ path('a') }}"> ajouter</a>
-    <a href="{{ path('ajouterequipe') }}"> ajouter equipe</a>
+
+    <a href="{{ path('ajouterequipe') }}"class="btn-danger btn-lg" style="margin-left: 30%"> ajouter equipe</a>
 
     </body>
 {% endblock %}

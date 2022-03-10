@@ -1,4 +1,13 @@
 {
+    "beberlei/assert": {
+        "version": "v3.3.2"
+    },
+    "captcha-com/captcha": {
+        "version": "4.2.5"
+    },
+    "captcha-com/symfony-captcha-bundle": {
+        "version": "4.2.12"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -85,8 +94,35 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "guzzlehttp/guzzle": {
+        "version": "7.4.1"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.5.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "2.1.0"
+    },
+    "knpuniversity/oauth2-client-bundle": {
+        "version": "2.10",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.20",
+            "ref": "1ff300d8c030f55c99219cc55050b97a695af3f6"
+        }
+    },
     "laminas/laminas-code": {
         "version": "4.5.1"
+    },
+    "league/oauth2-client": {
+        "version": "2.6.1"
+    },
+    "league/oauth2-facebook": {
+        "version": "2.2.0"
+    },
+    "league/oauth2-google": {
+        "version": "4.0.0"
     },
     "monolog/monolog": {
         "version": "1.26.1"
@@ -96,6 +132,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
+    },
+    "paragonie/constant_time_encoding": {
+        "version": "v2.5.0"
     },
     "phar-io/manifest": {
         "version": "2.0.3"
@@ -150,11 +189,39 @@
     "psr/container": {
         "version": "1.1.2"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
+    },
+    "scheb/2fa-bundle": {
+        "version": "5.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "0a83961ef50ff91812b229a6f0caf28431d94aec"
+        },
+        "files": [
+            "./config/packages/scheb_2fa.yaml",
+            "./config/routes/scheb_2fa.yaml"
+        ]
+    },
+    "scheb/2fa-google-authenticator": {
+        "version": "v5.13.1"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -215,6 +282,12 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "spomky-labs/otphp": {
+        "version": "v10.0.2"
+    },
+    "swiftmailer/swiftmailer": {
+        "version": "v6.3.0"
     },
     "symfony/asset": {
         "version": "v4.4.37"
@@ -492,6 +565,20 @@
     "symfony/stopwatch": {
         "version": "v4.4.37"
     },
+    "symfony/swiftmailer-bundle": {
+        "version": "3.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "f0b2fccdca2dfd97dc2fd5ad216d5e27c4f895ac"
+        },
+        "files": [
+            "./config/packages/dev/swiftmailer.yaml",
+            "./config/packages/swiftmailer.yaml",
+            "./config/packages/test/swiftmailer.yaml"
+        ]
+    },
     "symfony/translation": {
         "version": "4.4",
         "recipe": {
@@ -564,6 +651,9 @@
     "symfony/yaml": {
         "version": "v4.4.37"
     },
+    "thecodingmachine/safe": {
+        "version": "v1.3.3"
+    },
     "theseer/tokenizer": {
         "version": "1.2.1"
     },
@@ -572,6 +662,9 @@
     },
     "twig/twig": {
         "version": "v3.3.7"
+    },
+    "twilio/sdk": {
+        "version": "6.35.0"
     },
     "webmozart/assert": {
         "version": "1.10.0"

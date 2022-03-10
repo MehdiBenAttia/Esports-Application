@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -19,24 +19,32 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="prenom is required")
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="prenom is required")
+     * @Groups("post:read")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="username is required")
+     *   * @Assert\Length(
+     *      min = 8,
+     *      minMessage = "Votre Usename Doit Contenir Au Moin {{ limit }} characters ",
+     * )
+     * @Groups("post:read")
      */
     private $username;
 
@@ -45,35 +53,67 @@ class User implements UserInterface
      * @Assert\NotBlank(message="Email is required")
      * @Assert\Email(message = "The email '{{ value }}' is not a valid
     email.")
+     * @Groups("post:read")
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Date de naissance is required")
+     * @Groups("post:read")
      */
     private $dateN;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Sexe is required")
+     * @Groups("post:read")
      */
     private $sexe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Equipe::class, inversedBy="users")
+     * @Groups("post:read")
      */
     private $equipe;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
+     *
      */
     private $password;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("post:read")
      */
     private $roles = [];
+
+
+    protected $captchaCode;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $block;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel;
+
+
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+
+    public function setCaptchaCode($captchaCode): void
+    {
+        $this->captchaCode = $captchaCode;
+    }
 
 
     public function getId(): ?int
@@ -211,6 +251,31 @@ class User implements UserInterface
     public function supportsClass($class)
     {
         return User::class === $class;
+    }
+
+
+    public function getBlock(): ?bool
+    {
+        return $this->block;
+    }
+
+    public function setBlock(bool $block): self
+    {
+        $this->block = $block;
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(?int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
     }
 
 }

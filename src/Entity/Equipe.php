@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EquipeRepository::class)
@@ -18,30 +18,35 @@ class Equipe
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Nom de l'equipe is required")
+     * @Groups("post:read")
      */
     private $NomEquipe;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Nombre de joueurs is required")
+     * @Groups("post:read")
      */
     private $Nbjoueurs;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Email is required")
+     * @Groups("post:read")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message=" Jeu is required")
+     * @Groups("post:read")
      */
     private $jeu;
 
@@ -142,4 +147,10 @@ class Equipe
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getNomEquipe();
+    }
+
 }

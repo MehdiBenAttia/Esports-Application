@@ -3,6 +3,22 @@
 {% block titre2 %} Insciption {% endblock %}
 {% block top_bg %} "{{ asset('front/assets/images/gallery-3-thumb.jpg') }}" {% endblock %}
 {% block bottom_bg %} "{{ asset('front/assets/images/bg-bottom.png') }}" {% endblock %}
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
 {% block body %}
     <div class="card-body">
         <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  ajouter des membres</h4>
@@ -29,6 +45,10 @@
             <div class="form-group">
                 {{ form_label(form.username, 'username', ) }}
                 {{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder': 'Type du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.tel, 'telephone', ) }}
+                {{ form_widget(form.tel, {'attr': {'class': 'form-control','placeholder': 'telephone'}}) }}
             </div>
             <div class="form-group">
                 {{ form_label(form.dateN, 'Date de naissance', ) }}

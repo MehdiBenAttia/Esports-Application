@@ -16,9 +16,11 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
+use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class LoginAuthenticator extends AbstractFormLoginAuthenticator
+class LoginAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
 
@@ -27,12 +29,16 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator
     private $entityManager;
     private $urlGenerator;
     private $csrfTokenManager;
+    private $passwordEncoder;
 
-    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager)
+
+
+    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->csrfTokenManager = $csrfTokenManager;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function supports(Request $request)
@@ -64,6 +70,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+
         if (!$user) {
             throw new UsernameNotFoundException('Username could not be found.');
         }
@@ -71,21 +78,27 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator
         return $user;
     }
 
-    public function checkCredentials($credentials, UserInterface $user)
+    public function checkCredentials($credentials, UserInterface $user): bool
     {
-       return $user ->getPassword() == $credentials['password'];
+        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
-    {
-
-
-            return new RedirectResponse($this->urlGenerator->generate('afficheequipe'));
-
+    {$user=$token->getUser();
+        if($user->getRoles()=="ROLE_ADMIN")
+        return new RedirectResponse($this->urlGenerator->generate('afficheruserback'));
+        else return new RedirectResponse($this->urlGenerator->generate('afficheruser'));
     }
 
     protected function getLoginUrl()
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
+
+    public function getPassword($credentials): ?string
+    {
+        return $credentials['password'];
+    }
+
 }

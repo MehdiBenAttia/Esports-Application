@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-    
-<html lang="en">
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -134,7 +134,9 @@
     {% block contact %}
 <!-- START: Top Contacts -->
         {% if is_granted('ROLE_CLIENT') %}
-            <h4>bonjour monsieur {{ app.user.nom }}</h4>
+            {% if app.user.block==1 %}
+    <script> window.location.replace("http://localhost:8000/blocked");</script>
+                {% endif %}
         {% else %}
 <div class="nk-contacts-top">
     <div class="container">
@@ -259,8 +261,13 @@
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
 
         <li class="active nk-drop-item">
-            <a href="C:\Users\21655\PhpstormProjects\Pi\templates\equipe\afficheequipe.html.twig">
-                Features
+            <a href="
+                                    {% if is_granted("ROLE_CLIENT") %}
+                                    {{ path('afficheequipe') }}"
+            {% else %}
+                "data-toggle="modal" data-target="#modalLogin"
+            {% endif %}
+            >Equipes</a>
 
             </a><ul class="dropdown">
 
@@ -700,16 +707,22 @@
                 <h4 class="mb-0"><span class="text-main-1">Connectez</span> Vous</h4>
 
                 <div class="nk-gap-1"></div>
-                <form action="#" class="nk-form text-white">
+                <form action="{{ path("app_login") }}" class="nk-form text-white" method="post">
                     <div class="row vertical-gap">
                         <div class="col-md-6">
                             Votre email et mot de passe
 
                             <div class="nk-gap"></div>
-                            <input type="email" value="" name="email" class=" form-control" placeholder="Email">
+                            <label for="inputUsername">Username</label>
+                            <input type="text"  name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
 
                             <div class="nk-gap"></div>
-                            <input type="password" value="" name="password" class="required form-control" placeholder="Mot de Passe">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}">
+
                         </div>
                         <div class="col-md-6">
                             Ou Reseaux Sociaux
@@ -727,11 +740,13 @@
                     <div class="nk-gap-1"></div>
                     <div class="row vertical-gap">
                         <div class="col-md-6">
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Connecter</a>
+                            <button class="btn btn-lg btn-primary" type="submit">
+                                Connecter
+                            </button>
                         </div>
                         <div class="col-md-6">
                             <div class="mnt-5">
-                                <small><a href="#">Mot de Passe Oublié ?</a></small>
+                                <small><a href="{{ path('mdp') }}">Mot de Passe Oublié ?</a></small>
                             </div>
                             <div class="mnt-5">
                                 <small><a href="#"> Inscription ! </a></small>
