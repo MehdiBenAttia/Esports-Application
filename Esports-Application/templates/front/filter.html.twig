@@ -1,0 +1,63 @@
+<div class="row vertical-gap" id="all">
+    {% for c in produit %}
+
+        <div class="col-md-6"  >
+            <div class="nk-product-cat">
+                <a href="{{ path('affichfrontdetail',{'id':c.id}) }}" class="nk-post-img">
+                    <img src="{{asset('images/'~c.image)}}" alt="Grab your sword and fight the Horde">
+                    <span class="nk-post-comments-count">7</span>
+
+                    <span class="nk-post-categories">
+                                    <span class="bg-main-1">{{ c.categorie.nomcateg }}</span>
+                                </span>
+
+                </a>
+
+                <div class="nk-blog-post">
+                    <h3 class="nk-product-title h5"><a href="{{ path('affichfrontdetail',{'id':c.id}) }}">{{ c.nom }}</a></h3>
+                    <div class="nk-gap-1"></div>
+
+
+                    <div class="stars">
+                        <i class="lar la-star" data-value="1"></i>
+                        <i class="lar la-star" data-value="2"></i>
+                        <i class="lar la-star" data-value="3"></i>
+                        <i class="lar la-star" data-value="4"></i>
+                        <i class="lar la-star" data-value="5"></i>
+                    </div>
+
+                    <div class="nk-gap-1"></div>
+
+                    <div class="nk-product-price">{{ c.prix }}</div>
+                    <div class="nk-gap-1"></div>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

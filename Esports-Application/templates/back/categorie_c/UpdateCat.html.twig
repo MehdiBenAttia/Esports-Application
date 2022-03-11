@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+{% endblock %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  Modifier une compétition</h4>
+        <a class="btn btn-outline-dark " href="{{ path('AfficheCat') }}"><i class="fa-solid fa-gamepad"></i> Afficher les catégories  </a>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(fcat) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(fcat.nom, 'Nom de la catégorie', ) }}
+                {{ form_widget(fcat.nom, {'attr': {'class': 'form-control','placeholder': 'Nom de la compétition'}}) }}
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(fcat.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(fcat.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+            </div>
+
+            {{ form_end(fcat) }}
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="/style.css" media="all" />
+</head>
+<body>
+<header class="clearfix">
+    <div id="logo">
+        E-TSports
+    </div>
+    <h1 align="center">E-TSports Shop </h1>
+    <hr></hr>
+    <h4 >Nom du produit {{ produit.Id }}</h4>
+    <hr></hr>
+    <div id="company" class="clearfix">
+        <div><span>Nom </span> {{ produit.nom }} </div>
+        <div><span>Reference</span> {{ produit.reference}}  </div>
+        <div class="alert-danger"><span class="alert-danger">Prix</span> {{ produit.prix}} </div>
+
+
+
+    </div><hr></hr>
+    <div id="project">
+        <div><span>Categorie</span> {{ produit.categorie.nomcateg }}</div>
+        <div><span>Fournisseur</span> {{ produit.categorie.nomfournisseur }} </div>
+    </div>
+</header>
+
+<hr></hr>
+
+<div id="notices">
+    <div>NOTICE:</div>
+    <div class="notice">l'equipe etsports vous propose de bon plan</div>
+</div>
+</main>
+
+</body>

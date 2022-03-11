@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Ajouter une réclamation</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(f) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(f.NomUser, 'NomUser', ) }}
+                {{ form_widget(f.NomUser, {'attr': {'class': 'form-control','placeholder': 'NomUser'}}) }}
+                {{ form_errors(f.NomUser) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.email, 'email', ) }}
+                {{ form_widget(f.email, {'attr': {'class': 'form-control','placeholder': 'email'}}) }}
+                {{ form_errors(f.email) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.Message, 'Message', ) }}
+                {{ form_widget(f.Message, {'attr': {'class': 'form-control','placeholder': 'Message'}}) }}
+                {{ form_errors(f.Message) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(f.categorie, 'TypeReclamation', ) }}
+                {{ form_widget(f.categorie, {'attr': {'class': 'form-control','placeholder': 'TypeRec'}}) }}
+            </div>
+
+
+
+
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(f.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
+
+
+            {{ form_end(f) }}
+        </form>
+
+    </div>
+
+
+
+
+
+{% endblock %}

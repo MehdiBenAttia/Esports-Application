@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompetitionController!{% endblock %}
+
+{% block body %}
+
+    <style>
+        #calendrier{
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js" integrity="sha256-YicH/8aE660iEnJtgll3vT54dJApy3XkYmqNfGVFEzA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+
+    <div id="calendrier"></div>
+
+
+    <script>
+        window.onload = () =>{
+            let calendarElt = document.querySelector("#calendrier")
+
+
+            let calendar = new FullCalendar.Calendar(calendarElt,{
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek'
+                },
+                events: {{ data|raw }}
+
+            })
+            calendar.render();
+        }
+    </script>
+
+{% endblock %}

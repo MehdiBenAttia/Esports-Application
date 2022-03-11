@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+
+{{ form(form) }}
+
+
+
+
+
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+
+
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="../../public/jquery.min.js"></script>
+    <script type="text/javascript" src="../../public/bloodhound.jquery.min.js"></script>
+    <script type="text/javascript" src="../../public/typeahead.jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            var jeux = new Bloodhound(
+                {
+                    datumTokenizer: Bloodhound.tokenizers.whitespace,
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    remote: {
+                        url: "{{ path('handle_search') }}/%QUERY%",
+                        wildcard: '%QUERY%',
+                        filter: function (jeux)
+                        {
+                            return $.map(jeux, function (jeux)
+                            {
+                                return {
+                                    jeux_id: jeux.id,
+                                    jeux_nom: jeux.nom,
+                                    // jeux_image: state.image
+                                }
+                            })
+                        }
+                    }
+                })
+            states.initialize();
+            $('#form_query').typeahead(
+                {
+                    hint: true
+                },
+                {
+                    name: 'jeux',
+                    source: states.ttAdapter(),
+                    display: 'jeux.nom',
+                    templates: {
+                        suggestion: function (data)
+                        {
+                            return `
+                                    <a href='{{ path('Affiche') }}/`+data.state_id+`'>
+                                    // <img src=`+data.state_image+`/>
+                                    <strong>`+data.jeux_id+`</strong>
+                                    <span>`+data.jeux_nom+`</span>
+                                </div>
+                            `
+                        },
+                        footer: function (query)
+                        {
+                            return '<div class="text-center">More results about: '+ query.query +'</div>'
+                        }
+                    }
+                })
+        })
+    </script>
+{% endblock %}

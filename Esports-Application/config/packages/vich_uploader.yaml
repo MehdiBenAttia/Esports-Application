@@ -1,0 +1,35 @@
+vich_uploader:
+    db_driver: orm
+
+
+    #mappings:
+    #    products:
+    #        uri_prefix: /images/products
+    #        upload_destination: '%kernel.project_dir%/public/images/products'
+    mappings:
+
+
+        jeux_image:
+          uri_prefix: /Uploads/Images
+          upload_destination: '%kernel.project_dir%/public/Uploads/Images'
+          namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        competition_image:
+          uri_prefix: /Uploads/Images
+          upload_destination: '%kernel.project_dir%/public/Uploads/Images'
+          namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+
+
+        commentaire_image:
+            uri_prefix: /images
+            upload_destination: '%kernel.project_dir%/public/images'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        post_image:
+            uri_prefix: /images
+            upload_destination: '%kernel.project_dir%/public/images'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        produit_image:
+             uri_prefix: /images
+             upload_destination: '%kernel.project_dir%/public/images'
+             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

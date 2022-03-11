@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+
+    <link href="{{ asset('feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
+{% block body %}
+
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Product Table</h4>
+                <p class="card-description">
+                                    <a class="btn btn-outline-dark " href="{{ path('A') }}" ><i class="fa-solid fa-circle-plus"></i> Ajouter un produit</a>
+
+
+                    <code>Sort Product By Price</code>
+                </p>
+
+                <div class="btn-group-horizental" role="group" aria-label="Basic example" >
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('DESC') }}">
+                        <i class="ti-upload" ></i>
+                    </a>
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('affich') }}">
+                        <i class="ti-split-v"></i>
+                    </a>
+
+                    <a type="button" class="btn btn-outline-secondary" href="{{ path('ASC') }}">
+                        <i class="ti-download"></i>
+                    </a>
+                    </a>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped" width="50%">
+                        <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> reference </th>
+                            <th> nom </th>
+                            <th> marque </th>
+                            <th> prix </th>
+                            <th> image </th>
+
+                            <th> nom categorie </th>
+                            <th > description </th>
+                            <th> note  </th>
+
+
+                            <th>delete</th>
+                            <th>update</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr {% for c in produit  %}>
+
+                            <td> {{ c.id }}</td>
+
+                            <td> {{ c.reference }}</td>
+                            <td> {{ c.nom }}</td>
+
+                            <td> {{ c.marque }}</td>
+                            <td> {{ c.prix }}</td>
+
+                            <td>
+                                <img class="img-fluid" src="{{asset('images/'~c.image)}}" >
+                            </td>
+
+
+
+
+                                <td> {{ c.nom_categ}}</td>
+
+
+                            <td> {{ c.type }}</td>
+                            {% if c.e >=5 %}
+
+                                <td class="text-success"> {{ c.e}} <i class="ti-arrow-up"></i></td>
+                            {% else %}
+                                <td class="text-danger"> {{ c.e}} <i class="ti-arrow-down"></i></td>
+
+
+                            {% endif %}
+
+                            <td>
+
+                                    <a class="btn btn-outline-dark" type="button" href="{{ path('dP',{'id':c.id}) }}" ><i class="fa-solid fa-pen"></i>delete</a>
+
+
+                                </a>
+
+
+                            </td>
+                            <td>
+                            <a class="btn btn-outline-dark" type="button" href="{{ path('UP',{'id':c.id}) }}" ><i class="fa-solid fa-pen"></i>Update</a>
+                            </td>
+
+
+
+
+                        </tr {% endfor %}>
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

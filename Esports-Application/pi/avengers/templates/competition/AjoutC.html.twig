@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  Ajouter une compétition</h4>
+        <a class="btn btn-outline-dark " href="{{ path('AfficheC') }}"><i class="fa-solid fa-gamepad"></i> Afficher les compétitions  </a>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(fc,{'attr':{'novalidate':'novalidate'}}) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(fc.nom, 'Nom de la compétition', ) }}
+                {{ form_widget(fc.nom, {'attr': {'class': 'form-control','placeholder': 'Nom de la compétition'}}) }}
+                <span class="text-danger" >{{ form_errors(fc.nom,{'attr': {'class':'text-danger'}}) }}</span>
+            </div>
+            <div class="form-group">
+                {{ form_label(fc.nbparticipants, 'nbparticipants', ) }}
+                {{ form_widget(fc.nbparticipants, {'attr': {'class': 'form-control','placeholder': 'nbparticipants'}}) }}
+                <span class="text-danger" >{{ form_errors(fc.nbparticipants,{'attr': {'class':'text-danger'}}) }}</span>
+            </div>
+            <div class="form-group ">
+                {{ form_label(fc.imageFile, 'Image Compétition', ) }}
+                <span class="text-danger" >{{ form_row(fc.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}</span>
+
+            </div>
+            <div class="form-group">
+                {{ form_label(fc.jeux, 'Jeu', ) }}
+                {{ form_widget(fc.jeux, {'attr': {'class': 'form-control','placeholder': 'Jeu'}}) }}
+                {{ form_errors(fc.jeux,{'attr': {'class':'text-danger'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fc.dateDeb, 'Date de Début', ) }}
+                {{ form_widget(fc.dateDeb, {'attr': {'class': 'form-control','placeholder': 'DD/MM/YYYY'}}) }}
+                {{ form_errors(fc.dateDeb,{'attr': {'class':'text-danger'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(fc.dateFin, 'Date de Fin', ) }}
+                {{ form_widget(fc.dateFin, {'attr': {'class': 'form-control','placeholder': 'DD/MM/YYYY'}}) }}
+                <span class="text-danger">{{ form_errors(fc.dateFin) }}</span>
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(fc.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(fc.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+            </div>
+
+            {{ form_end(fc) }}
+        </form>
+
+    </div>
+{% endblock %}

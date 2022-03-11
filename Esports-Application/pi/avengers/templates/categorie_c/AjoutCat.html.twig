@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  Ajouter une catégorie</h4>
+        <a class="btn btn-outline-dark " href="{{ path('AfficheCateg') }}"><i class="fa-solid fa-gamepad"></i> Afficher les catégories  </a>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(fcat) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(fcat.nom, 'Nom de la compétition', ) }}
+                {{ form_widget(fcat.nom, {'attr': {'class': 'form-control','placeholder': 'Nom de la compétition'}}) }}
+                {{ form_errors(fcat.nom) }}
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(fcat.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(fcat.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+            </div>
+
+            {{ form_end(fcat) }}
+        </form>
+
+    </div>
+{% endblock %}

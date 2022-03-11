@@ -1,0 +1,105 @@
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href={{ path('home') }}>
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title" >Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={{ path('global') }}>
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title" >check front</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Compétition" aria-expanded="false" aria-controls="Compétition">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Compétitions</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Compétition">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href={{ path('AfficheC') }}>competition</a></li>
+                    <li class="nav-item"> <a class="nav-link" href={{ path('AfficheJ') }}>jeux</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ path('AfficheCateg') }}">categorie</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Utilisateurs" aria-expanded="false" aria-controls="Utilisateurs">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Utilisateurs</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Utilisateurs">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href={{ path('afficheruserback') }}>user</a></li>
+                    <li class="nav-item"> <a class="nav-link" href={{ path('afficheequipeback') }}>equipe</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Blog" aria-expanded="false" aria-controls="Blog">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Blog</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Blog">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href={{ path('Affichepostba') }}>Blog</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Produit" aria-expanded="false" aria-controls="Produit">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Produit</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Produit">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href={{ path('ASC') }}>Produit</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ path('affichcat') }}">categorie</a></li>
+
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Boutique" aria-expanded="false" aria-controls="Boutique">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Boutique</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Boutique">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href={{ path('affichecommandeback') }}>commande</a></li>
+
+                    <li class="nav-item"> <a class="nav-link" href={{ path('affichelivreur') }}>livreur</a></li>
+
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Réclamation" aria-expanded="false" aria-controls="Réclamation">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Réclamation</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Réclamation">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ path('AfficheR') }}">Réclamation</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ path('AfficheRep') }}">Reponses</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ path('Affichetype') }}">Categorie</a></li>
+
+                </ul>
+            </div>
+        </li>
+
+
+    </ul>
+</nav>
+<!-- partial -->

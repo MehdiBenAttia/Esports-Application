@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
+{% block body %}
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">type table</h4>
+                <p class="card-description">
+                    <a class="btn btn-outline-dark " href="{{ path('Acat') }}" ><i class="fa-solid fa-circle-plus"></i> Ajouter une categorie</a>
+
+
+                    <code>.all product types and providers </code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th> {{ knp_pagination_sortable(categorie,'ideee','id')}} </th>
+                            <th> nom_categ </th>
+                            <th> nom_fournisseur </th>
+                            <th> mail_fournisseur </th>
+                            <th> nbr_produits </th>
+
+
+
+                            <th>delete</th>
+                            <th>update</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr {% for g in categorie %}>
+                            <td> {{ g.id }}</td>
+                            <td> {{ g.nom_categ }}</td>
+                            <td> {{ g.nom_fournisseur }}</td>
+                            <td> {{ g.mail_fournisseur }}</td>
+                            <td>{{ g.f }}</td>
+
+
+
+
+
+
+
+                            <td>
+
+                                    <a class="btn btn-outline-dark" type="button" href="{{ path('dcat',{'id':g.id}) }}" ><i class="fa-solid fa-pen"></i>delete</a>
+
+
+
+
+
+                            </td>
+
+                            <td><a class="btn btn-outline-danger" type="button" href=" {{ path('Upc',{'id':g.id}) }} " ><i class="fa-solid fa-trash"></i>Delete   </a></td>
+
+
+
+
+                        </tr {% endfor %}>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <div class="alert-danger"   >
+                        {{ knp_pagination_render(categorie) }}
+                    <br>
+                    </div>
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+                            type="text/javascript"></script>
+                    <script src="//code.highcharts.com/4.0.1/highcharts.js"></script>
+                    <script src="//code.highcharts.com/4.0.1/modules/exporting.js"></script>
+                    <script type="text/javascript">
+                        {{ chart(chart) }}
+                    </script>
+                    <div id="piechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>{# empty
+Twig template #}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'front/affichefront1.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('front/assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/fontawesome-free/js/all.js') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/fontawesome-free/js/v4-shims.js') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/ionicons/css/ionicons.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/flickity/dist/flickity.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/photoswipe/dist/photoswipe.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/photoswipe/dist/default-skin/default-skin.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css') }}" type="text/css" rel="stylesheet" />
+
+    <link href="{{ asset('front/assets/vendor/summernote/dist/summernote-bs4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/goodgames.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/images/slide-5.jpg') }}" type="text/css" rel="stylesheet" />
+
+
+
+{% endblock %}
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">modifier une réponse</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(ffu) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(ffu.descriptionr, 'description', ) }}
+                {{ form_widget(ffu.descriptionr, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+            </div>
+
+
+
+
+
+
+
+
+            <div class="input-group col-md-6">
+                {{ form_widget(ffu.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(ffu.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+            </div>
+            {{ form_end(ffu) }}
+        </form>
+
+    </div>
+
+
+
+
+{% endblock %}

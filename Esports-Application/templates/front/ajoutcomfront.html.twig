@@ -1,0 +1,61 @@
+{% extends 'front.html.twig' %}
+
+
+{% block stylesheets %}
+    <link href="{{ asset('front/assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/fontawesome-free/js/all.js') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/fontawesome-free/js/v4-shims.js') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/ionicons/css/ionicons.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/flickity/dist/flickity.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/photoswipe/dist/photoswipe.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/photoswipe/dist/default-skin/default-skin.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css') }}" type="text/css" rel="stylesheet" />
+
+    <link href="{{ asset('front/assets/vendor/summernote/dist/summernote-bs4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/goodgames.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/css/custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('front/assets/images/slide-5.jpg') }}" type="text/css" rel="stylesheet" />
+
+
+    {#  <link rel="stylesheet" href="front/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <script defer src="front/assets/vendor/fontawesome-free/js/all.js"></script>
+        <script defer src="front/assets/vendor/fontawesome-free/js/v4-shims.js"></script>
+        <link rel="stylesheet" href="front/assets/vendor/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="front/assets/vendor/flickity/dist/flickity.min.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/photoswipe/dist/photoswipe.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/photoswipe/dist/default-skin/default-skin.css">
+        <link rel="stylesheet" href="front/assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css">
+        <link rel="stylesheet" type="text/css" href="front/assets/vendor/summernote/dist/summernote-bs4.css">
+        <link rel="stylesheet" href="front/assets/css/goodgames.css">
+        <link rel="stylesheet" href="front/assets/css/custom.css">
+        <script src="front/assets/vendor/jquery/dist/jquery.min.js"></script>
+    #}
+{% endblock %}
+{% block body %}
+
+    {{ form_start(ffr,{'attr': {'novalidate': 'novalidate'}}) }}
+    <form class="forms-sample">
+
+
+    <div class="form-group">
+        {{ form_label(ffr.imageFile, 'image', ) }}
+        {{ form_row(ffr.imageFile,{'attr': {'class': 'form-control file-upload-browse btn btn-primary' }}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(ffr.descriptionc, 'descriptionc', ) }}
+        {{ form_widget(ffr.descriptionc, {'attr': {'class': 'form-control','placeholder': 'description'}}) }}
+        {{ form_errors(ffr.descriptionc) }}
+    </div>
+
+
+
+
+
+
+    <div class="input-group col-md-6">
+        {{ form_widget(ffr.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(ffr.cancel, {'attr': {'class': 'btn btn-danger' }}) }}
+    </div>
+    {{ form_end(ffr) }}
+{% endblock %}

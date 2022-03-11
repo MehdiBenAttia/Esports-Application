@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
+
+{% block title %}
+    Votre panier
+{% endblock %}
+{% block body %}
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+
+    <h4 class="card-title">Table des commandes</h4>
+
+
+        <div class="btn-group-horizental" role="group" aria-label="Basic example" >
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('affichecommandeback') }}">
+                <i class="ti-upload" ></i>
+            </a>
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('affichecommandebackisn') }}">
+                <i class="ti-split-v"></i>
+            </a>
+
+            <a type="button" class="btn btn-outline-secondary" href="{{ path('affichecommandebackisnot') }}">
+                <i class="ti-download"></i>
+            </a>
+            </a>
+
+        </div>
+
+    <table class="table-hover table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id_commande</th>
+            <th>nom Livreur</th>
+            <th>Date d'ajout</th>
+            <th>Total</th>
+            <th>Detail</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+
+        {% for element in c %}
+        <tr>
+            <td>{{ element.idcommande }}</td>
+            {% if element.idlivreur!=null %}
+            <td class="text-end text-success">{{ element.idlivreur.Nom }} {{ element.idlivreur.Prenom}} </td>
+            {% else  %}
+                <td class="text-end text-danger">non selectionné </td>
+                {% endif %}
+            <td class="text-end">{{ element.date|date("m/d/Y h:m:s") }}</td>
+
+
+            <td class="text-end">{{ element.Total }}TND</td>
+            <td>
+                <a class="btn btn-outline-info" href="{{ path('D',{'id':element.idcommande,'produit':element.Produit,'quantite':element.Quantite,'adresse':element.adresse.id}) }}">Detail</a>
+
+
+            </td>
+            <td>
+                <a class="btn btn-outline-dark" href="{{ path('modifiercommandeback',{'id': element.idcommande}) }}">Update</a>
+
+
+            </td>
+            <td> <a class="btn btn-outline-danger" href="{{ path('supprimercommandeback',{'id':element.idcommande}) }}" >Delete
+                    <i class="mdi mdi-delete"></i></a>
+            </td>
+            <td> <a  class="btn btn-info btn-icon-text" class="ti-printer btn-icon-append" href="{{ path('imprimer',{'id':element.idcommande,'adresse':element.adresse.id}) }}">Imprimer
+            <i class="ti-printer btn-icon-append" ></i>  </a>
+            </td>
+
+        </tr>
+            {% endfor %}
+            </tbody>
+
+
+
+    </table>
+    </div>
+    </div>
+    </div>
+{% endblock %}

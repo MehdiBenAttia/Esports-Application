@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+{% endblock %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title">Modifier une réponse</h4>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(f) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(f.rep, 'Reponse', ) }}
+                {{ form_widget(f.rep, {'attr': {'class': 'form-control','placeholder': 'Reponse'}}) }}
+                {{ form_errors(f.rep) }}
+            </div>
+
+
+
+
+            <div class="input-group col-md-6">
+                {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(f.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+            </div>
+            {{ form_end(f) }}
+        </form>
+
+    </div>
+{% endblock body %}

@@ -1,0 +1,74 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link href="{{ asset('vendors/feather/feather.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/css/vendor.bundle.base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('js/select.dataTables.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/vertical-layout-light/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('images/favicon.png') }}" type="text/css" rel="shortcut icon" />
+
+
+
+
+
+{% endblock %}
+
+{% block title %}
+    Livreur
+{% endblock %}
+{% block body %}
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+    <h4 class="card-title">Table des Livreurs</h4>
+        <a class="btn btn-outline-dark " href="{{ path('ajouterlivreur') }}" ><i class="fa-solid fa-circle-plus"></i> Ajouter un livreur</a>
+
+        <table class="table-hover table table-striped table-bordered">
+    <table class="table">
+        <tr>
+
+            <th>Id_Livreur</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Tel</th>
+            <th>Email</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        {% for form in c  %}
+            <tr>
+
+                <td>
+                    {{ form.id }}
+                </td>
+                <td>
+                    {{ form.Nom }}
+                </td>
+                <td>
+                    {{ form.Prenom }}
+                </td>
+                <td>
+                    {{ form.Tel }}
+                </td>
+                <td>
+                    {{ form.Email }}
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark" href="{{ path('modifierlivreur',{'id': form.id}) }}">update
+                </td>
+                <td>
+
+                    <a  class="btn btn-outline-danger" href="{{ path('supprimerlivreur',{'id':form.id}) }}" >delete
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    </div>
+    </div>
+{% endblock %}

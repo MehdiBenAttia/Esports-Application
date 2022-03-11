@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../SMF/FirstProject/.idea/FirstProject.iml" filepath="$PROJECT_DIR$/../SMF/FirstProject/.idea/FirstProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Pi.iml" filepath="$PROJECT_DIR$/.idea/Pi.iml" />
+    </modules>
+  </component>
+</project>
