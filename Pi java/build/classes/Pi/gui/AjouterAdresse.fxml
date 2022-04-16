@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Pi.gui.AjouterAdresseController">
+   <children>
+      <Label layoutX="68.0" layoutY="67.0" text="Nom" />
+      <Label layoutX="68.0" layoutY="132.0" text="Addresse" />
+      <Label layoutX="68.0" layoutY="99.0" text="Prenom" />
+      <Label layoutX="68.0" layoutY="168.0" text="City" />
+      <Label layoutX="68.0" layoutY="207.0" text="Email" />
+      <Label layoutX="68.0" layoutY="246.0" text="Tel" />
+      <TextField fx:id="Nom" layoutX="247.0" layoutY="63.0" />
+      <TextField fx:id="Prenom" layoutX="248.0" layoutY="95.0" />
+      <TextField fx:id="Addresse" layoutX="249.0" layoutY="128.0" />
+      <TextField fx:id="City" layoutX="249.0" layoutY="164.0" />
+      <TextField fx:id="Email" layoutX="248.0" layoutY="203.0" />
+      <TextField fx:id="Tel" layoutX="248.0" layoutY="242.0" />
+      <Button fx:id="Valider" layoutX="345.0" layoutY="302.0" mnemonicParsing="false" onAction="#AjouterAdresse" text="Valider" />
+   </children>
+</AnchorPane>
