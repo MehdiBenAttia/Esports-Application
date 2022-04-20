@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Etsports.CommentViewController">
+   <children>
+      <TableView fx:id="tvtabCom" layoutX="86.0" layoutY="14.0" onMouseClicked="#selectCom" prefHeight="200.0" prefWidth="378.0">
+         <columns>
+            <TableColumn fx:id="colIdcom" prefWidth="75.0" text="id" visible="false" />
+            <TableColumn id="nom_user" fx:id="ColNomuserc" prefWidth="75.0" text="nom_user" />
+            <TableColumn id="description" fx:id="ColDescriptionc" prefWidth="118.0" text="description" />
+            <TableColumn id="date" fx:id="ColDatec" prefWidth="184.0" text="date du commentaire" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfnom_user" layoutX="86.0" layoutY="231.0" promptText="nom_user" />
+      <TextArea fx:id="tadescription" layoutX="85.0" layoutY="269.0" prefHeight="95.0" prefWidth="150.0" promptText="description" />
+      <Button layoutX="308.0" layoutY="231.0" mnemonicParsing="false" onAction="#addcommentfront" text="ajouter" />
+   </children>
+</AnchorPane>

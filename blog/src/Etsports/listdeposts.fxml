@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Etsports.ListdepostsController">
+   <children>
+      <BorderPane layoutX="-78.0" layoutY="83.0" prefHeight="871.0" prefWidth="1120.0">
+         <center>
+            <VBox prefHeight="788.0" prefWidth="1071.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="100.0" prefWidth="108.0" />
+                        <Pane prefHeight="100.0" prefWidth="108.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="100.0" prefWidth="108.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="699.0" prefWidth="1329.0" styleClass="transparent" stylesheets="@GamesStyle.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="24.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="65.0" fitWidth="98.0" layoutX="775.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

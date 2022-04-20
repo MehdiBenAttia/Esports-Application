@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Etsports.BackpocoController">
+   <children>
+      <AnchorPane layoutY="14.0" prefHeight="551.0" prefWidth="1055.0">
+         <children>
+            <TableView fx:id="tabPost" layoutY="46.0" prefHeight="310.0" prefWidth="660.0">
+               <columns>
+                  <TableColumn fx:id="ColId" prefWidth="75.0" text="id" visible="false" />
+                  <TableColumn id="nom_user" fx:id="colnom_user" prefWidth="75.0" text="nom_user" />
+                  <TableColumn id="sujet" fx:id="Colsujet" prefWidth="75.0" text="sujet" />
+                  <TableColumn id="description" fx:id="Coldescription" prefWidth="75.0" text="description" />
+                  <TableColumn id="communaute" fx:id="Colcommunaute" prefWidth="88.00007629394531" text="communaute" />
+                  <TableColumn id="image" fx:id="ColImage" prefWidth="62.39990234375" text="image" />
+                  <TableColumn id="image" fx:id="ColNbrj" prefWidth="62.39990234375" text="nbr j" />
+                  <TableColumn id="date" fx:id="ColDatep" prefWidth="221.0" text="date du post" />
+               </columns>
+            </TableView>
+            <TableView fx:id="tvtabCom" layoutX="674.0" layoutY="46.0" onMouseClicked="#selectCom" prefHeight="200.0" prefWidth="378.0">
+               <columns>
+                  <TableColumn fx:id="colIdcom" prefWidth="75.0" text="id" visible="false" />
+                  <TableColumn id="nom_user" fx:id="ColNomuserc" prefWidth="75.0" text="nom_user" />
+                  <TableColumn id="description" fx:id="ColDescriptionc" prefWidth="118.0" text="description" />
+                  <TableColumn id="date" fx:id="ColDatec" prefWidth="184.0" text="date du commentaire" />
+               </columns>
+            </TableView>
+            <Button layoutX="666.0" layoutY="264.0" mnemonicParsing="false" onAction="#selectPostcom" style="-fx-background-color: grey;" stylesheets="@GamesStyle.css" text="select" />
+            <Button layoutX="753.0" layoutY="264.0" mnemonicParsing="false" onAction="#deletecom" style="-fx-background-color: grey;" stylesheets="@GamesStyle.css" text="delete" />
+            <Button layoutX="849.0" layoutY="264.0" mnemonicParsing="false" onAction="#updatecom" style="-fx-background-color: grey;" stylesheets="@GamesStyle.css" text="update" />
+            <TextField fx:id="mod_descriptionc" layoutX="728.0" layoutY="345.0" promptText="description com" />
+            <Label layoutX="38.0" layoutY="4.0" prefHeight="21.0" prefWidth="162.0" text="liste des postes" textFill="#4b6586">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="666.0" layoutY="4.0" prefHeight="35.0" prefWidth="257.0" text="liste des commentaires" textFill="#4b6586">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchCom" layoutX="723.0" layoutY="425.0" onKeyTyped="#SearchC" prefHeight="31.0" prefWidth="185.0" promptText="search" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
