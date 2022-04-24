@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="card-body">
+        <h4 class="card-title"><i class="fa-solid fa-circle-plus"></i>  ajouter des membres</h4>
+        <a class="btn btn-outline-dark " href="{{ path('afficheequipeback') }}"><i class="fa-solid fa-gamepad"></i> afficher equipes  </a>
+        <p class="card-description">
+        </p>
+
+        {{ form_start(forme) }}
+        <form class="forms-sample">
+
+            <div class="form-group">
+                {{ form_label(forme.NomEquipe, 'Nom ', ) }}
+                {{ form_widget(forme.NomEquipe, {'attr': {'class': 'form-control','placeholder': 'Nom du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(forme.Nbjoueurs, 'Nbjoueurs', ) }}
+                {{ form_widget(forme.Nbjoueurs, {'attr': {'class': 'form-control','placeholder': 'Nom du jeu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(forme.email, 'Email', ) }}
+                {{ form_widget(forme.email, {'attr': {'class': 'form-control','placeholder': 'Type du jeu'}}) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_label(forme.jeu, 'jeu', ) }}
+                {{ form_widget(forme.jeu, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+
+            <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Remember me
+                </label>
+            </div>
+            <div class="input-group col-md-6">
+                {{ form_widget(forme.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+                {{ form_widget(forme.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+
+            </div>
+
+            {{ form_end(forme) }}
+        </form>
+
+    </div>
+{% endblock %}

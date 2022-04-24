@@ -1,0 +1,13 @@
+{% extends 'basefront.html.twig' %}
+{% block body %}
+    {{ form_start(f) }}
+    <div class="form-group">
+        {{ form_label(f.password, 'password', ) }}
+        {{ form_widget(f.password, {'attr': {'class': 'form-control','placeholder': 'password'}}) }}
+    </div>
+    <div class="input-group col-md-6">
+        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(f.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+    </div>
+    {{ form_end(f) }}
+{% endblock %}

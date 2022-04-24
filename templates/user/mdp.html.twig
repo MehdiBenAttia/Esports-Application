@@ -1,0 +1,14 @@
+{% extends 'basefront.html.twig' %}
+{% block body %}
+    <h4>Saisir votre email afin de recuperer votre mot de passe :)</h4>
+    {{ form_start(f) }}
+    <div class="form-group">
+        {{ form_label(f.email, 'Email', ) }}
+        {{ form_widget(f.email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}
+    </div>
+    <div class="input-group col-md-6">
+        {{ form_widget(f.submit, {'attr': {'class': 'form-control btn btn-primary mr-2' }}) }}
+        {{ form_widget(f.cancel, {'attr': {'class': 'form-control btn btn-light mr-2' }}) }}
+    </div>
+    {{ form_end(f) }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% for u in u %}
+    {% if u.equipe is null %}
+        <tr>
+
+            <td>
+                {{ u.id }}
+            </td>
+            <td>
+                {{ u.nom }}
+            </td>
+            <td>
+                {{ u.prenom}}
+            </td>
+
+            <td>
+                {{ u.email}}
+            </td>
+
+            <td>
+                {{ u.dateN |date('d-m-Y') }}
+            </td>
+
+            <td>
+                {{u.sexe}}
+            </td>
+
+            <td>
+                {% if u.equipe is not null %}
+
+                    {{u.equipe.NomEquipe}}
+
+                {% endif %}
+            </td>
+
+
+            <td>
+                <a href="{{ path('aj',{'id':u.id}) }}"> ajouter à l'equipe</a>
+            </td>
+
+        </tr>
+    {% endif %}
+{% endfor %}
