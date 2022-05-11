@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1150.0" style="-fx-background-color: #2F2B43;" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.ProductpageController">
+   <children>
+      <Pane layoutX="952.0" layoutY="696.0" prefHeight="42.0" prefWidth="70.0" />
+      <HBox alignment="CENTER" layoutX="856.0" layoutY="138.0" prefHeight="84.0" prefWidth="305.0" styleClass="free-delivery-card" stylesheets="@../src/values/style.css" />
+      <HBox alignment="CENTER" layoutX="510.0" layoutY="228.0" prefHeight="65.0" prefWidth="591.0" stylesheets="@../src/values/style.css">
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </HBox>
+      <AnchorPane id="AnchorPane" layoutX="428.0" layoutY="271.0" prefHeight="788.0" prefWidth="658.0">
+         <children>
+            <VBox prefHeight="788.0" prefWidth="1071.0" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="scroll" layoutX="97.0" layoutY="63.0" prefHeight="754.0" prefWidth="1050.0" styleClass="transparent">
+         <content>
+            <GridPane fx:id="grid" prefHeight="0.0" prefWidth="24.0">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <VBox onMouseExited="#gotohomeF" prefHeight="820.0" prefWidth="114.0" styleClass="button3">
+         <children>
+            <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+               <children>
+                  <Button layoutX="22.0" layoutY="29.0" mnemonicParsing="false" onAction="#backhome" text="home" />
+               </children></Pane>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="66.0" prefWidth="117.0" styleClass="button3" text="Profile" textFill="#fa2c56">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/cat.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="113.0" styleClass="button3" text="Activity" textFill="#fa2c56">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/time.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="114.0" styleClass="button3" text="Competition" textFill="#fa2c56">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/flag.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCal" contentDisplay="TOP" mnemonicParsing="false" prefHeight="66.0" prefWidth="117.0" styleClass="button3" text="Calendar" textFill="#fa2c56">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <TextField fx:id="textreclamProd" layoutX="589.0" layoutY="14.0" />
+      <Button layoutX="845.0" layoutY="14.0" mnemonicParsing="false" onAction="#reclamerP" prefHeight="31.0" prefWidth="137.0" text="Reclamer" />
+   </children>
+</AnchorPane>
