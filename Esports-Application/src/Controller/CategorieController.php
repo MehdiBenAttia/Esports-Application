@@ -39,14 +39,10 @@ class CategorieController extends Controller
         return new Response(json_encode($jsonContent));
     }
 
-
-
-
-
-/**
-*
-* @route ("/addcatJSON/new",name="addcat")
-*/
+    /**
+    *
+    * @route ("/addcatJSON/new",name="addcat")
+    */
     public function addpcat(Request $request,NormalizerInterface $Normalizer)
     {
         $em=$this->getDoctrine()->getManager();
@@ -60,28 +56,24 @@ class CategorieController extends Controller
         $em->flush();
         $jsonContent=$Normalizer->normalize($categorie,'json',['groups'=>'post:read']);
         return new Response(json_encode($jsonContent));;
-
-
-
-
     }
 
 
-    /**
-     * @Route ("/updatecatJSON/{id}", name="updatecatJSON")
-     */
-    public function updateCommentaireJSON(Request $request,NormalizerInterface $normalizer,$id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $categorie=$em->getRepository(Commentaire::class)->find($id);
-        $categorie->setNomCateg($request->get('nom_categ'));
-        $categorie->setMailFournisseur($request->get('mail_fournisseur'));
-        $categorie->setNomFournisseur($request->get('nom_fournisseur'));
-
-        $em->flush();
-        $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'post:read']);
-        return new Response("Information updated successfully".json_encode($jsonContent));;
-    }
+//    /**
+//     * @Route ("/updatecatJSON/{id}", name="updatecatJSON")
+//     */
+//    public function updateCommentaireJSON(Request $request,NormalizerInterface $normalizer,$id)
+//    {
+//        $em=$this->getDoctrine()->getManager();
+//        $categorie=$em->getRepository(Commentaire::class)->find($id);
+//        $categorie->setNomCateg($request->get('nom_categ'));
+//        $categorie->setMailFournisseur($request->get('mail_fournisseur'));
+//        $categorie->setNomFournisseur($request->get('nom_fournisseur'));
+//
+//        $em->flush();
+//        $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'post:read']);
+//        return new Response("Information updated successfully".json_encode($jsonContent));;
+//    }
 
 
 
@@ -241,6 +233,81 @@ $data2=[];
                 'f' => $form->createView(),
                 "form_title" => "Modifier un type"
             ]);
+    }
+
+
+    /**
+     *
+     * @route ("/addcatCategoJSON/new",name="addcatCategoJSON")
+     */
+    public function addcategorie(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=new Categorie();
+      $categorie->setNomCateg($request->get('nom_categ'));
+        $categorie->setNomFournisseur($request->get('nom_fournisseur'));
+
+        $categorie->setMailFournisseur($request->get('mail_fournisseur'));
+
+        $em->persist($categorie);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($categorie,'json',['groups'=>'post:read1']);
+        return new Response(json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route("/CategorieP/{id}",name="CategorieP")
+     */
+    public function recup (Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Categorie::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read1']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updateCategoriePJSON", name="updateCategoriePJSON")
+     */
+    public function updateCaPJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=$em->getRepository(Categorie::class)->find($request->get("id"));
+        $categorie->setNomCateg($request->get('nom_categ'));
+        $categorie->setNomFournisseur($request->get('nom_fournisseur'));
+
+        $categorie->setMailFournisseur($request->get('mail_fournisseur'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'post:read1']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showCategoriePJSON", name="showCategoriePJSON")
+     */
+    public function showCategoriePJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Categorie::class)->findAll();
+       // dd($user);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read1']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route ("/deleteCategoriePJSON", name="deleteCategoriePJSON")
+     */
+    public function deleteCategoriePJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Categorie::class)->find($request->get("id"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read1']);
+        return new Response(json_encode($jsonContent));
     }
 
 

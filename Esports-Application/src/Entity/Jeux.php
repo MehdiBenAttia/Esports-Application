@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=JeuxRepository::class)
  * @Vich\Uploadable()
@@ -20,18 +21,21 @@ class Jeux
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("test")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champ nom est obligatoire")
+     * @Groups("test")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable="false")
-     *
+     * @Groups("test")
+
      */
     private $image;
 
@@ -40,45 +44,40 @@ class Jeux
      * @Vich\UploadableField(mapping="jeux_image", fileNameProperty="image")
      * @Assert\NotBlank(message="Invalid: vous devez joindre une image")
      * @var File|null
+     * @Groups("test")
      */
     private $imageFile;
 
 
-//    /**
-//     *
-//     * @ORM\Column(type="string", length=255)
-//     *
-//     */
-//    private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Date
      * @var string A "Y-m-d" formatted value
+     * @Groups("test")
      */
     private $dates;
 
     /**
      * @ORM\OneToMany(targetEntity=Competition::class, mappedBy="jeux",cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
+     *
      */
     private $competitons;
 
 
-//    /**
-//     * @ORM\ManyToOne(targetEntity=CategorieC::class, inversedBy="games")
-//     */
-//    private $categorie;
-
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("test")
      */
     private $updated_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=CategorieC::class, inversedBy="games")
+     * @ORM\ManyToOne(targetEntity=CategorieC::class, inversedBy="games" , fetch="EAGER")
+     * @Groups("test")
      */
     private $categorie;
+
 
 
     public function __construct()

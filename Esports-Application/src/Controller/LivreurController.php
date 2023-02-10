@@ -109,7 +109,7 @@ class LivreurController extends AbstractController
         ]);
     }
     /**
-     * @Route("/back/liv/{id}",name="liv")
+     * @Route("/liv/{id}",name="liv")
      */
     public function livid(Request $request, $id, NormalizerInterface $Normalizer)
     {
@@ -121,7 +121,7 @@ class LivreurController extends AbstractController
     }
     /**
      *
-     * @route ("/back/addlivJSON/new",name="addliv")
+     * @route ("/addlivJSON/new",name="addlivJSON")
      */
     public function addliv(Request $request,NormalizerInterface $Normalizer)
     {
@@ -142,5 +142,45 @@ class LivreurController extends AbstractController
 
 
 
+    }
+    /**
+     * @Route ("/updateLivreurJSON", name="updateLivreurJSON")
+     */
+    public function updateLivreurJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $livreur=$em->getRepository(Livreur::class)->find($request->get("id"));
+        $livreur->setNom($request->get('nom'));
+        $livreur->setEmail($request->get('email'));
+        $livreur->setPrenom($request->get('prenom'));
+        $livreur->setTel($request->get('tel'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($livreur,'json', ['groups'=>'post:read']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showLivreurJSON", name="showLivreurJSON")
+     */
+    public function showLivreurJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Livreur::class)->findAll();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deleteLivreurJSON", name="deleteLivreurJSON")
+     */
+    public function deleteLivreurJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Livreur::class)->find($request->get("id"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));
     }
 }

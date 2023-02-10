@@ -18,33 +18,33 @@ class Categorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
+     * @Groups("post:read1")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("post:read1" , "teste")
      */
 
     private $nom_categ;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("post:read1" )
      */
     private $nom_fournisseur;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
-     * @Groups("post:read")
+     * @Groups("post:read1")
      */
     private $mail_fournisseur;
 
     /**
      * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="categorie" , cascade={"remove"})
-
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $produits;
 

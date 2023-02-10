@@ -134,6 +134,33 @@
       <path value="$PROJECT_DIR$/avengers/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/avengers/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/avengers/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/avengers/vendor/abraham/twitteroauth" />
+      <path value="$PROJECT_DIR$/avengers/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/avengers/vendor/friendsofsymfony/jsrouting-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/avengers/vendor/facebook/graph-sdk" />
+      <path value="$PROJECT_DIR$/avengers/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/avengers/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/avengers/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/avengers/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/avengers/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/curl-client" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/avengers/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/avengers/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/avengers/vendor/happyr/linkedin-api-client" />
+      <path value="$PROJECT_DIR$/avengers/vendor/martin-georgiev/social-post" />
+      <path value="$PROJECT_DIR$/avengers/vendor/martin-georgiev/social-post-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/endroid/installer" />
+      <path value="$PROJECT_DIR$/avengers/vendor/endroid/qr-code-bundle" />
+      <path value="$PROJECT_DIR$/avengers/vendor/endroid/qr-code" />
+      <path value="$PROJECT_DIR$/avengers/vendor/tattali/calendar-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

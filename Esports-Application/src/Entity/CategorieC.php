@@ -29,7 +29,7 @@ class CategorieC
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-     * @Groups("post:read")
+     * @Groups("post:read","test")
      */
     private $nom;
 

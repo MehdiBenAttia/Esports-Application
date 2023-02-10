@@ -23,6 +23,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 
 class CommandeController extends AbstractController
@@ -283,6 +285,85 @@ class CommandeController extends AbstractController
         $dompdf->stream("mypdf.pdf", [
             "Attachment" => true
         ]);
+    }
+
+    /**
+     * @Route("/commande/{idcommande}",name="commande")
+     */
+    public function commandeid(Request $request, $idcommande, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Commande::class)->find($idcommande);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'bawez']);
+
+        return new Response(json_encode($jsonContent));
+    }
+    /**
+     *
+     * @route ("/addCommandeJSON/new",name="addCommandeJSON")
+     */
+    public function addCommande(Request $request,NormalizerInterface $Normalizer,AdresseRepository $repository)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $commande=new Commande();
+       $commande->setProduit($request->get('Produit'));
+        $commande->setQuantite($request->get('Quantite'));
+        $commande->setTotal($request->get('Total'));
+        $commande->setDate(new \DateTime("now"));
+
+        $adr = $repository->find('10');
+
+       $commande->setIdLivreur(null);
+       $commande->setAdresse($adr);
+        $em->persist($commande);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($commande,'json',['groups'=>'bawez']);
+        return new Response(json_encode($jsonContent));;
+
+    }
+    /**
+     * @Route ("/updateCommandeJSON", name="updateCommandeJSON")
+     */
+    public function updateCommandeJSON(Request $request,NormalizerInterface $normalizer,AdresseRepository $repository)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $commande=$em->getRepository(Commande::class)->find($request->get("idcommande"));
+        $commande->setProduit($request->get('Produit'));
+        $commande->setQuantite($request->get('Quantite'));
+        $commande->setTotal($request->get('Total'));
+        $commande->setDate(new \DateTime("now"));
+        $commande->setIdLivreur(null);
+        $adr = $repository->find('10');
+
+        $commande->setAdresse($adr);
+        $em->flush();
+        $jsonContent=$normalizer->normalize($commande,'json', ['groups'=>'bawez']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showCommandeJSON", name="showCommandeJSON")
+     */
+    public function showCommandeJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Commande::class)->findAll();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'bawez']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deleteCommandeJSON", name="deleteCommandeJSON")
+     */
+    public function deleteCommandeJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Commande::class)->find($request->get("idcommande"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'bawez']);
+        return new Response(json_encode($jsonContent));
     }
 
 }

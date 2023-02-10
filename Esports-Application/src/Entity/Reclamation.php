@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\component\Serializer\Annotation\Groups;
 
 
 /**
@@ -18,6 +19,7 @@ class Reclamation
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("yeah")
      */
     private $id;
 
@@ -30,6 +32,7 @@ class Reclamation
      *     minMessage= "Le nom  est trop court",
      *     maxMessage="Le nom est trop long"
      * )
+     * @Groups("yeah")
      */
     private $NomUser;
 
@@ -41,16 +44,19 @@ class Reclamation
      *     max=250,
      *     minMessage= "Le message  est trop court",
      *     maxMessage="Le message est trop long")
+     * @Groups("yeah")
      */
     private $Message;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("yeah")
      */
     private $Date;
 
     /**
      * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="reclamation", cascade={"remove"})
+     * @Groups("yeah")
      */
     private $reponses;
 
@@ -61,6 +67,7 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("yeah")
      */
     private $rep;
 
@@ -68,18 +75,21 @@ class Reclamation
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez remplir ce champ !")
      * @Assert\Email(message = "Ce mail '{{ value }}' n'est pas valide.")
+     * @Groups("yeah")
      */
 
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("yeah")
      */
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Typerec::class, inversedBy="reclamations")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Typerec::class, inversedBy="reclamations" , fetch="EAGER")
+     *
+     * @Groups("yeah")
      */
     private $categorie;
 

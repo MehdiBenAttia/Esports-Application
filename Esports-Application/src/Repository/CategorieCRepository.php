@@ -46,5 +46,15 @@ class CategorieCRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
     */
+    public function findOneByNomXX($value): ?CategorieC
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.nom = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 }

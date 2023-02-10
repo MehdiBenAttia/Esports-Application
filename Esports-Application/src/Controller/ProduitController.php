@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
@@ -9,6 +10,8 @@ use App\Repository\CategorieRepository;
 use App\Repository\ReviewRepository;
 use App\Form\ReviewType;
 use App\Entity\Panier;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -25,7 +28,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\Annotation\Ignore;
 use Symfony\component\Serializer\Annotation\Groups;
@@ -308,6 +310,94 @@ $review->setProduit($produit);
         ]);
 
     }
+    /**
+     *
+     * @route ("/addPRODJSON/new",name="addPRODJSON")
+     */
+    public function addgames(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $produit=new Produit();
+        $repcat=$em->getRepository(Categorie::class)->findOneBy(array('nom_categ' =>$request->get('categorie')));
+        $produit->setNom($request->get('nom'));
+        $produit->setMarque($request->get('marque'));
+        $produit->setPrix($request->get('prix'));
+        $produit->setType($request->get('type'));
+        $produit->setReference($request->get('reference'));
+        $produit->setUpdatedAt(new \DateTime('now'));
+        $produit->setCategorie($repcat);
+
+        $em->persist($produit);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($produit,'json',['groups'=>'teste']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/PROD/{id}",name="PROD")
+     */
+    public function catid(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository(Produit::class)->find($id);
+        $jsonContent = $Normalizer->normalize($produit, 'json', ['groups'=>'teste']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updatePRODJSON", name="updatePRODJSON")
+     */
+    public function updateGamesJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $produit=$em->getRepository(Produit::class)->find($request->get("id"));
+        $produit->setNom($request->get('nom'));
+        $produit->setMarque($request->get('marque'));
+        $produit->setPrix($request->get('prix'));
+        $produit->setType($request->get('type'));
+        $produit->setReference($request->get('reference'));
+        $produit->setUpdatedAt(new \DateTime('now'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($produit,'json', ['groups'=>'teste']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showPRODJSON", name="showPRODJSON")
+     */
+    public function showGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository(Produit::class)->findAll();
+      //  dd($produit);
+        $jsonContent = $Normalizer->normalize($produit, 'json', ['groups'=>'teste']);
+        /* $noms = [];
+         foreach ($jeux as $user) {
+             if (empty($user->getCategorie())) {
+                 $nom = null;
+             } else {
+                 $nom = $user->getCategorie()->__toString();
+             }
+             array_push($noms, $nom);
+         }
+         $jsonContent = $Normalizer->normalize(['jeu' => $jeux, 'nom' => $noms], 'json', ['groups' => 'post:read']);*/
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deletePRODJSON", name="deletePRODJSON")
+     */
+    public function deleteGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository(Produit::class)->find($request->get("id"));
+        $em->remove($produit);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($produit, 'json', ['groups'=>'teste']);
+        return new Response(json_encode($jsonContent));
+    }
+
 
 
 

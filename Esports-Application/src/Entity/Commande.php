@@ -6,6 +6,7 @@ use App\Entity\Adresse;
 
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
@@ -16,40 +17,54 @@ class Commande
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("bawez")
+
      */
     private $idcommande;
 
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Livreur", inversedBy="Livreur")
+     * @Groups("bawez")
+
      */
     private    $idlivreur;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="product is required")
+     * @Groups("bawez")
+
      */
     private $Produit;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Quantity is required")
+     * @Groups("bawez")
+
      */
     private $Quantite;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank(message="Total is required")
+     * @Groups("bawez")
+
      */
     private $Total;
     /**
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank(message="Date is required")
+     * @Groups("bawez")
+
      */
     protected $date;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="Commande")
+     * @Groups("bawez")
+
      */
     private $adresse;
 

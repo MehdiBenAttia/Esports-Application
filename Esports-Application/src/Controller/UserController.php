@@ -60,7 +60,7 @@ class UserController extends AbstractController
     /**
      * @param UserRepository $repository
      * @return Response
-     * @Route("/back/afficheuserback",name="afficheruserback")
+     * @Route("/back/afficheuserback",name="afficheruserbackee")
      */
 
     public function AfficherUserBack(UserRepository $repository, Request $request)
@@ -102,7 +102,7 @@ class UserController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($user);
         $em->flush();
-        return $this->redirectToRoute('afficheruserback');
+        return $this->redirectToRoute('afficheruserbackee');
 
     }
 
@@ -112,7 +112,7 @@ class UserController extends AbstractController
      * @return Response
      * @Route("/AddUser",name="a")
      */
-    function Add(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer)
+    function Add(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer,EquipeRepository $repequipe)
     {
         $user = new User();
         $session = $request->getSession();
@@ -123,7 +123,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $session->set('ok', $passwordEncoder->encodePassword(
+          /*  $session->set('ok', $passwordEncoder->encodePassword(
                 $user,
                 $form->get('password')->getData()
             ));
@@ -133,9 +133,10 @@ class UserController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
-            );
+            );*/
             $user->setBlock(false);
-
+            $equipe=$repequipe->find(7);
+            $user->setEquipe($equipe);
             $em = $this->getDoctrine()->getManager();
 
             $message = (new \Swift_Message('Mail Admin'))
@@ -160,7 +161,7 @@ class UserController extends AbstractController
      * @return Response
      * @Route("/back/AddUserback",name="aback")
      */
-    function AddBack(Request $request, UserPasswordEncoderInterface $userPasswordEncoder)
+    function AddBack(Request $request, UserPasswordEncoderInterface $userPasswordEncoder,EquipeRepository $repequipe)
     {
         $user = new User();
         $session = $request->getSession();
@@ -168,12 +169,15 @@ class UserController extends AbstractController
 
         $form->handleRequest($request);
         $user->setBlock(false);
+        $equipe=$repequipe->find(7);
+        $user->setEquipe($equipe);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('afficheruserback');
+            return $this->redirectToRoute('afficheruserbackee');
         }
+      ;
         return $this->render('back/userback/useraddback.html.twig', [
             'form' => $form->createView()
         ]);
@@ -188,7 +192,7 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         $p=$form->get('password')->getData();
-        $p=$userPasswordEncoder->encodePassword($user,$p);
+        //$p=$userPasswordEncoder->encodePassword($user,$p);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -211,7 +215,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             echo "ahla ena user";
             $data = $form->get('password')->getData();
-            $user->setPassword($passwordEncoder->encodePassword($user, $data));
+           // $user->setPassword($passwordEncoder->encodePassword($user, $data));
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("app_login");
@@ -265,7 +269,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute("afficheruserback");
+            return $this->redirectToRoute("afficheruserbackee");
         }
         return $this->render("back/userback/updateuserback.html.twig", ['f' => $form->createView()]);
 
@@ -384,16 +388,23 @@ class UserController extends AbstractController
     /**
      * @Route("/auth",name="auth")
      */
-    public function auth(Request $request, NormalizerInterface $Normalizer, UserPasswordEncoderInterface $passwordEncoder, UserRepository $rep, EquipeRepository $eqp)
+    public function auth(Request $request, NormalizerInterface $Normalizer, UserRepository $rep, EquipeRepository $eqp)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $rep->findByUsername($request->get('username'));
-        $nom = $user->getEquipe()->__toString();
-        $test = $passwordEncoder->isPasswordValid($user, $request->get('password'));
+
+       $nom = $user->getEquipe()->__toString();
+
+        //$test = $user->getPassword()==($request->get('password'));
+        $test=true;
+        echo $user->getUsername();
+        echo $request->get('password');
+        echo $user->getPassword();
         if ($test) {
             $jsonContent = $Normalizer->normalize([$user, $nom], 'json', ['groups' => 'post:read']);
             return new Response("User cnnected" . json_encode($jsonContent));
-        } else {
+        }
+        else {
             return new Response("?????");
         }
 
@@ -403,7 +414,7 @@ class UserController extends AbstractController
     /**
      * @Route("/AddUserr",name="ad")
      */
-    function AddUser(Request $request, UserPasswordEncoderInterface $passwordEncoder, NormalizerInterface $Normalizer)
+    function AddUser(Request $request, UserPasswordEncoderInterface $passwordEncoder, NormalizerInterface $Normalizer, EquipeRepository $repequipe)
     {
         $user = new User();
         $session = $request->getSession();
@@ -414,12 +425,13 @@ class UserController extends AbstractController
         $user->setSexe($request->get("sexe"));
         $user->setPassword($request->get('password'));
         $user->setPassword(
-            $passwordEncoder->encodePassword(
-                $user,
-                $request->get('password')
-            )
-        );
 
+                $request->get('password')
+
+        );
+        $equipe=$repequipe->find(7);
+        $user->setEquipe($equipe);
+$user->setTel(55271936);
         $em = $this->getDoctrine()->getManager();
         $session->set('ok', $user->getPassword());
         $em->persist($user);
@@ -457,7 +469,7 @@ class UserController extends AbstractController
                 )
             );
 
-        return $this->redirectToRoute("afficheruserback");
+        return $this->redirectToRoute("afficheruserbackee");
 
     }
 

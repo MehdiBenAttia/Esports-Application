@@ -10,6 +10,8 @@ use Ob\HighchartsBundle\Highcharts\Highchart;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 use Symfony\Component\Routing\Annotation\Route;
 
 class TyperecController extends AbstractController
@@ -134,4 +136,85 @@ class TyperecController extends AbstractController
                 "form_title" => "Update the category"
             ]);
     }
+
+
+    /**
+     *
+     * @route ("/addtyperecJSON/new",name="addtyperecJSON")
+     */
+    public function addcategorie(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=new Typerec();
+        $categorie->setCatrec($request->get('catrec'));
+        $categorie->setDate(new \DateTime('now'));
+        $categorie->setDescrip($request->get('descrip'));
+        $categorie->setLevel($request->get('level'));
+
+
+
+
+
+        $em->persist($categorie);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($categorie,'json',['groups'=>'fares']);
+        return new Response(json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route("/CategorieR/{id}",name="CategorieR")
+     */
+    public function recup (Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Typerec::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'fares']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updatecatrecPJSON", name="updatecatrecPJSON")
+     */
+    public function updateCaPJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $categorie=$em->getRepository(Typerec::class)->find($request->get("id"));
+
+        $categorie->setCatrec($request->get('catrec'));
+        $categorie->setDate(new \DateTime('now'));
+        $categorie->setDescrip($request->get('descrip'));
+        $categorie->setLevel($request->get('level'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'fares']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showcatrecJSON", name="showcatrecJSON")
+     */
+    public function showCategoriePJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Typerec::class)->findAll();
+        // dd($user);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'fares']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route ("/deletecatrecJSON", name="deletecatrecJSON")
+     */
+    public function deleteCategoriePJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Typerec::class)->find($request->get("id"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'fares']);
+        return new Response(json_encode($jsonContent));
+    }
+
 }

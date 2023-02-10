@@ -20,19 +20,19 @@ class Commentaire
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
+     * @Groups("cherif")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("cherif")
      */
     private $nomuser;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("post:read")
+     * @Groups("cherif")
      */
     private $imagec;
 
@@ -44,19 +44,19 @@ class Commentaire
      *     minMessage= "la description  est trop court",
      *     maxMessage="la description est trop long"
      * )
-     * @Groups("post:read")
+     * @Groups("cherif")
      */
     private $descriptionc;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("post:read")
+     * @Groups("cherif")
      */
     private $datec;
     /**
 
      * @Vich\UploadableField(mapping="commentaire_image", fileNameProperty="imagec")
-     * @Groups("post:read")
+     * @Groups("cherif")
      *
      * @var File|null
      */
@@ -65,8 +65,9 @@ class Commentaire
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="commentaires")
-     * @Assert\NotBlank
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="commentaires" , fetch="EAGER")
+     * @Assert\NotBlank*
+     * @Groups("cherif")
 
      */
     private $post;
@@ -78,6 +79,8 @@ class Commentaire
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("cherif")
+
      */
     private $analyseCo;
 

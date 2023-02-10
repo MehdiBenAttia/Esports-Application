@@ -88,7 +88,7 @@ class CategorieCController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute("AfficheCat");
+            return $this->redirectToRoute("AfficheCateg");
         }
         return $this->render('back/categorie_c/UpdateCat.html.twig',
             [
@@ -99,9 +99,9 @@ class CategorieCController extends AbstractController
 
     /**
      *
-     * @route ("/addcatJSON/new",name="addcat")
+     * @route ("/addcatCJSON/new",name="addcatC")
      */
-    public function addpcat(Request $request,NormalizerInterface $Normalizer)
+    public function addcatC(Request $request,NormalizerInterface $Normalizer)
     {
         $em=$this->getDoctrine()->getManager();
         $categorie=new CategorieC();
@@ -125,15 +125,40 @@ class CategorieCController extends AbstractController
     }
 
     /**
-     * @Route ("/updateCategorieJSON/{id}", name="updateCategorieJSON")
+     * @Route ("/updateCategorieJSON", name="updateCategorieJSON")
      */
-    public function updateCategorieJSON(Request $request,NormalizerInterface $normalizer,$id)
+    public function updateCategorieJSON(Request $request,NormalizerInterface $normalizer)
     {
         $em=$this->getDoctrine()->getManager();
-        $categorie=$em->getRepository(CategorieC::class)->find($id);
+        $categorie=$em->getRepository(CategorieC::class)->find($request->get("id"));
         $categorie->setNom($request->get('nom'));
         $em->flush();
         $jsonContent=$normalizer->normalize($categorie,'json', ['groups'=>'post:read']);
         return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showCategorieJSON", name="showCategorieJSON")
+     */
+    public function showCategorieJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(CategorieC::class)->findAll();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deleteCategorieJSON", name="deleteCategorieJSON")
+     */
+    public function deleteCategorieJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(CategorieC::class)->find($request->get("id"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));
     }
 }

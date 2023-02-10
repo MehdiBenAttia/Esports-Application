@@ -11,6 +11,7 @@ use App\Repository\CompetitionRepository;
 use App\Repository\JeuxRepository;
 use App\Repository\ParticipationRepository;
 use App\Repository\ProduitRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -434,6 +435,33 @@ class CompetitionController extends AbstractController
         ]);
     }
 
+//    /**
+//     *
+//     * @route ("/addcompetJSON/new",name="addcompet")
+//     */
+//    public function addcompetition(Request $request,NormalizerInterface $Normalizer)
+//    {
+//
+//        $competition=new Competition();
+//        $competition->setNom($request->get('nom'));
+//        $competition->setNbparticipants($request->get('nbjoueurs'));
+//        $competition->setImage($request->get('image'));
+//        $competition->setUpdatedAt(new \DateTime('now'));
+//        $date = $request->get("dateDeb");
+//        $competition->setDatedeb(new \DateTime($date));
+//        $em=$this->getDoctrine()->getManager();
+//
+//
+//
+//        $query ="INSERT INTO `competition` (`nom`, `nbparticipants`, `image`) VALUES ('".$request->get('nom')."',".$request->get('nbjoueurs').",'".$request->get('image')."')";
+//
+//        $stmt = $em->getConnection()->prepare($query)->execute();
+//        dd($stmt);
+//
+//        $jsonContent=$Normalizer->normalize($competition,'json',['groups'=>'post:read']);
+//        return new Response(json_encode($jsonContent));
+//    }
+
 
     /**
      * @Route("/CompetitionM",name="allcompetitions")
@@ -462,5 +490,22 @@ class CompetitionController extends AbstractController
         return $this->redirectToRoute('tournament');
 
     }
+
+
+    /**
+     * @Route ("/updateComptJSON", name="updateComptJSON")
+     */
+    public function updateCategorieJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $comp=$em->getRepository(Competition::class)->find($request->get("id"));
+        $comp->setNom($request->get('nom'));
+        $comp->setNbparticipants($request->get('nbjoueurs'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($comp,'json', ['groups'=>'post:read']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+
 
 }

@@ -6,6 +6,8 @@ use App\Repository\TyperecRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=TyperecRepository::class)
@@ -16,31 +18,37 @@ class Typerec
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("fares")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups( "fares" , "yeah")
      */
     private $catrec;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("fares")
      */
     private $date;
 
     /**
      * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="categorie")
+     *
      */
     private $reclamations;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("fares")
      */
     private $descrip;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("fares")
      */
     private $level;
 

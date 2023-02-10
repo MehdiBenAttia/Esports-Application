@@ -7,6 +7,8 @@ use App\Entity\Reclamation;
 use App\Form\ReclamationType;
 use App\Repository\ReclamationRepository;
 use App\Repository\ReponsesRepository;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 use Knp\Component\Pager\PaginatorInterface;
 use Omines\DataTablesBundle\Adapter\ArrayAdapter;
 use Omines\DataTablesBundle\Adapter\Doctrine\ORMAdapter;
@@ -318,6 +320,82 @@ class ReclamationController extends AbstractController
 //    }
 
 
+    /**
+     *
+     * @route ("/addrecJSON/new",name="addrecJSON")
+     */
+    public function addgames(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $jeux=new Reclamation();
+        $repcat=$em->getRepository(Typerec::class)->findOneBy(array('descrip' =>$request->get('categorie')));
+       // dd($repcat);
+        $jeux->setNomUser("fares");
+        $jeux->setMessage($request->get('message'));
+        $jeux->setDate(new \DateTime("now"));
+        $jeux->setEmail($request->get('email'));
+        $jeux->setEtat("non traité");
 
+
+
+        $jeux->setCategorie($repcat);
+
+        $em->persist($jeux);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($jeux,'json',['groups'=>'yeah']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/reclamationM{id}",name="reclamationM")
+     */
+    public function catid(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Reclamation::class)->find($id);
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'yeah']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updatereclamJSON", name="updatereclamJSON")
+     */
+    public function updateGamesJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $jeux=$em->getRepository(Reclamation::class)->find($request->get("id"));
+      //  dd($jeux);
+        $jeux->setMessage($request->get('message'));
+        $jeux->setEmail($request->get('email'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($jeux,'json', ['groups'=>'yeah']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showreclamJSON", name="showreclamJSON")
+     */
+    public function showGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Reclamation::class)->findAll();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'yeah']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deletereclamJSON", name="deletereclamJSON")
+     */
+    public function deleteGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Reclamation::class)->find($request->get("id"));
+        $em->remove($jeux);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'yeah']);
+        return new Response(json_encode($jsonContent));
+    }
 
 }

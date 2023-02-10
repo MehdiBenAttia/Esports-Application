@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/HomePage.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/Controller.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/FrontController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/ServiceJeux.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/ServiceCompetition.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/entities/User.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/entities/Participation.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/ServiceParticipation.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/entities/Jeux.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/style.css</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/entities/CategorieC.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/MainFront.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/Main.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/entities/Competition.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/CardController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/ServiceCategoriec.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/IService.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/Card.fxml</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/UserService.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/InscriptionController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/SampleController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/utils/MyConnection.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/DashFX.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/services/SendEmailWthImage.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/gui/CategorieDetailsController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Bureau/PiJava/src/edu/esprit/tests/MainClass.java</file>
+        </group>
+    </open-files>
+</project-private>

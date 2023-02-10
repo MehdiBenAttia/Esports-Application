@@ -408,7 +408,7 @@ class EquipeController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Equipe::class);
         $users = $repository->findAll();
-        $jsonContent = $Normalizer->normalize($users, 'json', ['groups'=>'post:read']);
+        $jsonContent = $Normalizer->normalize($users, 'json', ['groups'=>'crazy']);
         return new Response(json_encode($jsonContent));
 
     }
@@ -419,7 +419,7 @@ class EquipeController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(Equipe::class)->find($id);
-        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'crazy']);
         return new Response(json_encode($jsonContent));
     }
 
@@ -434,7 +434,7 @@ class EquipeController extends AbstractController
          $user->setEmail($request->get('email'));
          $user->setJeu($request->get('jeu'));
         $em->flush();
-        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'crazy']);
         return new Response("Information updated successfully".json_encode($jsonContent));
     }
     /**
@@ -451,7 +451,7 @@ class EquipeController extends AbstractController
         }
         $em->remove($eq);
         $em->flush();
-        $jsonContent = $Normalizer->normalize($eq, 'json', ['groups'=>'post:read']);
+        $jsonContent = $Normalizer->normalize($eq, 'json', ['groups'=>'crazy']);
         return new Response("Team Deleted successfully".json_encode($jsonContent));
     }
     /**
@@ -465,15 +465,10 @@ class EquipeController extends AbstractController
         $user->setNbjoueurs($request->get('nbjoueurs'));
         $user->setEmail($request->get('email'));
         $user->setJeu($request->get('jeu'));
-
-
-
         $em=$this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
         return new Response("Equipe added succ");
-
-
     }
 
 

@@ -138,6 +138,33 @@
       <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/vich/uploader-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/abraham/twitteroauth" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/friendsofsymfony/jsrouting-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/facebook/graph-sdk" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/willdurand/jsonp-callback-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/clue/stream-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/discovery" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/curl-client" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/php-http/message" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/happyr/linkedin-api-client" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/martin-georgiev/social-post" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/martin-georgiev/social-post-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/endroid/installer" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/endroid/qr-code-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/endroid/qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/avengers/vendor/tattali/calendar-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -25,13 +25,14 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     *
+     * @Groups("teste")
      *
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("teste")
      */
     private $reference;
 
@@ -43,7 +44,7 @@ class Produit
      *     minMessage= "le nom  est trop court",
      *     maxMessage="le nom est trop long"
      * )
-     *
+     * @Groups("teste")
      */
     private $nom;
 
@@ -54,6 +55,7 @@ class Produit
      *     message="la marque ne peut pas contenir des lettres "
      * )
      * @ORM\Column(type="string", length=255)
+     * @Groups("teste")
      */
     private $marque;
 
@@ -63,6 +65,7 @@ class Produit
      *     value = 0,
      *     message ="le prix d'un article ne peur pas etre 0"
      * )
+     * @Groups("teste")
      */
     private $prix;
 
@@ -74,6 +77,7 @@ class Produit
      *     maxMessage="le description est trop long"
      * )
      * @ORM\Column(type="string", length=255,nullable="true")
+     * @Groups("teste")
      */
     private $type;
 
@@ -89,18 +93,20 @@ class Produit
 
     /**
      * @ORM\Column(type="string", length=255,nullable=false)
+     * @Groups("teste")
      */
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits" )
-
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits" , fetch="EAGER" )
+     * @Groups("teste")
      */
 
     private $categorie;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("teste")
      */
     private $updated_at;
 

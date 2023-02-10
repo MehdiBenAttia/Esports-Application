@@ -19,6 +19,7 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use function PHPUnit\Framework\Assert;
 
 class LoginAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
@@ -80,13 +81,13 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
     public function checkCredentials($credentials, UserInterface $user): bool
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+     return   $user->getPassword()==$credentials['password'];
 
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {$user=$token->getUser();
-        if($user->getUsername()=="adminadmin")
+        if($user->getUsername()=="admin")
         return new RedirectResponse($this->urlGenerator->generate('home'));
         else return new RedirectResponse($this->urlGenerator->generate('global'));
     }

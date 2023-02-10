@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Commentaire;
 use App\Entity\User;
 use App\Repository\CommentaireRepository;
@@ -108,7 +109,7 @@ class PostController extends AbstractController
 
         $classroom->setDateP(new \DateTime("now"));
         $form=$this->createForm(PostType::class,$classroom);
-        $classroom->setNomUser("adminadmin");
+        $classroom->setNomUser("admin");
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em=$this->getDoctrine()->getManager();
@@ -280,67 +281,85 @@ class PostController extends AbstractController
 
     }
     /**
-     * @Route("/post/{id}",name="postj")
-     * @param NormalizerInterface $Normalizer
      *
+     * @route ("/addcPostJSON/new",name="addPostJSON")
      */
-    public function PostId(Request $request, $id, NormalizerInterface $Normalizer)
-    {
-
-        $em = $this->getDoctrine()->getManager();
-        $post = $em->getRepository(Post::class)->find($id);
-
-        $jsonContent = $Normalizer->normalize($post, 'json', ['groups'=>'post:read']);
-
-        return new Response(json_encode($jsonContent));
-    }
-    /**
-     *@Route ("/addcpostJSON/new",name="addpost")
-
-     */
-    public function addpost(Request $request,NormalizerInterface $Normalizer)
+    public function addPost(Request $request,NormalizerInterface $Normalizer)
     {
         $em=$this->getDoctrine()->getManager();
         $post=new Post();
-        $post->setDescription($request->get('description'));
-        $post->setImage($request->get('image'));
-        $post->setCommunaute($request->get('communaute'));
-        $post->setNbrJaime($request->get('nbr_jaim'));
         $post->setNomUser($request->get('nom_user'));
         $post->setSujet($request->get('sujet'));
+
+        $post->setDescription($request->get('description'));
+        $post->setCommunaute($request->get('communaute'));
         $post->setDateP(new \DateTime("now"));
+        $post->setNbrJaime(0);
+
+
+
 
         $em->persist($post);
         $em->flush();
         $jsonContent=$Normalizer->normalize($post,'json',['groups'=>'post:read']);
         return new Response(json_encode($jsonContent));;
-
     }
+
     /**
-     * @Route ("/updatePostJSON/{id}", name="updatePostJSON")
+     * @Route("/Postid/{id}",name="Postid")
      */
-    public function updatePostJSON(Request $request,NormalizerInterface $normalizer,$id)
+    public function recup (Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Post::class)->find($id);
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updatePostJSON", name="updatePostJSON")
+     */
+    public function updatePostJSON(Request $request,NormalizerInterface $normalizer)
     {
         $em=$this->getDoctrine()->getManager();
-        $post=$em->getRepository(Commentaire::class)->find($id);
-        $post->setNomUser($request->get('Nom_user'));
+        $post=$em->getRepository(Post::class)->find($request->get("id"));
+        $post->setSujet($request->get('sujet'));
         $post->setDescription($request->get('description'));
-        $post->setsujet($request->get('sujet'));
+
+        $post->setNomUser($request->get('nom_user'));
+        $post->setCommunaute($request->get('communaute'));
+
+
+
         $em->flush();
         $jsonContent=$normalizer->normalize($post,'json', ['groups'=>'post:read']);
         return new Response("Information updated successfully".json_encode($jsonContent));;
     }
-//    /**
-//     * @Route("/searchpost", name="ajaxpost")
-//     */
-//    public function searchajax(Request $request)
-//    {
-//        $repository = $this->getDoctrine()->getRepository(Post::class);
-//        $requestString=$request->get('searchValue');
-//        $c = $repository->findPostbyname($requestString);
-//        return $this->render('back/ajaxpost.html.twig', [
-//            "c"=>$c,
-//        ]);
-//    }
+
+    /**
+     * @Route ("/showPostJSON", name="showPostJSON")
+     */
+    public function showPostJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Post::class)->findAll();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        dump($jsonContent);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deletePostJSON", name="deletePostJSON")
+     */
+    public function deletePostJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(Post::class)->find($request->get("id"));
+        $em->remove($user);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($user, 'json', ['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
 
 }

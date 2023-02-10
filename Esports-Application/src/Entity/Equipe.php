@@ -18,35 +18,35 @@ class Equipe
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
+     * @Groups("crazy")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Nom de l'equipe is required")
-     * @Groups("post:read")
+     * @Groups("post:read","crazy")
      */
     private $NomEquipe;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Nombre de joueurs is required")
-     * @Groups("post:read")
+     * @Groups("crazy")
      */
     private $Nbjoueurs;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Email is required")
-     * @Groups("post:read")
+     * @Groups("crazy")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message=" Jeu is required")
-     * @Groups("post:read")
+     * @Groups("crazy")
      */
     private $jeu;
 

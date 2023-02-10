@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Post;
+
 use App\Entity\User;
 use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
@@ -72,7 +74,7 @@ $session->set('id_post',$id);
         $commentaire->setPost($classroom);
 
         $commentaire->setDatec(new \DateTime("now"));
-        $commentaire->setNomuser('adminadmin');
+        $commentaire->setNomuser('admin');
         $form=$this->createForm(CommentaireType::class,$commentaire);
 
         $form->handleRequest($request);
@@ -224,40 +226,73 @@ $session->set('id_post',$id);
 
     /**
      *
-     * @route ("/addcommentaireJSON/new",name="addcommentaire")
+     * @route ("/addCommentaireJSON/new",name="addCommentaire")
      */
-    public function addcommentaire(Request $request,NormalizerInterface $Normalizer)
+    public function addCommentairej(Request $request,NormalizerInterface $Normalizer)
     {
         $em=$this->getDoctrine()->getManager();
-        $produit=new Produit();
-        $produit->setReference($request->get('reference'));
-        $produit->setImage($request->get('image'));
-        $produit->setCategorie($request->get('categorie'));
-        $produit->setMarque($request->get('marque'));
-        $produit->setNom($request->get('nom'));
-        $produit->setPrix($request->get('prix'));
-        $produit->setType($request->get('type'));
-        $em->persist($produit);
+        $jeux=new Commentaire();
+        $repcat=$em->getRepository(Post::class)->findOneBy(array('sujet' =>$request->get('post')));
+        $jeux->setDescriptionc($request->get('descriptionc'));
+        $jeux->setNomuser($request->get('nomuser'));
+        $jeux->setDatec(new \DateTime('now'));
+        $jeux->setPost($repcat);
+        $em->persist($jeux);
         $em->flush();
-        $jsonContent=$Normalizer->normalize($produit,'json',['groups'=>'post:read']);
-        return new Response(json_encode($jsonContent));;
 
+        $jsonContent=$Normalizer->normalize($jeux,'json',['groups'=>'cherif']);
+        return new Response(json_encode($jsonContent));
     }
 
 
 
+    /**
+     * @Route ("/updateCommentaireJSON", name="updateCommentaireJSON")
+     */
+    public function updateCommentaireJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $jeux=$em->getRepository(Commentaire::class)->find($request->get("id"));
 
-/**
- * @Route ("/updateCommentaireJSON/{id}", name="updateCommentaireJSON")
- */
-public function updateCommentaireJSON(Request $request,NormalizerInterface $normalizer,$id)
-{
-    $em=$this->getDoctrine()->getManager();
-    $commentaire=$em->getRepository(Commentaire::class)->find($id);
-    $commentaire->setNomuser($request->get('Nomuser'));
-    $commentaire->setDescriptionc($request->get('descriptionc'));
-    $em->flush();
-    $jsonContent=$normalizer->normalize($commentaire,'json', ['groups'=>'post:read']);
-    return new Response("Information updated successfully".json_encode($jsonContent));;
-}
+        $jeux->setDescriptionc($request->get('descriptionc'));
+        $jeux->setNomuser($request->get('nomuser'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($jeux,'json', ['groups'=>'cherif']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showCommentaireJSON", name="showCommentaireJSON")
+     */
+    public function showCommentaireJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Commentaire::class)->findAll();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'cherif']);
+        /* $noms = [];
+         foreach ($jeux as $user) {
+             if (empty($user->getCategorie())) {
+                 $nom = null;
+             } else {
+                 $nom = $user->getCategorie()->__toString();
+             }
+             array_push($noms, $nom);
+         }
+         $jsonContent = $Normalizer->normalize(['jeu' => $jeux, 'nom' => $noms], 'json', ['groups' => 'post:read']);*/
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deleteCommentaireJSON", name="deleteCommentaireJSON")
+     */
+    public function deleteCommentaireJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Commentaire::class)->find($request->get("id"));
+        $em->remove($jeux);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'cherif']);
+        return new Response(json_encode($jsonContent));
+    }
 }

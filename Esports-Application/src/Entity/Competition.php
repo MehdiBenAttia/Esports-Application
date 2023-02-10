@@ -44,13 +44,13 @@ class Competition
     private $nbparticipants;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Jeux::class, inversedBy="competitons")
+     * @ORM\ManyToOne(targetEntity=Jeux::class, inversedBy="competitons", cascade={"remove"})
 
      */
     private $jeux;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("post:read")
      */
     private $image;
@@ -72,19 +72,21 @@ class Competition
     private $updated_at;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $datedeb;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $datefin;
 
     private $iSInsc;
 
     /**
-     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="competition")
+     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="competition",cascade={"remove"})
      */
     private $Participations;
 

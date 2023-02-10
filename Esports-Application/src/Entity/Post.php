@@ -26,6 +26,7 @@ class Post
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("post:read")
+     *
      */
     private $id;
 
@@ -36,7 +37,8 @@ class Post
      *     match=false,
      *     message="le sujet doit comporter que des lettres"
      * )
-     * @Groups("post:read")
+     * @Groups("post:read","cherif")
+
      */
     private $sujet;
 
@@ -104,7 +106,7 @@ class Post
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="post", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
-
+     * @Groups("post:read")
      */
     private $commentaires;
 
@@ -112,6 +114,16 @@ class Post
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $analysePo;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $liked;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $badlevel;
 
     public function __construct()
     {
@@ -268,6 +280,30 @@ class Post
     public function setAnalysePo(?string $analysePo): self
     {
         $this->analysePo = $analysePo;
+
+        return $this;
+    }
+
+    public function getLiked(): ?int
+    {
+        return $this->liked;
+    }
+
+    public function setLiked(?int $liked): self
+    {
+        $this->liked = $liked;
+
+        return $this;
+    }
+
+    public function getBadlevel(): ?int
+    {
+        return $this->badlevel;
+    }
+
+    public function setBadlevel(?int $badlevel): self
+    {
+        $this->badlevel = $badlevel;
 
         return $this;
     }

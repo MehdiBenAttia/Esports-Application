@@ -18,6 +18,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -128,9 +129,79 @@ class JeuxController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/Allgames",name="Allgames")
-//     */
+
+    /**
+     *
+     * @route ("/addgamesJSON/new",name="addgames")
+     */
+    public function addgames(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $jeux=new Jeux();
+        $repcat=$em->getRepository(CategorieC::class)->findOneBy(array('nom' =>$request->get('categorie')));
+        $jeux->setNom($request->get('nom'));
+        $jeux->setDates($request->get('dates'));
+        $jeux->setImage("lol2.jpg");
+        $jeux->setUpdatedAt(new \DateTime('now'));
+        $jeux->setCategorie($repcat);
+
+        $em->persist($jeux);
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($jeux,'json',['groups'=>'test']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/Games/{id}",name="allgames")
+     */
+    public function catid(Request $request, $id, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Jeux::class)->find($id);
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'test']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/updateGamesJSON", name="updateGamesJSON")
+     */
+    public function updateGamesJSON(Request $request,NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $jeux=$em->getRepository(Jeux::class)->find($request->get("id"));
+        $jeux->setDates($request->get('date'));
+        $jeux->setNom($request->get('nom'));
+        $em->flush();
+        $jsonContent=$normalizer->normalize($jeux,'json', ['groups'=>'test']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route ("/showGamesJSON", name="showGamesJSON")
+     */
+    public function showGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Jeux::class)->findAll();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'test']);
+
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/deleteGamesJSON", name="deleteGamesJSON")
+     */
+    public function deleteGamesJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $jeux = $em->getRepository(Jeux::class)->find($request->get("id"));
+        $em->remove($jeux);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($jeux, 'json', ['groups'=>'test']);
+        return new Response(json_encode($jsonContent));
+    }
+
 
 
 
